@@ -1,0 +1,7 @@
+export { PolaroidCard } from './PolaroidCard'
+export { PostageStamp } from './PostageStamp'
+export { WashiTape } from './WashiTape'
+export { TornEdge } from './TornEdge'
+export { StampBadge } from './StampBadge'
+export { JournalNote } from './JournalNote'
+export { SectionLabel } from './SectionLabel'

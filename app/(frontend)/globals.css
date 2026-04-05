@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Fonts (CSS vars set by next/font in layout.tsx) ── */
+  --font-display: var(--font-fraunces), serif;
+  --font-handwriting: var(--font-caveat), cursive;
+  --font-heading: var(--font-poppins), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+
+  /* ── Brand ── */
+  --color-yellow: #ffd60a;
+  --color-yellow-dark: #e6c009;
+  --color-blue: #1b4fd8;
+  --color-dark: #0f172a;
+  --color-cream: #f5f0e8;
+  --color-paper: #fdfaf5;
+  --color-kraft: #8b6914;
+
+  /* ── Legacy compatibility (Navbar, Footer, UI primitives) ── */
+  --color-primary: #1b4fd8;
+  --color-primary-light: #3b6fe8;
+  --color-primary-dark: #0f3bc0;
+  --color-offwhite: #f8f9fa;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+
+  /* ── Region: Himachal Pradesh ── */
+  --color-himachal-primary: #2d6a4f;
+  --color-himachal-accent: #ffd60a;
+  --color-himachal-bg: #f0f7f4;
+  --color-himachal-card: #e8f5ee;
+
+  /* ── Region: Rajasthan ── */
+  --color-rajasthan-primary: #c1440e;
+  --color-rajasthan-accent: #f4a261;
+  --color-rajasthan-bg: #fdf6f0;
+  --color-rajasthan-card: #fbe9dc;
+
+  /* ── Region: Kashmir ── */
+  --color-kashmir-primary: #c1121f;
+  --color-kashmir-accent: #ffffff;
+  --color-kashmir-bg: #fff5f5;
+  --color-kashmir-card: #ffe8ea;
+
+  /* ── Region: Uttarakhand ── */
+  --color-uttarakhand-primary: #6b4226;
+  --color-uttarakhand-accent: #52796f;
+  --color-uttarakhand-bg: #f5f0eb;
+  --color-uttarakhand-card: #ebe0d5;
+
+  /* ── Shadows ── */
+  --shadow-polaroid: 4px 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-card: 2px 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  /* ── Border Radius ── */
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+}
+
+@layer base {
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-paper);
+    color: var(--color-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  ::selection {
+    background-color: var(--color-yellow);
+    color: var(--color-dark);
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+}
+
+/* ── Scrapbook / journal texture utilities ── */
+
+/* Lined notebook paper */
+.paper-lines {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    #e8e0d0 28px
+  );
+  background-size: 100% 28px;
+}
+
+/* Diagonal stripe pattern (destinations section) */
+.diagonal-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255, 214, 10, 0.15) 20px,
+    rgba(255, 214, 10, 0.15) 21px
+  );
+}
+
+/* Kraft paper (dark brown + noise) */
+.kraft-bg {
+  background-color: #5c3d11;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* Torn paper edge (bottom) — parent must be position:relative */
+.torn-edge-bottom {
+  position: relative;
+}
+.torn-edge-bottom::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0%2C0 L0%2C20 Q30%2C40 60%2C20 Q90%2C0 120%2C20 Q150%2C40 180%2C20 Q210%2C0 240%2C20 Q270%2C40 300%2C20 Q330%2C0 360%2C20 Q390%2C40 420%2C20 Q450%2C0 480%2C20 Q510%2C40 540%2C20 Q570%2C0 600%2C20 Q630%2C40 660%2C20 Q690%2C0 720%2C20 Q750%2C40 780%2C20 Q810%2C0 840%2C20 Q870%2C40 900%2C20 Q930%2C0 960%2C20 Q990%2C40 1020%2C20 Q1050%2C0 1080%2C20 Q1110%2C40 1140%2C20 Q1170%2C0 1200%2C20 L1200%2C0 Z' fill='%23FDFAF5'/%3E%3C/svg%3E");
+  background-size: cover;
+  z-index: 10;
+}
+
+/* Stamp perforated border — uses --stamp-color CSS var for dot color */
+.stamp-perforation {
+  background-image: radial-gradient(
+    circle,
+    var(--stamp-color, currentColor) 30%,
+    transparent 30%
+  );
+  background-size: 6px 6px;
+}
+
+/* Washi tape strips */
+.washi-yellow {
+  background: #ffd60a;
+  opacity: 0.85;
+  transform: rotate(-2deg);
+}
+
+.washi-blue {
+  background: #93c5fd;
+  opacity: 0.75;
+  transform: rotate(1.5deg);
+}
