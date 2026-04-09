@@ -91,11 +91,9 @@ export function WhyUsSection() {
 
         <h2
           ref={headlineRef}
-          className="font-display font-black text-white text-4xl md:text-5xl leading-tight mb-14"
+          className="font-display font-black text-white text-4xl md:text-5xl leading-tight mb-14 max-w-lg"
         >
-          Not your average{' '}
-          <br className="hidden md:block" />
-          travel company.
+          Not your average travel company.
         </h2>
 
         <div
@@ -128,7 +126,7 @@ export function WhyUsSection() {
 
         {/* Decorative note */}
         <div className="relative mt-10 flex justify-end">
-          <div className="rotate-[-2deg] opacity-40">
+          <div className="-rotate-2 opacity-40">
             <JournalNote text="this is the real deal ✓" type="sticky" />
           </div>
         </div>
