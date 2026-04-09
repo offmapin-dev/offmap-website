@@ -4,7 +4,8 @@ import { MapPin } from 'lucide-react'
 import { REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
 import { StampBadge } from '@/components/ui/scrapbook'
 import { getExperienceIcon } from '@/lib/icons'
-import { cn } from '@/lib/utils'
+import { cn, formatDate } from '@/lib/utils'
+import { SeatAvailabilityPill } from '@/components/ui/SeatAvailabilityPill'
 
 export interface ExperienceCardData {
   name: string
@@ -17,6 +18,9 @@ export interface ExperienceCardData {
   image: string
   featured?: boolean
   comingSoon?: boolean
+  seatsLeft?: number
+  nextBatchDate?: string
+  slug?: string
 }
 
 interface ExperienceCardProps extends ExperienceCardData {
@@ -33,6 +37,9 @@ export function ExperienceCard({
   description,
   image,
   comingSoon = false,
+  seatsLeft,
+  nextBatchDate,
+  slug,
   className,
 }: ExperienceCardProps) {
   const theme = REGION_THEMES[regionSlug as RegionThemeKey]
@@ -48,6 +55,7 @@ export function ExperienceCard({
         'hover:-translate-y-1 hover:shadow-[var(--shadow-polaroid)]',
         'transition-all duration-200',
         comingSoon && 'opacity-70',
+        seatsLeft === 0 && 'opacity-60 pointer-events-none',
         className
       )}
       style={{ borderLeft: `4px solid ${primary}` }}
@@ -96,6 +104,13 @@ export function ExperienceCard({
         )}
       </div>
 
+      {/* ── Seat Availability ── */}
+      {typeof seatsLeft === 'number' && !comingSoon ? (
+        <div className="px-4 pt-3">
+          <SeatAvailabilityPill seatsLeft={seatsLeft} />
+        </div>
+      ) : null}
+
       {/* ── Content ── */}
       <div className="p-4">
         {/* Region tag */}
@@ -132,6 +147,9 @@ export function ExperienceCard({
           <span className="font-handwriting text-gray-400 text-sm flex items-center gap-1">
             <MapPin size={12} className="flex-none" />
             {days}
+            {nextBatchDate ? (
+              <span className="text-xs text-gray-300 ml-1">&middot; {formatDate(nextBatchDate)}</span>
+            ) : null}
           </span>
           <span
             style={{ color: primary }}
@@ -149,7 +167,7 @@ export function ExperienceCard({
 
         {/* CTA button */}
         <Link
-          href={comingSoon ? '#' : `/destinations/${regionSlug}`}
+          href={comingSoon ? '#' : slug ? `/experiences/${slug}` : `/destinations/${regionSlug}`}
           style={
             {
               '--btn-color': primary,
