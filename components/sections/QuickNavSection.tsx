@@ -64,32 +64,34 @@ export function QuickNavSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-dark py-20 md:py-28">
+    <section ref={sectionRef} className="bg-dark py-10 md:py-14">
       <div className="max-w-7xl mx-auto px-4">
-        <span ref={labelRef} className="block mb-5">
-          <SectionLabel
-            text="done with tourist traps?"
-            style="handwritten"
-            className="text-yellow"
-          />
-        </span>
-
-        <h2
-          ref={headlineRef}
-          className="font-display font-black text-white text-4xl md:text-5xl mb-12 overflow-hidden"
-        >
-          {["Let's", 'Travel'].map((w) => (
-            <span key={w} className="inline-block overflow-hidden align-bottom mr-[0.22em]">
-              <span className="qn-word inline-block">{w}</span>
-            </span>
-          ))}
-          {' '}
-          <span className="inline-block overflow-hidden align-bottom">
-            <span className="qn-word italic inline-block">OFFMAP</span>
+        <div className="flex flex-col md:flex-row md:items-center md:gap-10 mb-6">
+          <span ref={labelRef} className="block mb-2 md:mb-0">
+            <SectionLabel
+              text="done with tourist traps?"
+              style="handwritten"
+              className="text-yellow"
+            />
           </span>
-        </h2>
 
-        <div ref={cardsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2
+            ref={headlineRef}
+            className="font-display font-black text-white text-2xl md:text-3xl overflow-hidden"
+          >
+            {["Let's", 'Travel'].map((w) => (
+              <span key={w} className="inline-block overflow-hidden align-bottom mr-[0.22em]">
+                <span className="qn-word inline-block">{w}</span>
+              </span>
+            ))}
+            {' '}
+            <span className="inline-block overflow-hidden align-bottom">
+              <span className="qn-word italic inline-block">OFFMAP</span>
+            </span>
+          </h2>
+        </div>
+
+        <div ref={cardsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-3">
           {TILES.map((tile) => {
             return (
               <Link
@@ -97,23 +99,22 @@ export function QuickNavSection() {
                 href={tile.href}
                 style={{ '--tc': tile.borderColor } as React.CSSProperties}
                 className={cn(
-                  'qn-tile group block border-2 border-[var(--tc)] rounded-none p-6',
-                  'bg-transparent transition-colors duration-200',
-                  'hover:bg-white/5 hover:-translate-y-1',
-                  'transition-all duration-200'
+                  'qn-tile group flex items-center gap-3 border border-[var(--tc)] rounded-lg px-4 py-3',
+                  'bg-transparent transition-all duration-200',
+                  'hover:bg-white/5 hover:-translate-y-0.5'
                 )}
               >
-                <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mb-4 transition-transform duration-200 group-hover:scale-110">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-none transition-transform duration-200 group-hover:scale-110">
                   <Image
                     src={tile.icon}
                     alt={tile.label}
-                    width={40}
-                    height={40}
-                    className="object-contain mix-blend-multiply"
+                    width={28}
+                    height={28}
+                    className="object-contain"
                   />
                 </div>
-                <p className="font-heading font-semibold text-white text-base mb-4">{tile.label}</p>
-                <span className="text-yellow text-lg group-hover:translate-x-2 inline-block transition-transform duration-200">→</span>
+                <p className="font-heading font-semibold text-white text-sm flex-1">{tile.label}</p>
+                <span className="text-yellow text-sm group-hover:translate-x-1 inline-block transition-transform duration-200">→</span>
               </Link>
             )
           })}
