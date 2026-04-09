@@ -236,12 +236,8 @@ export function AboutSection() {
       {/* C) Quote strip -- full width */}
       <div ref={quoteRef} className="bg-dark py-8 mt-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="font-display text-white text-2xl md:text-3xl italic leading-relaxed">
-            &ldquo;We believe the best stories aren&apos;t found in guidebooks.&rdquo;
-          </p>
-          <p className="font-handwriting text-white/50 text-lg mt-3">
-            &mdash; the OffMap team
-          </p>
+          <p className="font-display text-white text-2xl md:text-3xl italic leading-relaxed">{'\u201C'}We believe the best stories aren{'\u2019'}t found in guidebooks.{'\u201D'}</p>
+          <p className="font-handwriting text-white/50 text-lg mt-3">{'\u2014'} the OffMap team</p>
         </div>
       </div>
     </section>

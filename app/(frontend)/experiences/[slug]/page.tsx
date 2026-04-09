@@ -440,13 +440,16 @@ export default function TripDetailPage({
       >
         <div className="max-w-4xl mx-auto px-4">
           <SectionLabel
-            text="Day by Day"
+            text="How It Unfolds"
             style="handwritten"
             className="block mb-3"
           />
-          <h2 className="font-display font-bold text-dark text-3xl mb-10">
-            Your Itinerary
+          <h2 className="font-display font-bold text-dark text-3xl mb-2">
+            The Flow, Not a Checklist
           </h2>
+          <p className="font-body text-gray-500 text-sm mb-10">
+            This is a rough flow of how your days might look — not a fixed schedule. We leave room to explore, slow down, or change plans based on the weather, the group, and the moment.
+          </p>
 
           <div className="space-y-8">
             {trip.itinerary.map((day) => (

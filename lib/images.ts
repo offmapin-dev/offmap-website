@@ -22,7 +22,7 @@ const UNSPLASH = {
   indiaLandmark: 'https://images.unsplash.com/photo-1548013146-72479768bada',
   valleyLandscape: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470',
   groupCampfire: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f',
-  desertSunset: 'https://images.unsplash.com/photo-1477587458883-47145ed31459',
+  desertSunset: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35',
 } as const
 
 const MYNTRA = {
