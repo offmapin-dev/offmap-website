@@ -95,7 +95,7 @@ export function StaysTeaserSection() {
   const polaroidRefs = [polaroid0Ref, polaroid1Ref, polaroid2Ref]
 
   return (
-    <section ref={sectionRef} className="relative py-24 md:py-36 bg-dark overflow-hidden">
+    <section ref={sectionRef} className="relative py-12 md:py-16 bg-dark overflow-hidden">
       {/* Parallax bg wrapper */}
       <div ref={bgImgRef} className="absolute inset-[-12%] will-change-transform">
         <Image

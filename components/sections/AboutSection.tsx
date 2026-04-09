@@ -116,11 +116,11 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-[#E8F4F0] pt-20 md:pt-28">
+    <section ref={sectionRef} className="bg-[#E8F4F0] pt-12 md:pt-16">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* A) Photo strip */}
-        <div className="flex gap-3 mb-16">
+        <div className="flex gap-3 mb-10">
           <div ref={stripLeftRef} className="flex-[2] h-48 rounded-xl overflow-hidden relative">
             <Image src={ABOUT_STRIP_IMAGES.landscape} alt="Group of travelers" fill className="object-cover" sizes="50vw" />
           </div>
@@ -234,7 +234,7 @@ export function AboutSection() {
       </div>
 
       {/* C) Quote strip -- full width */}
-      <div ref={quoteRef} className="bg-dark py-8 mt-16">
+      <div ref={quoteRef} className="bg-dark py-8 mt-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="font-display text-white text-2xl md:text-3xl italic leading-relaxed">{'\u201C'}We believe the best stories aren{'\u2019'}t found in guidebooks.{'\u201D'}</p>
           <p className="font-handwriting text-white/50 text-lg mt-3">{'\u2014'} the OffMap team</p>

@@ -435,7 +435,7 @@ export default function TripDetailPage({
 
       {/* ═══ DAY-WISE ITINERARY ════════════════════════════════════════ */}
       <section
-        className="py-16 md:py-24"
+        className="py-10 md:py-14"
         style={{ backgroundColor: theme.bg }}
       >
         <div className="max-w-4xl mx-auto px-4">
@@ -447,7 +447,7 @@ export default function TripDetailPage({
           <h2 className="font-display font-bold text-dark text-3xl mb-2">
             The Flow, Not a Checklist
           </h2>
-          <p className="font-body text-gray-500 text-sm mb-10">
+          <p className="font-body text-gray-500 text-sm mb-6">
             This is a rough flow of how your days might look — not a fixed schedule. We leave room to explore, slow down, or change plans based on the weather, the group, and the moment.
           </p>
 
@@ -492,14 +492,14 @@ export default function TripDetailPage({
       </section>
 
       {/* ═══ REVIEWS ═══════════════════════════════════════════════════ */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-10 md:py-14">
         <div className="max-w-5xl mx-auto px-4">
           <SectionLabel
             text="What Travelers Say"
             style="handwritten"
             className="block mb-3"
           />
-          <h2 className="font-display font-bold text-dark text-3xl mb-10">
+          <h2 className="font-display font-bold text-dark text-3xl mb-6">
             Reviews
           </h2>
 
@@ -530,7 +530,7 @@ export default function TripDetailPage({
 
       {/* ═══ CTA ═══════════════════════════════════════════════════════ */}
       <section
-        className="py-16 md:py-20"
+        className="py-10 md:py-14"
         style={{ backgroundColor: theme.primary }}
       >
         <div className="max-w-3xl mx-auto px-4 text-center">

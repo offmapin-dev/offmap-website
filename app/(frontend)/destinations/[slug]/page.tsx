@@ -283,7 +283,7 @@ export default function DestinationDetailPage({
       </section>
 
       {/* ═══ SECTION 2: REGION INTRO ═══════════════════════════════════════════ */}
-      <section style={{ backgroundColor: theme.bg }} className="py-16 md:py-24">
+      <section style={{ backgroundColor: theme.bg }} className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -353,9 +353,9 @@ export default function DestinationDetailPage({
       </section>
 
       {/* ═══ SECTION 3: EXPERIENCES ════════════════════════════════════════════ */}
-      <section id="experiences" className="bg-white py-16 md:py-24 scroll-mt-16">
+      <section id="experiences" className="bg-white py-10 md:py-14 scroll-mt-16">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="mb-10">
+          <div className="mb-6">
             <SectionLabel text="Experiences" style="handwritten" className="block mb-3" />
             <h2 className="font-display font-bold text-dark text-3xl">
               What to do in {theme.name}
@@ -406,9 +406,9 @@ export default function DestinationDetailPage({
       </section>
 
       {/* ═══ SECTION 4: ACTIVITIES GRID ════════════════════════════════════════ */}
-      <section style={{ backgroundColor: theme.bg }} className="py-16 md:py-24">
+      <section style={{ backgroundColor: theme.bg }} className="py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="text-center mb-10">
+          <div className="text-center mb-6">
             <SectionLabel text="Things To Do" style="handwritten" className="block mb-3" />
             <h2 className="font-display font-bold text-dark text-3xl">
               Activities in {theme.name}
@@ -464,10 +464,10 @@ export default function DestinationDetailPage({
       </section>
 
       {/* ═══ SECTION 4.5: REVIEWS ════════════════════════════════════════ */}
-      <section style={{ backgroundColor: theme.bg }} className="py-16 md:py-24">
+      <section style={{ backgroundColor: theme.bg }} className="py-10 md:py-14">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
           <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
-          <h2 className="font-display font-bold text-dark text-3xl mb-10">
+          <h2 className="font-display font-bold text-dark text-3xl mb-6">
             What people say about {theme.name}
           </h2>
 
@@ -504,7 +504,7 @@ export default function DestinationDetailPage({
       </section>
 
       {/* ═══ SECTION 5: CTA ════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: theme.primary }} className="py-20 md:py-28">
+      <section style={{ backgroundColor: theme.primary }} className="py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div className="mb-4">
             <WashiTape color="yellow" rotation={-1} width="w-32" className="mx-auto mb-6" />
@@ -512,7 +512,7 @@ export default function DestinationDetailPage({
           <h2 className="font-display font-black text-white text-4xl md:text-5xl leading-tight mb-3">
             Ready for {theme.name}?
           </h2>
-          <p className="font-handwriting text-white/80 text-2xl mb-10">
+          <p className="font-handwriting text-white/80 text-2xl mb-6">
             let&apos;s make it happen →
           </p>
           <Link

@@ -90,7 +90,7 @@ export function FeaturedExperiencesSection() {
   return (
     <section ref={sectionRef} className="bg-[#FDF0E8]">
       {/* Heading — always in normal flow */}
-      <div className="max-w-7xl mx-auto px-4 pt-16 md:pt-24 pb-8">
+      <div className="max-w-7xl mx-auto px-4 pt-10 md:pt-14 pb-6">
         <div ref={headingRef}>
           <SectionLabel text="Featured Routes" style="handwritten" className="mb-3 block" />
           <p className="font-handwriting text-dark/50 text-xl mt-2">
@@ -103,7 +103,7 @@ export function FeaturedExperiencesSection() {
       <div className="overflow-x-auto md:overflow-visible pb-0">
         <div
           ref={trackRef}
-          className="flex gap-10 px-4 md:px-16 pb-16 pt-6 w-max items-start"
+          className="flex gap-10 px-4 md:px-16 pb-10 pt-4 w-max items-start"
         >
           {FEATURED_ROUTES.map((route) => {
             const theme = REGION_THEMES[route.location as RegionThemeKey]

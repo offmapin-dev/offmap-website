@@ -91,7 +91,7 @@ export function TestimonialsSection() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <section ref={sectionRef} className="bg-[#EEF2FF] paper-lines py-20 md:py-28">
+    <section ref={sectionRef} className="bg-[#EEF2FF] paper-lines py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="hidden md:block mb-4">
           <WashiTape color="pink" rotation={-1} width="w-20" />
