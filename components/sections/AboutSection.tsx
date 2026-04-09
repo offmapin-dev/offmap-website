@@ -86,7 +86,7 @@ export function AboutSection() {
 
           {/* Left column — journal page */}
           <div className="lg:col-span-7 mb-14 lg:mb-0">
-            <div ref={journalRef} className="paper-lines bg-[#D4EDE6] rounded-xl p-6 md:p-10 relative will-change-[clip-path]">
+            <div ref={journalRef} className="paper-lines bg-[#D4EDE6] rounded-xl p-6 md:p-10 relative will-change-[clip-path] border-l-4 border-red-300">
               {/* Washi tape decoration */}
               <div ref={washiRef} className="absolute top-3 left-8">
                 <WashiTape color="yellow" rotation={-2} width="w-28" />
@@ -180,6 +180,9 @@ export function AboutSection() {
                   size="sm"
                 />
               </div>
+              <span className="hidden md:block absolute -bottom-6 right-4 font-handwriting text-gray-400 text-base rotate-[-4deg] select-none pointer-events-none">
+                taken on a Tuesday 📷
+              </span>
             </div>
           </div>
 

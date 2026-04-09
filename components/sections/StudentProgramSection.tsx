@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
-import { TornEdge, StampBadge, JournalNote } from '@/components/ui/scrapbook'
+import { TornEdge, StampBadge, JournalNote, WashiTape } from '@/components/ui/scrapbook'
 import { registerGSAP } from '@/lib/animations'
 
 export function StudentProgramSection() {
@@ -69,6 +69,9 @@ export function StudentProgramSection() {
 
       <div className="max-w-7xl mx-auto px-4 pt-12 pb-20 md:pb-28">
         <div className="text-center max-w-2xl mx-auto">
+          <div className="hidden md:flex justify-center mb-4">
+            <WashiTape color="green" rotation={-3} width="w-24" />
+          </div>
 
           <span ref={emojiRef} className="inline-block text-5xl mb-4 will-change-transform" role="img" aria-label="backpack">
             🎒

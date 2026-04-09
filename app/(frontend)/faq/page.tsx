@@ -4,8 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ChevronDown } from 'lucide-react'
-import { WavyDivider } from '@/components/ui/WavyDivider'
-import { SectionLabel } from '@/components/ui/scrapbook'
+import { SectionLabel, TornEdge } from '@/components/ui/scrapbook'
 import { FAQ_DATA } from '@/lib/constants'
 import { registerGSAP } from '@/lib/animations'
 import { cn } from '@/lib/utils'
@@ -55,10 +54,10 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFF8E7" />
+      <TornEdge position="bottom" color="#FFF8E7" />
 
       <section ref={faqRef} className="bg-[#FFF8E7] py-14 md:py-20">
-        <div className="max-w-3xl mx-auto px-4 paper-lines rounded-2xl py-10 md:py-14 bg-[#FFF8E7]/95">
+        <div className="max-w-3xl mx-auto px-4 paper-lines rounded-2xl py-10 md:py-14 bg-[#FFF8E7]/95 border-l-4 border-red-300">
           <SectionLabel text="Frequently Asked" style="stamp" className="block mb-2" />
           <p className="font-handwriting text-dark/50 text-lg mb-10">the things people always ask us</p>
 
@@ -113,7 +112,7 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFD60A" />
+      <TornEdge position="bottom" color="#FFD60A" />
 
       <section ref={ctaRef} className="bg-yellow py-16 md:py-24 text-center px-4">
         <h2 className="font-display font-black text-dark text-3xl md:text-4xl mb-8">Still have questions?</h2>

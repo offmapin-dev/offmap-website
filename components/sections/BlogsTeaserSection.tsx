@@ -122,6 +122,9 @@ export function BlogsTeaserSection() {
           <p ref={captionRef} className="font-handwriting text-blue text-xl mt-4">
             stories from the road →
           </p>
+          <div className="hidden md:block mt-3">
+            <WashiTape color="blue" rotation={2} width="w-16" />
+          </div>
         </div>
 
         {/* Blog cards — corkboard scattered */}

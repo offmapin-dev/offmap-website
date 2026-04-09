@@ -185,7 +185,8 @@ export function HeroSection() {
       {/* Main content — left-aligned */}
       <div className="relative z-10 flex-1 flex items-center">
         <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl relative">
+            <span className="hidden md:block absolute -top-2 -right-8 font-handwriting text-white/50 text-lg rotate-[3deg] select-none pointer-events-none">✈ since 2023</span>
 
             {/* a) Handwriting label */}
             <span
@@ -214,20 +215,25 @@ export function HeroSection() {
                 ))}
               </span>
               {/* Line 2 — yellow */}
-              <span className="block text-yellow">
-                {HEADLINE_LINE2.map((word, i) => (
-                  <span
-                    key={word}
-                    className="inline-block overflow-hidden mr-[0.22em] last:mr-0"
-                  >
+              <span className="relative inline-block">
+                <span className="block text-yellow">
+                  {HEADLINE_LINE2.map((word, i) => (
                     <span
-                      ref={(el) => { wordInnerRefs.current[HEADLINE_LINE1.length + i] = el }}
-                      className="inline-block"
+                      key={word}
+                      className="inline-block overflow-hidden mr-[0.22em] last:mr-0"
                     >
-                      {word}
+                      <span
+                        ref={(el) => { wordInnerRefs.current[HEADLINE_LINE1.length + i] = el }}
+                        className="inline-block"
+                      >
+                        {word}
+                      </span>
                     </span>
-                  </span>
-                ))}
+                  ))}
+                </span>
+                <svg className="hidden md:block absolute -inset-3 w-[calc(100%+24px)] h-[calc(100%+24px)] pointer-events-none" viewBox="0 0 200 80" fill="none" aria-hidden>
+                  <path d="M30,40 C30,15 170,10 175,40 C180,70 25,75 30,40" stroke="#FFD60A" strokeWidth="2.5" opacity="0.7" strokeLinecap="round" />
+                </svg>
               </span>
             </h1>
 
@@ -252,6 +258,14 @@ export function HeroSection() {
             >
               — or —
             </p>
+
+            {/* Curved arrow doodle */}
+            <div className="hidden md:block relative -mb-1">
+              <svg width="40" height="30" viewBox="0 0 40 30" fill="none" className="rotate-[8deg]" aria-hidden>
+                <path d="M5,25 C10,5 25,5 35,12" stroke="#FFD60A" strokeWidth="2" strokeLinecap="round" fill="none" />
+                <path d="M30,6 L35,12 L28,14" stroke="#FFD60A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+            </div>
 
             {/* f) Outline CTAs */}
             <div ref={buttonsRef} className="flex flex-wrap gap-3">

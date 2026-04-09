@@ -3,8 +3,7 @@
 import { useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
-import { WavyDivider } from '@/components/ui/WavyDivider'
-import { PolaroidCard, WashiTape, SectionLabel } from '@/components/ui/scrapbook'
+import { PolaroidCard, WashiTape, SectionLabel, TornEdge } from '@/components/ui/scrapbook'
 import { registerGSAP } from '@/lib/animations'
 import { cn } from '@/lib/utils'
 
@@ -110,11 +109,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFF8E7" />
+      <TornEdge position="bottom" color="#FFF8E7" />
 
       <section ref={s2Ref} className="bg-[#FFF8E7] py-14 md:py-24">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div className="paper-lines rounded-2xl p-6 md:p-10 bg-white/60">
+          <div className="paper-lines rounded-2xl p-6 md:p-10 bg-white/60 border-l-4 border-red-300">
             <div className="relative inline-block mb-6">
               <WashiTape color="yellow" rotation={-2} width="w-44" />
               <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
@@ -152,7 +151,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#E8F4F0" />
+      <TornEdge position="bottom" color="#E8F4F0" />
 
       <section ref={s3Ref} className="bg-[#E8F4F0] py-14 md:py-24">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -169,7 +168,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFF8E7" />
+      <TornEdge position="bottom" color="#FFF8E7" />
 
       <section ref={s4Ref} className="bg-[#FFF8E7] py-14 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
@@ -195,7 +194,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFD60A" />
+      <TornEdge position="bottom" color="#FFD60A" />
 
       <section ref={s5Ref} className="bg-yellow py-16 md:py-24 text-center px-4">
         <h2 className="font-display font-black text-dark text-4xl md:text-5xl mb-8">Travel with us.</h2>
