@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Search } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { NAV_LINKS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { DURATION_FAST, EASE_OUT } from '@/lib/animations'
+import { SearchModal } from '@/components/ui/SearchModal'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -20,6 +21,7 @@ export default function Navbar() {
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   // Scroll detection via ScrollTrigger
   useEffect(() => {
@@ -111,8 +113,15 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
+          {/* Desktop: Search icon + CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors duration-200"
+              aria-label="Search"
+            >
+              <Search size={16} className="text-dark" />
+            </button>
             <Link
               href="/contact"
               className="font-heading font-semibold text-sm bg-yellow text-dark border-2 border-dark px-4 py-2 rounded-none transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] inline-block"
@@ -121,15 +130,24 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            className="md:hidden flex items-center justify-center w-11 h-11 text-dark"
-            onClick={() => setIsMobileOpen((prev) => !prev)}
-            aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMobileOpen}
-          >
-            {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile: Search icon + Hamburger */}
+          <div className="md:hidden flex items-center gap-1">
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="flex items-center justify-center w-10 h-10 text-dark"
+              aria-label="Search"
+            >
+              <Search size={20} />
+            </button>
+            <button
+              className="flex items-center justify-center w-11 h-11 text-dark"
+              onClick={() => setIsMobileOpen((prev) => !prev)}
+              aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileOpen}
+            >
+              {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -193,6 +211,9 @@ export default function Navbar() {
           </p>
         </div>
       </div>
+
+      {/* Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   )
 }

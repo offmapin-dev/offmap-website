@@ -1,12 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Search } from 'lucide-react'
-import { SearchModal } from '@/components/ui/SearchModal'
 import { TornEdge } from '@/components/ui/scrapbook'
 import { cn } from '@/lib/utils'
 import { registerGSAP, EASE_OUT } from '@/lib/animations'
@@ -35,13 +33,10 @@ const HEADLINE_LINE2 = ['Offmap!']
 const ALL_WORDS = [...HEADLINE_LINE1, ...HEADLINE_LINE2]
 
 export function HeroSection() {
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const imgWrapperRef = useRef<HTMLDivElement>(null)
   const labelRef = useRef<HTMLSpanElement>(null)
   const subtextRef = useRef<HTMLParagraphElement>(null)
-  const searchRef = useRef<HTMLDivElement>(null)
-  const separatorRef = useRef<HTMLParagraphElement>(null)
   const buttonsRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
 
@@ -92,31 +87,13 @@ export function HeroSection() {
         )
       }
 
-      // 4. SearchBar fade up
-      if (searchRef.current) {
-        tl.fromTo(
-          searchRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6, ease: EASE_OUT },
-          1.0
-        )
-      }
-
-      // 5. Separator + buttons
-      if (separatorRef.current) {
-        tl.fromTo(
-          separatorRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.4, ease: EASE_OUT },
-          1.2
-        )
-      }
+      // 4. Buttons fade up
       if (buttonsRef.current) {
         tl.fromTo(
           buttonsRef.current,
           { opacity: 0, y: 10 },
           { opacity: 1, y: 0, duration: 0.5, ease: EASE_OUT },
-          1.25
+          1.0
         )
       }
     }
@@ -248,37 +225,8 @@ export function HeroSection() {
               rushing, sit with a view longer, and experience places deeply.
             </p>
 
-            {/* d) Search pill */}
-            <div ref={searchRef} className="mt-8">
-              <div
-                onClick={() => setIsSearchOpen(true)}
-                className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-3 gap-3 border border-white/30 max-w-sm cursor-pointer hover:bg-white/30 transition"
-              >
-                <Search className="w-4 h-4 text-white/70" />
-                <span className="text-white/70 text-sm font-body flex-1">Where to next?</span>
-                <div className="bg-yellow px-3 py-1 rounded-full text-dark text-xs font-heading font-bold">Search</div>
-              </div>
-              <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-            </div>
-
-            {/* e) Separator */}
-            <p
-              ref={separatorRef}
-              className="font-handwriting text-white/50 text-sm mt-4 mb-3"
-            >
-              — or —
-            </p>
-
-            {/* Curved arrow doodle */}
-            <div className="hidden md:block relative -mb-1">
-              <svg width="40" height="30" viewBox="0 0 40 30" fill="none" className="rotate-[8deg]" aria-hidden>
-                <path d="M5,25 C10,5 25,5 35,12" stroke="#FFD60A" strokeWidth="2" strokeLinecap="round" fill="none" />
-                <path d="M30,6 L35,12 L28,14" stroke="#FFD60A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
-            </div>
-
-            {/* f) Outline CTAs */}
-            <div ref={buttonsRef} className="flex flex-wrap gap-3">
+            {/* d) Outline CTAs */}
+            <div ref={buttonsRef} className="flex flex-wrap gap-3 mt-8">
               <Link
                 href="/destinations"
                 className={cn(
