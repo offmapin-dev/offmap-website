@@ -16,8 +16,8 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <DestinationsSection />
-      <QuickNavSection />
       <WhyUsSection />
+      <QuickNavSection />
       <FeaturedExperiencesSection />
       <StaysTeaserSection />
       <StudentProgramSection />
