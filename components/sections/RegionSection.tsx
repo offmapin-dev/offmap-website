@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
 import { REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
-import { EXPERIENCE_IMAGES, FALLBACK_IMAGE } from '@/lib/images'
+import { EXPERIENCE_IMAGES, FALLBACK_IMAGE, DESTINATION_CARD_IMAGES } from '@/lib/images'
 import { PostageStamp, StampBadge, JournalNote } from '@/components/ui/scrapbook'
 import { cn } from '@/lib/utils'
 
@@ -169,39 +169,48 @@ export function RegionSection({ region, experiences }: RegionSectionProps) {
 
   return (
     <div className="mb-16 last:mb-0">
-      {/* ── Region Header Bar ── */}
-      <div
-        style={{ backgroundColor: theme.bg }}
-        className="px-6 py-8 rounded-2xl mb-6 flex items-center justify-between flex-wrap gap-4"
+      {/* ── Region Header Card — full-bleed photo ── */}
+      <Link
+        href={`/destinations/${region}`}
+        className={cn(
+          'group block relative rounded-2xl overflow-hidden cursor-pointer mb-6',
+          'hover:scale-[1.02] transition-transform duration-300'
+        )}
       >
-        <div className="flex items-center gap-4">
-          <span className="text-6xl leading-none" role="img" aria-label={theme.name}>
-            {theme.emoji}
-          </span>
-          <div>
-            <h2
-              style={{ color: theme.primary }}
-              className="font-display font-black text-4xl leading-none"
-            >
-              {theme.name}
-            </h2>
-            <p className="font-handwriting text-lg mt-1" style={{ color: theme.primary }}>
+        <div className="relative h-64 md:h-80 overflow-hidden">
+          <Image
+            src={DESTINATION_CARD_IMAGES[region] ?? ''}
+            alt={theme.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/75 group-hover:to-black/80 transition-colors duration-300" />
+
+          {/* PostageStamp */}
+          <div className="absolute top-4 right-4 z-10">
+            <PostageStamp region={region} />
+          </div>
+
+          {/* Content overlay */}
+          <div className="absolute bottom-0 left-0 p-5">
+            <p className="font-handwriting text-xs font-semibold uppercase tracking-widest text-white/70 mb-1">
               {theme.label}
             </p>
+            <p className="font-display font-black text-2xl text-white">
+              {theme.name}
+            </p>
+            <p className="font-body text-sm text-white/80 mt-1 line-clamp-2">
+              {theme.description}
+            </p>
+            <span className="inline-flex items-center gap-1 font-handwriting font-bold text-white mt-3 group-hover:gap-2 transition-all duration-200">
+              Explore All <ChevronRight className="w-4 h-4" />
+            </span>
           </div>
         </div>
-
-        <div className="flex items-center gap-4">
-          <PostageStamp region={region} />
-          <Link
-            href={`/destinations/${region}`}
-            style={{ color: theme.primary }}
-            className="font-handwriting text-lg hover:underline whitespace-nowrap"
-          >
-            Explore All →
-          </Link>
-        </div>
-      </div>
+      </Link>
 
       {/* ── Scrollable Cards ── */}
       <div className="relative">
