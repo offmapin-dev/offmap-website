@@ -43,6 +43,7 @@ function WavyDivider({ fill }: { fill: string }) {
 const EXPERIENCES: ExperienceCardData[] = [
   {
     name: 'Bir–Barot Trek',
+    slug: 'bir-barot-trek',
     region: 'Himachal Pradesh',
     regionSlug: 'himachal-pradesh',
     type: 'Trekking',
@@ -54,6 +55,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Rajgundha Valley',
+    slug: 'rajgundha-valley',
     region: 'Himachal Pradesh',
     regionSlug: 'himachal-pradesh',
     type: 'Camping',
@@ -64,6 +66,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Shangarh–Raghupur Fort',
+    slug: 'shangarh-raghupur-fort',
     region: 'Himachal Pradesh',
     regionSlug: 'himachal-pradesh',
     type: 'Cultural',
@@ -74,6 +77,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Paragliding in Bir',
+    slug: 'paragliding-in-bir',
     region: 'Himachal Pradesh',
     regionSlug: 'himachal-pradesh',
     type: 'Activities',
@@ -84,6 +88,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Jawai Safari',
+    slug: 'jawai-safari',
     region: 'Rajasthan',
     regionSlug: 'rajasthan',
     type: 'Wildlife',
@@ -94,6 +99,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Udaipur–Mount Abu',
+    slug: 'udaipur-mount-abu',
     region: 'Rajasthan',
     regionSlug: 'rajasthan',
     type: 'Cultural',
@@ -104,6 +110,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Jaisalmer Dunes',
+    slug: 'jaisalmer-dunes',
     region: 'Rajasthan',
     regionSlug: 'rajasthan',
     type: 'Adventure',
@@ -114,6 +121,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Horse Riding Workshop',
+    slug: 'horse-riding-workshop',
     region: 'Rajasthan',
     regionSlug: 'rajasthan',
     type: 'Activities',
@@ -124,6 +132,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Kasar Devi–Khaliya Top',
+    slug: 'kasar-devi-khaliya-top',
     region: 'Uttarakhand',
     regionSlug: 'uttarakhand',
     type: 'Trekking',
@@ -134,6 +143,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Binsar Wildlife Sanctuary',
+    slug: 'binsar-wildlife-sanctuary',
     region: 'Uttarakhand',
     regionSlug: 'uttarakhand',
     type: 'Wildlife',
@@ -144,6 +154,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Dal Lake Experience',
+    slug: 'dal-lake-experience',
     region: 'Kashmir',
     regionSlug: 'kashmir',
     type: 'Stays',
@@ -155,6 +166,7 @@ const EXPERIENCES: ExperienceCardData[] = [
   },
   {
     name: 'Gulmarg in Snow',
+    slug: 'gulmarg-in-snow',
     region: 'Kashmir',
     regionSlug: 'kashmir',
     type: 'Adventure',
@@ -670,7 +682,7 @@ export default function ExperiencesPage() {
 
               <div className="featured-item">
                 <Link
-                  href={`/destinations/${featured.regionSlug}`}
+                  href={featured.slug ? `/experiences/${featured.slug}` : `/destinations/${featured.regionSlug}`}
                   className="inline-block font-body font-semibold text-dark bg-yellow px-6 py-3 border-2 border-dark hover:bg-yellow/80 hover:scale-105 transition-all duration-200 active:scale-100"
                 >
                   View Experience →
