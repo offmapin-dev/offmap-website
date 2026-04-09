@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
-import { SectionLabel } from '@/components/ui/scrapbook'
+import { SectionLabel, WashiTape } from '@/components/ui/scrapbook'
 import { registerGSAP } from '@/lib/animations'
 import { cn } from '@/lib/utils'
 
@@ -93,8 +93,14 @@ export function TestimonialsSection() {
   return (
     <section ref={sectionRef} className="bg-[#EEF2FF] paper-lines py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4">
+        <div className="hidden md:block mb-4">
+          <WashiTape color="pink" rotation={-1} width="w-20" />
+        </div>
         <span ref={labelRef} className="block mb-10">
           <SectionLabel text="Whispers from the Path" style="handwritten" />
+        </span>
+        <span className="hidden md:block font-handwriting text-gray-400 text-base rotate-[-3deg] mt-1 ml-4 select-none pointer-events-none">
+          real people, real trips 🙌
         </span>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

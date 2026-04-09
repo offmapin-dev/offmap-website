@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import { LOCATIONS, REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
-import { TornEdge, WashiTape, SectionLabel } from '@/components/ui/scrapbook'
+import { TornEdge, WashiTape, SectionLabel, JournalNote } from '@/components/ui/scrapbook'
 import { PostageStamp } from '@/components/ui/scrapbook'
 import { registerGSAP } from '@/lib/animations'
 import { cn } from '@/lib/utils'
@@ -93,6 +93,12 @@ export function DestinationsSection() {
             <SectionLabel text="WANDERLUST" style="stamp" className="block" />
           </span>
 
+          <svg className="hidden md:inline-block w-6 h-6 mb-2 opacity-30" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <circle cx="12" cy="4" r="1.5" fill="currentColor" />
+            <circle cx="20" cy="12" r="1" fill="currentColor" />
+            <circle cx="4" cy="10" r="1.2" fill="currentColor" />
+            <circle cx="16" cy="20" r="0.8" fill="currentColor" />
+          </svg>
           <h2 ref={headlineRef} className="font-display font-black text-dark text-4xl md:text-5xl mt-5">
             {['Pick', 'your', 'direction'].map((w) => (
               <span key={w} className="inline-block overflow-hidden align-bottom mr-[0.22em] last:mr-0">
@@ -100,6 +106,9 @@ export function DestinationsSection() {
               </span>
             ))}
           </h2>
+          <span className="hidden md:block font-handwriting text-gray-400 text-lg rotate-[2deg] mt-3 select-none pointer-events-none">
+            our favourites →
+          </span>
         </div>
 
         {/* Scattered destination cards */}
@@ -150,6 +159,9 @@ export function DestinationsSection() {
               </Link>
             )
           })}
+        </div>
+        <div className="hidden md:flex justify-end mt-8">
+          <JournalNote text="4 locations & counting 📍" type="sticky" className="rotate-[3deg]" />
         </div>
       </div>
     </section>

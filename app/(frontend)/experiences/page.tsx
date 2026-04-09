@@ -626,7 +626,10 @@ export default function ExperiencesPage() {
             </div>
 
             {/* RIGHT — staggered content items */}
-            <div>
+            <div className="relative">
+              <div className="hidden md:block absolute -top-4 -right-6 z-20">
+                <JournalNote text="personally tested by us ✓" type="sticky" className="rotate-[-2deg]" />
+              </div>
               <div className="featured-item">
                 <WashiTape color="yellow" rotation={-2} width="w-28" className="mb-4" />
                 <p className="font-handwriting text-dark/50 text-lg mb-2">our favourite →</p>
