@@ -433,7 +433,7 @@ export default function StaysPage() {
                         <span className="font-body text-sm text-gray-400"> /night</span>
                       </p>
                       <Link
-                        href={`/contact?type=stay&stay=${stay.slug}`}
+                        href={`/stays/${stay.slug}`}
                         className={cn(
                           'inline-flex items-center rounded-xl border-2 px-4 py-2 text-sm font-body font-semibold transition-colors',
                           accent.btn
