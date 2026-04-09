@@ -11,7 +11,7 @@ export const Enquiries: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'email', 'tripType', 'status', 'createdAt'],
+    defaultColumns: ['name', 'email', 'phone', 'tripType', 'status', 'createdAt'],
     description: 'Enquiries submitted via trip and stay pages',
   },
   fields: [
@@ -39,6 +39,7 @@ export const Enquiries: CollectionConfig = {
         { label: 'School Trip', value: 'school-trip' },
         { label: 'Retreat', value: 'retreat' },
         { label: 'Day Trip', value: 'day-trip' },
+        { label: 'Stay', value: 'stay' },
       ],
     },
     {
@@ -64,6 +65,7 @@ export const Enquiries: CollectionConfig = {
         { label: 'New', value: 'new' },
         { label: 'Contacted', value: 'contacted' },
         { label: 'Closed', value: 'closed' },
+        { label: 'Converted', value: 'converted' },
       ],
     },
   ],

@@ -113,5 +113,22 @@ export const Trips: CollectionConfig = {
         { label: 'Published', value: 'published' },
       ],
     },
+    {
+      name: 'batches',
+      type: 'relationship',
+      relationTo: 'batches',
+      hasMany: true,
+      admin: {
+        description: 'Scheduled batches for this trip',
+      },
+    },
+    {
+      name: 'bookingEnabled',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'Enable live booking (Phase 2)',
+      },
+    },
   ],
 }

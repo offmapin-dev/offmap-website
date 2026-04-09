@@ -15,6 +15,8 @@ import { Stays } from './collections/Stays'
 import { Enquiries } from './collections/Enquiries'
 import { BlogPosts } from './collections/BlogPosts'
 import { Reviews } from './collections/Reviews'
+import { Bookings } from './collections/Bookings'
+import { StayBookings } from './collections/StayBookings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -37,6 +39,8 @@ export default buildConfig({
     Enquiries,
     BlogPosts,
     Reviews,
+    Bookings,
+    StayBookings,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
