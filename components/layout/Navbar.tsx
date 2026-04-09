@@ -79,12 +79,18 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-14">
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-display italic font-bold text-xl text-dark hover:opacity-75 transition-opacity duration-200"
-            onClick={closeMobileMenu}
-          >
-            OffMap India
+          <Link href="/" className="flex items-center gap-1.5 hover:opacity-75 transition-opacity duration-200" onClick={closeMobileMenu}>
+            {/* Hand-drawn compass SVG */}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-dark" aria-hidden>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="12" cy="12" r="2" fill="currentColor" />
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M12 7l-2 5 2 5 2-5-2-5z" fill="currentColor" opacity="0.6" />
+            </svg>
+            <span className="text-xl text-dark">
+              <span className="font-body font-normal">Off</span>
+              <span className="font-display font-bold italic">Map</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}

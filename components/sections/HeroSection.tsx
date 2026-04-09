@@ -1,11 +1,12 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SearchBar } from '@/components/ui/SearchBar'
+import { Search } from 'lucide-react'
+import { SearchModal } from '@/components/ui/SearchModal'
 import { TornEdge } from '@/components/ui/scrapbook'
 import { cn } from '@/lib/utils'
 import { registerGSAP, EASE_OUT } from '@/lib/animations'
@@ -34,6 +35,7 @@ const HEADLINE_LINE2 = ['Offmap!']
 const ALL_WORDS = [...HEADLINE_LINE1, ...HEADLINE_LINE2]
 
 export function HeroSection() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const imgWrapperRef = useRef<HTMLDivElement>(null)
   const labelRef = useRef<HTMLSpanElement>(null)
@@ -246,9 +248,17 @@ export function HeroSection() {
               rushing, sit with a view longer, and experience places deeply.
             </p>
 
-            {/* d) SearchBar */}
+            {/* d) Search pill */}
             <div ref={searchRef} className="mt-8">
-              <SearchBar />
+              <div
+                onClick={() => setIsSearchOpen(true)}
+                className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-3 gap-3 border border-white/30 max-w-sm cursor-pointer hover:bg-white/30 transition"
+              >
+                <Search className="w-4 h-4 text-white/70" />
+                <span className="text-white/70 text-sm font-body flex-1">Where to next?</span>
+                <div className="bg-yellow px-3 py-1 rounded-full text-dark text-xs font-heading font-bold">Search</div>
+              </div>
+              <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
             </div>
 
             {/* e) Separator */}
