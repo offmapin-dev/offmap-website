@@ -65,6 +65,26 @@ const ACTIVITIES: Record<string, Activity[]> = {
   uttarakhand: [],
 }
 
+// ─── Per-region reviews ──────────────────────────────────────────────────────
+const REGION_REVIEWS: Record<string, { name: string; trip: string; rating: number; text: string }[]> = {
+  'himachal-pradesh': [
+    { name: 'Deepika Hada', trip: 'Bir-Barot Trek', rating: 5, text: "This was my very first trip with strangers and one of the best decisions I've ever made. The trails, the stays, the people — everything felt intentional and real." },
+    { name: 'Sachin Kumar', trip: 'Rajgundha Valley', rating: 5, text: "OFFMAP truly lives up to their name. They took us off the beaten path to places I didn't know existed." },
+    { name: 'Sumit Chaudhary', trip: 'Rajgundha Valley', rating: 5, text: 'The Rajgundha trip was an unforgettable experience. The planning was seamless, the stay was beautiful.' },
+  ],
+  rajasthan: [
+    { name: 'Riya Sharma', trip: 'Jawai Safari', rating: 5, text: 'Jawai was unlike anything I expected from Rajasthan. Leopards at dusk, quiet villages, and a pace that let me actually enjoy it all.' },
+    { name: 'Arjun Verma', trip: 'Jawai Safari', rating: 5, text: 'The team knew every corner of the place. It felt like traveling with a friend who lives there, not a tour guide.' },
+    { name: 'Priya Desai', trip: 'Udaipur\u2013Mount Abu', rating: 5, text: "I've been to Rajasthan before, but this trip showed me a completely different side. Off the tourist trail, exactly as promised." },
+  ],
+  kashmir: [],
+  uttarakhand: [
+    { name: 'Ankur Mehta', trip: 'Kasar Devi\u2013Khaliya Top', rating: 5, text: 'The quietness of Uttarakhand is something else. No crowds, no noise — just mountains and good company.' },
+    { name: 'Sneha Reddy', trip: 'Binsar Wildlife', rating: 5, text: 'Uttarakhand with OffMap felt like a secret only a few people know about. I hope it stays that way.' },
+    { name: 'Vikram Rao', trip: 'Kasar Devi\u2013Khaliya Top', rating: 5, text: 'The trek was exactly the right level of challenge. And the views from Khaliya Top — absolutely worth every step.' },
+  ],
+}
+
 // ─── WavyDivider (local) ──────────────────────────────────────────────────────
 function WavyDivider({ fill, position = 'bottom' }: { fill: string; position?: 'top' | 'bottom' }) {
   const bottomPath =
@@ -204,7 +224,7 @@ export default function DestinationDetailPage({
     <main>
 
       {/* ═══ SECTION 1: HERO ═══════════════════════════════════════════════════ */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
+      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <Image
           src={heroImage}
           alt={theme.name}
@@ -279,6 +299,24 @@ export default function DestinationDetailPage({
               <p className="font-body text-dark/60 text-base leading-relaxed mb-8">
                 {introBody}
               </p>
+
+              {/* Region map placeholder */}
+              <div className="bg-white/60 rounded-xl p-6 mb-6 border border-dashed border-gray-300">
+                <div className="flex items-center justify-center h-40">
+                  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" className="opacity-30" aria-hidden>
+                    <circle cx="60" cy="60" r="50" stroke={theme.primary} strokeWidth="2" strokeDasharray="6 4" />
+                    <circle cx="40" cy="45" r="4" fill={theme.primary} />
+                    <circle cx="70" cy="35" r="4" fill={theme.primary} />
+                    <circle cx="55" cy="65" r="4" fill={theme.primary} />
+                    <circle cx="80" cy="60" r="4" fill={theme.primary} />
+                    <path d="M40 45L70 35M70 35L80 60M55 65L40 45M55 65L80 60" stroke={theme.primary} strokeWidth="1" opacity="0.3" />
+                  </svg>
+                </div>
+                <div className="text-center mt-2">
+                  <JournalNote text="More detailed map coming soon" type="sticky" className="inline-block" />
+                </div>
+              </div>
+
               <JournalNote
                 text={`${theme.emoji} ${theme.label} — OffMap India`}
                 type="sticky"
@@ -421,7 +459,47 @@ export default function DestinationDetailPage({
           )}
         </div>
 
-        {/* Wavy into region.primary */}
+        {/* Wavy into reviews bg */}
+        <WavyDivider fill={theme.bg} position="bottom" />
+      </section>
+
+      {/* ═══ SECTION 4.5: REVIEWS ════════════════════════════════════════ */}
+      <section style={{ backgroundColor: theme.bg }} className="py-16 md:py-24">
+        <div className="max-w-5xl mx-auto px-4 md:px-8">
+          <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
+          <h2 className="font-display font-bold text-dark text-3xl mb-10">
+            What people say about {theme.name}
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {REGION_REVIEWS[slug]?.length ? (
+              REGION_REVIEWS[slug].map((review) => (
+                <div
+                  key={review.name}
+                  className="bg-[#FFFDE8] p-6 border-l-4 border-l-yellow shadow-[2px_2px_12px_rgba(0,0,0,0.08)]"
+                >
+                  <div className="flex items-center gap-0.5 mb-3">
+                    {Array.from({ length: review.rating }).map((_, i) => (
+                      <span key={i} className="text-yellow text-base">&#9733;</span>
+                    ))}
+                  </div>
+                  <p className="font-body italic text-gray-700 text-base leading-relaxed mb-4">
+                    &ldquo;{review.text}&rdquo;
+                  </p>
+                  <p className="font-handwriting text-dark/60 text-base">
+                    &mdash; {review.name}, {review.trip}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-8">
+                <JournalNote text="Reviews coming soon" type="sticky" className="inline-block" />
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Wavy into CTA primary */}
         <WavyDivider fill={theme.primary} position="bottom" />
       </section>
 
