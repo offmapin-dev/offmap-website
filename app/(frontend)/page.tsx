@@ -9,13 +9,11 @@ import { StudentProgramSection } from '@/components/sections/StudentProgramSecti
 import { BlogsTeaserSection } from '@/components/sections/BlogsTeaserSection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { FinalCtaSection } from '@/components/sections/FinalCtaSection'
-import { MarqueeStrip } from '@/components/ui/MarqueeStrip'
 
 export default function HomePage() {
   return (
     <main>
       <HeroSection />
-      <MarqueeStrip />
       <AboutSection />
       <DestinationsSection />
       <QuickNavSection />
