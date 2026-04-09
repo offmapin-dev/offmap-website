@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import { Poppins, DM_Sans, Fraunces, Caveat } from "next/font/google";
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
+import { defaultMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -31,10 +31,7 @@ const caveat = Caveat({
   variable: "--font-caveat",
 });
 
-export const metadata: Metadata = {
-  title: "OffMap India",
-  description: "Go Where The Map Ends",
-};
+export const metadata = defaultMetadata;
 
 export default function RootLayout({
   children,
