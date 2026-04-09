@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ChevronRight } from 'lucide-react'
 import { gsap } from 'gsap'
 import { LOCATIONS, REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
 import { TornEdge, WashiTape, SectionLabel, JournalNote } from '@/components/ui/scrapbook'
@@ -10,20 +11,6 @@ import { PostageStamp } from '@/components/ui/scrapbook'
 import { registerGSAP } from '@/lib/animations'
 import { cn } from '@/lib/utils'
 import { DESTINATION_CARD_IMAGES } from '@/lib/images'
-
-const CARD_ROTATIONS: Record<string, string> = {
-  'himachal-pradesh': '-2deg',
-  rajasthan: '2deg',
-  kashmir: '-1deg',
-  uttarakhand: '1.5deg',
-}
-
-const CARD_OFFSETS: Record<string, string> = {
-  'himachal-pradesh': '',
-  rajasthan: 'mt-12',
-  kashmir: 'mt-6',
-  uttarakhand: 'mt-16',
-}
 
 export function DestinationsSection() {
   const sectionRef  = useRef<HTMLElement>(null)
@@ -111,34 +98,23 @@ export function DestinationsSection() {
           </span>
         </div>
 
-        {/* Scattered destination cards */}
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+        {/* Destination cards — full-bleed photo with text overlay */}
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {LOCATIONS.map((location) => {
             const theme = REGION_THEMES[location.slug as RegionThemeKey]
             if (!theme) return null
-            const rotation = CARD_ROTATIONS[location.slug] ?? '0deg'
-            const offset = CARD_OFFSETS[location.slug] ?? ''
 
             return (
               <Link
                 key={location.slug}
                 href={`/destinations/${location.slug}`}
-                style={{
-                  '--card-r': rotation,
-                  '--border-c': theme.primary,
-                  '--card-bg': theme.cardBg,
-                  '--shadow-h': theme.primary + '40',
-                } as React.CSSProperties}
                 className={cn(
-                  'dest-card group block bg-[var(--card-bg)]',
-                  'border-2 border-[var(--border-c)]',
-                  'rotate-[var(--card-r)] hover:rotate-0 hover:scale-[1.02]',
-                  'transition-all duration-300',
-                  'shadow-[2px_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[4px_4px_20px_var(--shadow-h)]',
-                  offset
+                  'dest-card group block relative rounded-2xl overflow-hidden cursor-pointer',
+                  'hover:scale-[1.02] transition-transform duration-300'
                 )}
               >
-                <div className="relative h-52 overflow-hidden">
+                {/* Full-bleed image */}
+                <div className="relative h-64 md:h-80 overflow-hidden">
                   <Image
                     src={DESTINATION_CARD_IMAGES[location.slug] ?? ''}
                     alt={location.name}
@@ -146,15 +122,30 @@ export function DestinationsSection() {
                     sizes="(max-width: 640px) 100vw, 50vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 right-3 z-10">
+
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/75 group-hover:to-black/80 transition-colors duration-300" />
+
+                  {/* PostageStamp */}
+                  <div className="absolute top-4 right-4 z-10">
                     <PostageStamp region={location.slug as RegionThemeKey} />
                   </div>
-                </div>
-                <div className="p-5">
-                  <p className="font-handwriting text-[var(--border-c)] text-xs uppercase tracking-wider mb-1">{theme.label}</p>
-                  <p className="font-display font-bold text-[var(--border-c)] text-2xl mb-2">{location.name}</p>
-                  <p className="font-body text-gray-500 text-sm leading-relaxed mb-4">{theme.description}</p>
-                  <p className="font-handwriting text-[var(--border-c)] text-base">Explore →</p>
+
+                  {/* Content overlay */}
+                  <div className="absolute bottom-0 left-0 p-5">
+                    <p className="font-handwriting text-xs font-semibold uppercase tracking-widest text-white/70 mb-1">
+                      {theme.label}
+                    </p>
+                    <p className="font-display font-black text-2xl text-white">
+                      {location.name}
+                    </p>
+                    <p className="font-body text-sm text-white/80 mt-1 line-clamp-2">
+                      {theme.description}
+                    </p>
+                    <span className="inline-flex items-center gap-1 font-handwriting font-bold text-white mt-3 group-hover:gap-2 transition-all duration-200">
+                      Explore <ChevronRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
               </Link>
             )
