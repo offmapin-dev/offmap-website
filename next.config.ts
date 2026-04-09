@@ -12,7 +12,11 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'assets.myntassets.com',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+      },
     ],
   },
 };
