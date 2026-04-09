@@ -1,5 +1,7 @@
 import { Resend } from 'resend'
+import { render } from '@react-email/components'
 import { studentEnquirySchema } from '@/lib/schemas/student-enquiry'
+import { EnquiryNotificationEmail } from '@/lib/emails/enquiry-notification'
 
 export async function POST(request: Request) {
   let body: unknown
@@ -21,19 +23,6 @@ export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY
   const from = process.env.RESEND_FROM ?? 'onboarding@resend.dev'
 
-  const lines = [
-    `School: ${data.school}`,
-    `Contact: ${data.contactName}`,
-    `Email: ${data.email}`,
-    `Phone: ${data.phone}`,
-    `Grade / age group: ${data.gradeGroup}`,
-    `Students: ${data.studentCount}`,
-    `Destination: ${data.destination}`,
-    `Preferred dates: ${data.preferredDates}`,
-    '',
-    data.message,
-  ]
-
   if (!apiKey) {
     return Response.json(
       { ok: false, error: 'Email service is not configured' },
@@ -42,13 +31,31 @@ export async function POST(request: Request) {
   }
 
   try {
+    const messageLines = [
+      `School: ${data.school}`,
+      `Grade/Age Group: ${data.gradeGroup}`,
+      `Students: ${data.studentCount}`,
+      `Preferred Dates: ${data.preferredDates}`,
+      '',
+      data.message,
+    ].join('\n')
+
+    const html = await render(EnquiryNotificationEmail({
+      name: data.contactName,
+      email: data.email,
+      phone: data.phone,
+      type: 'Student Program',
+      destination: data.destination,
+      message: messageLines,
+      source: 'student-program',
+    }))
+
     const resend = new Resend(apiKey)
     const { error } = await resend.emails.send({
       from,
       to: 'info@offmap.in',
-      subject: `School trip enquiry: ${data.school}`,
-      text: lines.join('\n'),
-      html: `<pre style="font-family:system-ui,sans-serif">${lines.map((l) => `${l}\n`).join('')}</pre>`,
+      subject: `School Trip Enquiry — ${data.school}`,
+      html,
     })
 
     if (error) {

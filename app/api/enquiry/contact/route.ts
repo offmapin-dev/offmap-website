@@ -1,5 +1,7 @@
 import { Resend } from 'resend'
+import { render } from '@react-email/components'
 import { contactEnquirySchema } from '@/lib/schemas/contact-enquiry'
+import { EnquiryNotificationEmail } from '@/lib/emails/enquiry-notification'
 
 export async function POST(request: Request) {
   let body: unknown
@@ -22,16 +24,6 @@ export async function POST(request: Request) {
   // Use verified domain in production; Resend onboarding address works for dev testing.
   const from = process.env.RESEND_FROM ?? 'onboarding@resend.dev'
 
-  const lines = [
-    `Name: ${data.name}`,
-    `Email: ${data.email}`,
-    `Phone: ${data.phone}`,
-    `Destination: ${data.destination}`,
-    `Experience: ${data.experienceType}`,
-    '',
-    data.message,
-  ]
-
   if (!apiKey) {
     return Response.json(
       { ok: false, error: 'Email service is not configured' },
@@ -40,13 +32,22 @@ export async function POST(request: Request) {
   }
 
   try {
+    const html = await render(EnquiryNotificationEmail({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      type: data.experienceType,
+      destination: data.destination,
+      message: data.message,
+      source: 'contact',
+    }))
+
     const resend = new Resend(apiKey)
     const { error } = await resend.emails.send({
       from,
       to: 'info@offmap.in',
-      subject: `OffMap contact: ${data.name}`,
-      text: lines.join('\n'),
-      html: `<pre style="font-family:system-ui,sans-serif">${lines.map((l) => `${l}\n`).join('')}</pre>`,
+      subject: `New Enquiry — ${data.experienceType} — ${data.name}`,
+      html,
     })
 
     if (error) {
