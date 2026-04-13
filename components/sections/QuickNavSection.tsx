@@ -16,10 +16,10 @@ interface NavTile {
 }
 
 const TILES: NavTile[] = [
-  { label: 'Group Trips',     href: '/experiences/group-trips', icon: '/icons/hiking.png',     borderColor: '#1B4FD8' },
-  { label: 'Day Trips',       href: '/experiences/day-trips',   icon: '/icons/adventure.png',  borderColor: '#FFD60A' },
-  { label: 'Activities',      href: '/experiences/activities',  icon: '/icons/activities.png', borderColor: '#2D6A4F' },
-  { label: 'Student Program', href: '/student-program',         icon: '/icons/learning.png',   borderColor: '#F59E0B' },
+  { label: 'Group Trips',     href: '/experiences/group-trips', icon: '/icons/hiking.png',     borderColor: '#39A2B8' },
+  { label: 'Day Trips',       href: '/experiences/day-trips',   icon: '/icons/adventure.png',  borderColor: '#39A2B8' },
+  { label: 'Activities',      href: '/experiences/activities',  icon: '/icons/activities.png', borderColor: '#39A2B8' },
+  { label: 'Student Program', href: '/student-program',         icon: '/icons/learning.png',   borderColor: '#39A2B8' },
 ]
 
 export function QuickNavSection() {
@@ -64,7 +64,7 @@ export function QuickNavSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-dark py-10 md:py-14">
+    <section ref={sectionRef} className="bg-[#0D78A8] py-10 md:py-14">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-center md:gap-10 mb-6">
           <span ref={labelRef} className="block mb-2 md:mb-0">
@@ -97,14 +97,13 @@ export function QuickNavSection() {
               <Link
                 key={tile.label}
                 href={tile.href}
-                style={{ '--tc': tile.borderColor } as React.CSSProperties}
                 className={cn(
-                  'qn-tile group flex items-center gap-3 border border-[var(--tc)] rounded-lg px-4 py-3',
-                  'bg-transparent transition-all duration-200',
-                  'hover:bg-white/5 hover:-translate-y-0.5'
+                  'qn-tile group flex items-center gap-3 border border-[#39A2B8] rounded-lg px-4 py-3',
+                  'bg-white transition-all duration-200',
+                  'hover:bg-[#E0F4F8] hover:-translate-y-0.5'
                 )}
               >
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-none transition-transform duration-200 group-hover:scale-110">
+                <div className="w-10 h-10 rounded-full bg-[#E0F4F8] flex items-center justify-center flex-none transition-transform duration-200 group-hover:scale-110">
                   <Image
                     src={tile.icon}
                     alt={tile.label}
@@ -113,7 +112,7 @@ export function QuickNavSection() {
                     className="object-contain"
                   />
                 </div>
-                <p className="font-heading font-semibold text-white text-sm flex-1">{tile.label}</p>
+                <p className="font-heading font-semibold text-[#0D78A8] text-sm flex-1">{tile.label}</p>
                 <span className="text-yellow text-sm group-hover:translate-x-1 inline-block transition-transform duration-200">→</span>
               </Link>
             )

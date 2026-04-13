@@ -216,7 +216,7 @@ export function TestimonialsSection() {
         <div ref={cardRef} className="bg-white rounded-3xl p-4 md:p-6 shadow-2xl max-w-4xl mx-auto">
 
           {/* Azure review card inside */}
-          <div className="bg-vivid-azure rounded-2xl p-6 md:p-8 relative overflow-hidden">
+          <div className="bg-[#0D78A8] rounded-2xl p-6 md:p-8 relative overflow-hidden">
             {/* Opening quote mark */}
             <span className="absolute top-2 left-4 font-display font-black text-7xl text-white/30 leading-none select-none pointer-events-none">
               &ldquo;

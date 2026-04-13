@@ -44,7 +44,7 @@ const BLOG_POSTS: BlogPost[] = [
   {
     title: 'Traveling Slow: What It Actually Means',
     category: 'Travel Philosophy',
-    categoryColor: '#1B4FD8',
+    categoryColor: '#0D78A8',
     date: 'January 2025',
     image: BLOG_IMAGES.slowTravel,
     href: '/blogs/slow-travel',
@@ -112,7 +112,7 @@ export function BlogsTeaserSection() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <section ref={sectionRef} className="bg-[#FFF0F3] py-12 md:py-16">
+    <section ref={sectionRef} className="bg-[#E0F4F8] py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div ref={headerRef} className="mb-8">

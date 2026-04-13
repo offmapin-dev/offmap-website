@@ -175,13 +175,13 @@ function DestinationReviewsSection({
   const review = reviews[active]
 
   return (
-    <section ref={sectionRef} className="bg-bg-mint py-10 md:py-14">
+    <section ref={sectionRef} className="bg-[#E0F4F8] py-10 md:py-14">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
         <h2 className="font-display font-bold text-dark text-3xl mb-6">What people say about {regionName}</h2>
 
         <div className="review-card-wrapper bg-white rounded-3xl p-4 md:p-5 shadow-[var(--shadow-card)]">
-          <div className="bg-vivid-azure rounded-2xl p-5 md:p-6 relative overflow-hidden">
+          <div className="bg-[#0D78A8] rounded-2xl p-5 md:p-6 relative overflow-hidden">
             <span className="absolute top-1 left-3 font-display font-black text-6xl text-white/30 leading-none select-none pointer-events-none">
               &ldquo;
             </span>
@@ -239,7 +239,7 @@ function DestinationReviewsSection({
                 aria-label={`Go to review ${i + 1}`}
                 className={cn(
                   'rounded-full transition-all duration-300',
-                  i === active ? 'w-3 h-3 bg-vivid-azure' : 'w-2 h-2 bg-vivid-azure/30 hover:bg-vivid-azure/50',
+                  i === active ? 'w-3 h-3 bg-[#0D78A8]' : 'w-2 h-2 bg-[#0D78A8]/30 hover:bg-[#0D78A8]/50',
                 )}
               />
             ))}

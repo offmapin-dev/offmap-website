@@ -213,7 +213,7 @@ export default function BlogsPage() {
   return (
     <main>
       {/* SECTION 1 — Corkboard hero */}
-      <section className="bg-[#F5F0E8] overflow-x-hidden overflow-y-visible">
+      <section className="bg-white overflow-x-hidden overflow-y-visible">
         <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
           <div
             ref={heroCollageRef}
@@ -253,11 +253,11 @@ export default function BlogsPage() {
             </p>
           </div>
         </div>
-        <TornEdge position="bottom" color="#EFF6FF" />
+        <TornEdge position="bottom" color="#F0F8FB" />
       </section>
 
       {/* SECTION 2 — Featured */}
-      <section ref={featuredRef} className="bg-[#EFF6FF] py-12 md:py-20 relative">
+      <section ref={featuredRef} className="bg-[#F0F8FB] py-12 md:py-20 relative">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 lg:items-start">
             <div className="featured-animate lg:col-span-3 relative h-80 rounded-2xl overflow-hidden shadow-[var(--shadow-card)]">
@@ -334,11 +334,11 @@ export default function BlogsPage() {
             </div>
           </div>
         </div>
-        <TornEdge position="bottom" color="#FFF8E7" />
+        <TornEdge position="bottom" color="#F0F8FB" />
       </section>
 
       {/* SECTION 3 — Filters */}
-      <section className="bg-[#FFF8E7] py-8">
+      <section className="bg-[#F0F8FB] py-8">
         <div
           ref={filtersRef}
           className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left gap-6"
@@ -360,7 +360,7 @@ export default function BlogsPage() {
                   className={cn(
                     'font-heading text-sm px-5 py-2 rounded-full border-2 transition-colors duration-150',
                     isActive
-                      ? 'bg-dark text-white border-dark'
+                      ? 'bg-[#0D78A8] text-white border-[#0D78A8]'
                       : 'bg-white border-gray-200 text-dark hover:bg-gray-50'
                   )}
                 >
@@ -373,7 +373,7 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 4 — Grid */}
-      <section ref={gridRef} className="bg-[#FFF8E7] pb-16 md:pb-20">
+      <section ref={gridRef} className="bg-[#F0F8FB] pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           {filteredPosts.length === 0 ? (
             <div className="py-16 flex justify-center">
@@ -450,7 +450,7 @@ export default function BlogsPage() {
             we write when we have something real to say. which is not that often.
           </p>
         </div>
-        <TornEdge position="bottom" color="#FFD60A" />
+        <TornEdge position="bottom" color="#FFE927" />
       </section>
 
       {/* SECTION 6 — Final CTA */}

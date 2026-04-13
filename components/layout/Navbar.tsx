@@ -75,7 +75,7 @@ export default function Navbar() {
         ref={navRef}
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          'bg-paper border-b border-dashed border-[#D4C9B0]',
+          'bg-white border-b border-dashed border-[#39A2B8]/40',
           isScrolled && 'shadow-[0_2px_16px_rgba(0,0,0,0.08)]'
         )}
       >
@@ -89,7 +89,7 @@ export default function Navbar() {
               <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               <path d="M12 7l-2 5 2 5 2-5-2-5z" fill="currentColor" opacity="0.6" />
             </svg>
-            <span className="text-xl text-dark">
+            <span className="text-xl text-[#0D78A8]">
               <span className="font-body font-normal">Off</span>
               <span className="font-display font-bold italic">Map</span>
             </span>
@@ -124,7 +124,7 @@ export default function Navbar() {
             </button>
             <Link
               href="/contact"
-              className="font-heading font-semibold text-sm bg-yellow text-dark border-2 border-dark px-4 py-2 rounded-none transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(15,23,42,1)] inline-block"
+              className="font-heading font-semibold text-sm bg-yellow text-[#0D78A8] border-2 border-[#0D78A8] px-4 py-2 rounded-none transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(13,120,168,1)] inline-block"
             >
               Plan Your Trip
             </Link>
@@ -163,12 +163,12 @@ export default function Navbar() {
       {/* Mobile Menu Panel */}
       <div
         ref={mobileMenuRef}
-        className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-cream z-50 md:hidden flex flex-col translate-x-full"
+        className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white z-50 md:hidden flex flex-col translate-x-full"
         aria-hidden={!isMobileOpen}
       >
         {/* Close button */}
-        <div className="flex items-center justify-between px-5 h-14 border-b border-dashed border-[#D4C9B0]">
-          <span className="font-display italic font-bold text-lg text-dark">Menu</span>
+        <div className="flex items-center justify-between px-5 h-14 border-b border-dashed border-[#39A2B8]/40">
+          <span className="font-display italic font-bold text-lg text-[#0D78A8]">Menu</span>
           <button
             className="flex items-center justify-center w-11 h-11 text-dark"
             onClick={closeMobileMenu}
@@ -186,7 +186,7 @@ export default function Navbar() {
               href={link.href}
               onClick={closeMobileMenu}
               className={cn(
-                'font-display text-2xl font-bold py-2 border-b border-dashed border-[#D4C9B0] transition-colors duration-200',
+                'font-display text-2xl font-bold py-2 border-b border-dashed border-[#39A2B8]/40 transition-colors duration-200',
                 isActive(link.href)
                   ? 'text-blue'
                   : 'text-dark hover:text-blue'
@@ -202,7 +202,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={closeMobileMenu}
-            className="font-heading font-semibold text-base bg-yellow text-dark border-2 border-dark px-6 py-3 rounded-none text-center transition-transform duration-200 hover:-translate-y-0.5 block"
+            className="font-heading font-semibold text-base bg-yellow text-[#0D78A8] border-2 border-[#0D78A8] px-6 py-3 rounded-none text-center transition-transform duration-200 hover:-translate-y-0.5 block"
           >
             Plan Your Trip
           </Link>

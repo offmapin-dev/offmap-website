@@ -211,7 +211,7 @@ export function HeroSection() {
                   ))}
                 </span>
                 <svg className="hidden md:block absolute -inset-3 w-[calc(100%+24px)] h-[calc(100%+24px)] pointer-events-none" viewBox="0 0 200 80" fill="none" aria-hidden>
-                  <path d="M30,40 C30,15 170,10 175,40 C180,70 25,75 30,40" stroke="#FFD60A" strokeWidth="2.5" opacity="0.7" strokeLinecap="round" />
+                  <path d="M30,40 C30,15 170,10 175,40 C180,70 25,75 30,40" stroke="#FFE927" strokeWidth="2.5" opacity="0.7" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
@@ -279,7 +279,7 @@ export function HeroSection() {
 
       {/* Torn paper edge at bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <TornEdge position="bottom" color="#E8F4F0" />
+        <TornEdge position="bottom" color="#E0F4F8" />
       </div>
     </section>
   )

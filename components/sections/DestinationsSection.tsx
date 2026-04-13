@@ -63,8 +63,8 @@ export function DestinationsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-[#FFF8E7] diagonal-stripes">
-      <TornEdge position="top" color="#FFF8E7" />
+    <section ref={sectionRef} className="bg-[#F0F8FB] diagonal-stripes">
+      <TornEdge position="top" color="#F0F8FB" />
 
       <div className="max-w-7xl mx-auto px-4 pt-4 pb-12 md:pb-16">
         {/* Header */}

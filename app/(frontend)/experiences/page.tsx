@@ -172,7 +172,7 @@ const ACTIVITY_TYPES = [
   { label: 'Camping',    value: 'camping',    color: '#6B4226' },
   { label: 'Cultural',   value: 'cultural',   color: '#C1440E' },
   { label: 'Wildlife',   value: 'wildlife',   color: '#F59E0B' },
-  { label: 'Adventure',  value: 'adventure',  color: '#1B4FD8' },
+  { label: 'Adventure',  value: 'adventure',  color: '#0D78A8' },
   { label: 'Stays',      value: 'stays',      color: '#7C3AED' },
   { label: 'Activities', value: 'activities', color: '#0D9488' },
   { label: 'Learning',   value: 'learning',   color: '#B45309' },
@@ -547,14 +547,14 @@ export default function ExperiencesPage() {
         </div>
 
         <div className="absolute bottom-[-1px] left-0 right-0 z-10">
-          <WavyDivider fill="#FFF8E7" />
+          <WavyDivider fill="#F0F8FB" />
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════
           SECTION 2 — FILTER BAR (sticky)
       ════════════════════════════════════════════════════════ */}
-      <div className="md:sticky md:top-16 z-40 bg-[#FFF8E7] md:bg-[#FFF8E7]/95 md:backdrop-blur-sm border-b border-[#E2E8F0]/50">
+      <div className="md:sticky md:top-16 z-40 bg-[#F0F8FB] md:bg-[#F0F8FB]/95 md:backdrop-blur-sm border-b border-[#E2E8F0]/50">
         <div ref={filterBarRef} className="max-w-7xl mx-auto px-4 py-3">
 
           {/* Row 1 — Region */}
@@ -591,7 +591,7 @@ export default function ExperiencesPage() {
                     className={cn(
                       'flex-none px-3 py-1 rounded-full font-body text-xs font-medium border-2 transition-all duration-150',
                       isActive
-                        ? 'bg-dark text-white border-dark scale-105'
+                        ? 'bg-[#0D78A8] text-white border-[#0D78A8] scale-105'
                         : 'bg-white border-gray-200 text-dark/60 hover:border-gray-300 hover:scale-105'
                     )}
                   >
@@ -607,7 +607,7 @@ export default function ExperiencesPage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 3 — FEATURED EXPERIENCE
       ════════════════════════════════════════════════════════ */}
-      <section ref={featuredRef} className="bg-[#FFF8E7] py-10 md:py-20">
+      <section ref={featuredRef} className="bg-[#F0F8FB] py-10 md:py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
@@ -680,13 +680,13 @@ export default function ExperiencesPage() {
           </div>
         </div>
 
-        <WavyDivider fill="#E8F4F0" />
+        <WavyDivider fill="#E0F4F8" />
       </section>
 
       {/* ════════════════════════════════════════════════════════
           SECTION 4 — ALL EXPERIENCES GRID
       ════════════════════════════════════════════════════════ */}
-      <section ref={gridRef} className="bg-[#E8F4F0] py-10 md:py-20 scroll-mt-32">
+      <section ref={gridRef} className="bg-[#E0F4F8] py-10 md:py-20 scroll-mt-32">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Header */}
@@ -730,13 +730,13 @@ export default function ExperiencesPage() {
           )}
         </div>
 
-        <WavyDivider fill="#FFF8E7" />
+        <WavyDivider fill="#F0F8FB" />
       </section>
 
       {/* ════════════════════════════════════════════════════════
           SECTION 5 — ACTIVITY TYPES CAROUSEL
       ════════════════════════════════════════════════════════ */}
-      <section ref={carouselSectionRef} className="bg-[#FFF8E7] py-10 md:py-20">
+      <section ref={carouselSectionRef} className="bg-[#F0F8FB] py-10 md:py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           <div className="act-heading mb-10">
@@ -875,7 +875,7 @@ export default function ExperiencesPage() {
           </div>
         </div>
 
-        <WavyDivider fill="#FFD60A" />
+        <WavyDivider fill="#FFE927" />
       </section>
 
       {/* ════════════════════════════════════════════════════════

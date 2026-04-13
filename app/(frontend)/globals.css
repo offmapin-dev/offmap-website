@@ -8,25 +8,32 @@
   --font-body: var(--font-dm-sans), sans-serif;
 
   /* ── Brand ── */
-  --color-yellow: #ffd60a;
-  --color-yellow-dark: #e6c009;
-  --color-blue: #1b4fd8;
+  --color-yellow: #FFE927;
+  --color-yellow-dark: #e6d220;
+  --color-vivid-azure: #0D78A8;
+  --color-azure: #39A2B8;
+  --color-blue: #0D78A8;
   --color-dark: #0f172a;
-  --color-cream: #f5f0e8;
-  --color-paper: #fdfaf5;
+  --color-cream: #FFFFFF;
+  --color-paper: #FFFFFF;
   --color-kraft: #8b6914;
 
+  /* ── Background tints ── */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-section-alt: #F0F8FB;
+  --color-bg-mint: #E0F4F8;
+
   /* ── Legacy compatibility (Navbar, Footer, UI primitives) ── */
-  --color-primary: #1b4fd8;
-  --color-primary-light: #3b6fe8;
-  --color-primary-dark: #0f3bc0;
+  --color-primary: #0D78A8;
+  --color-primary-light: #2D9CC8;
+  --color-primary-dark: #0A5F88;
   --color-offwhite: #f8f9fa;
   --color-muted: #64748b;
   --color-border: #e2e8f0;
 
   /* ── Region: Himachal Pradesh ── */
   --color-himachal-primary: #2d6a4f;
-  --color-himachal-accent: #ffd60a;
+  --color-himachal-accent: #FFE927;
   --color-himachal-bg: #f0f7f4;
   --color-himachal-card: #e8f5ee;
 
@@ -108,8 +115,8 @@
     45deg,
     transparent,
     transparent 20px,
-    rgba(255, 214, 10, 0.15) 20px,
-    rgba(255, 214, 10, 0.15) 21px
+    rgba(255, 233, 39, 0.15) 20px,
+    rgba(255, 233, 39, 0.15) 21px
   );
 }
 
@@ -148,13 +155,13 @@
 
 /* Washi tape strips */
 .washi-yellow {
-  background: #ffd60a;
+  background: #FFE927;
   opacity: 0.85;
   transform: rotate(-2deg);
 }
 
 .washi-blue {
-  background: #93c5fd;
+  background: #39A2B8;
   opacity: 0.75;
   transform: rotate(1.5deg);
 }

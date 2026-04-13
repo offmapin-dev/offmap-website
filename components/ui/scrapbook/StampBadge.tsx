@@ -9,7 +9,7 @@ interface StampBadgeProps {
 
 export function StampBadge({
   text,
-  color = '#1B4FD8',
+  color = '#0D78A8',
   rotation = -5,
   className,
 }: StampBadgeProps) {
