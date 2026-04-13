@@ -100,10 +100,10 @@ export function QuickNavSection() {
                 className={cn(
                   'qn-tile group flex items-center gap-3 border border-[#39A2B8] rounded-lg px-4 py-3',
                   'bg-white transition-all duration-200',
-                  'hover:bg-[#E0F4F8] hover:-translate-y-0.5'
+                  'hover:bg-white hover:-translate-y-0.5'
                 )}
               >
-                <div className="w-10 h-10 rounded-full bg-[#E0F4F8] flex items-center justify-center flex-none transition-transform duration-200 group-hover:scale-110">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-none transition-transform duration-200 group-hover:scale-110">
                   <Image
                     src={tile.icon}
                     alt={tile.label}

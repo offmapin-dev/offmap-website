@@ -97,7 +97,7 @@ export default function AboutPage() {
 
   return (
     <main>
-      <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center bg-[#2D6A4F]">
+      <section className="relative h-[50vh] min-h-[360px] flex items-center justify-center bg-[#0D78A8]">
         <div ref={s1Ref} className="text-center px-4 max-w-3xl">
           <p className="font-handwriting text-white/60 text-xl mb-3">our story</p>
           <h1 className="font-display font-black text-white text-5xl md:text-7xl leading-tight">
@@ -109,9 +109,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <TornEdge position="bottom" color="#F0F8FB" />
+      <TornEdge position="bottom" color="#FFFFFF" />
 
-      <section ref={s2Ref} className="bg-[#F0F8FB] py-10 md:py-16">
+      <section ref={s2Ref} className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="paper-lines rounded-2xl p-6 md:p-10 bg-white/60 border-l-4 border-red-300">
             <div className="relative inline-block mb-6">
@@ -151,9 +151,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <TornEdge position="bottom" color="#E0F4F8" />
+      <TornEdge position="bottom" color="#FFFFFF" />
 
-      <section ref={s3Ref} className="bg-[#E0F4F8] py-10 md:py-16">
+      <section ref={s3Ref} className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
           {HOW_TILES.map((t) => (
             <div
@@ -168,9 +168,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <TornEdge position="bottom" color="#F0F8FB" />
+      <TornEdge position="bottom" color="#FFFFFF" />
 
-      <section ref={s4Ref} className="bg-[#F0F8FB] py-10 md:py-16">
+      <section ref={s4Ref} className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <SectionLabel text="The Team" style="handwritten" className="block mb-3" />
           <h2 className="font-display font-bold text-dark text-2xl md:text-3xl mb-10">

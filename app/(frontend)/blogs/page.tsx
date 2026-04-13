@@ -253,11 +253,11 @@ export default function BlogsPage() {
             </p>
           </div>
         </div>
-        <TornEdge position="bottom" color="#F0F8FB" />
+        <TornEdge position="bottom" color="#FFFFFF" />
       </section>
 
       {/* SECTION 2 — Featured */}
-      <section ref={featuredRef} className="bg-[#F0F8FB] py-10 md:py-14 relative">
+      <section ref={featuredRef} className="bg-white py-10 md:py-14 relative">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 lg:items-start">
             <div className="featured-animate lg:col-span-3 relative h-80 rounded-2xl overflow-hidden shadow-[var(--shadow-card)]">
@@ -276,7 +276,7 @@ export default function BlogsPage() {
                 </div>
               ) : null}
               <div className="absolute bottom-4 left-4 z-10">
-                <StampBadge text="Featured Story" color="#0F172A" rotation={-2} />
+                <StampBadge text="Featured Story" color="#0D78A8" rotation={-2} />
               </div>
               <div className="hidden md:block absolute top-4 right-4 z-20 max-w-[9rem]">
                 <JournalNote
@@ -334,11 +334,11 @@ export default function BlogsPage() {
             </div>
           </div>
         </div>
-        <TornEdge position="bottom" color="#F0F8FB" />
+        <TornEdge position="bottom" color="#FFFFFF" />
       </section>
 
       {/* SECTION 3 — Filters */}
-      <section className="bg-[#F0F8FB] py-8">
+      <section className="bg-white py-8">
         <div
           ref={filtersRef}
           className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left gap-6"
@@ -347,7 +347,7 @@ export default function BlogsPage() {
             <h2 className="font-display font-bold text-dark text-xl md:text-2xl">
               From the journal
             </h2>
-            <StampBadge text={storyBadgeText} color="#0F172A" rotation={-2} />
+            <StampBadge text={storyBadgeText} color="#0D78A8" rotation={-2} />
           </div>
           <div className="filter-animate flex flex-wrap justify-center gap-2">
             {CATEGORIES.map((cat) => {
@@ -373,7 +373,7 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 4 — Grid */}
-      <section ref={gridRef} className="bg-[#F0F8FB] pb-10 md:pb-14">
+      <section ref={gridRef} className="bg-white pb-10 md:pb-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           {filteredPosts.length === 0 ? (
             <div className="py-10 flex justify-center">
@@ -400,11 +400,11 @@ export default function BlogsPage() {
             </div>
           )}
         </div>
-        <TornEdge position="bottom" color="#0F172A" />
+        <TornEdge position="bottom" color="#0D78A8" />
       </section>
 
       {/* SECTION 5 — Newsletter */}
-      <section ref={newsletterRef} className="bg-dark py-10 md:py-16">
+      <section ref={newsletterRef} className="bg-[#0D78A8] py-10 md:py-16">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <span className="news-animate text-6xl block mb-4" role="img" aria-label="">
             📬

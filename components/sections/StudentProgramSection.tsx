@@ -59,8 +59,8 @@ export function StudentProgramSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative bg-[#F59E0B] overflow-hidden">
-      <TornEdge position="top" color="#F59E0B" />
+    <section ref={sectionRef} className="relative bg-[#FFE927] overflow-hidden">
+      <TornEdge position="top" color="#FFE927" />
 
       {/* Decorative background emoji */}
       <span className="absolute top-8 right-4 md:right-8 text-9xl opacity-10 select-none pointer-events-none">
@@ -78,7 +78,7 @@ export function StudentProgramSection() {
           </span>
 
           <div ref={stampRef} className="inline-block mb-2 will-change-transform">
-            <StampBadge text="Student Program" color="#0F172A" rotation={-2} className="mb-6" />
+            <StampBadge text="Student Program" color="#0D78A8" rotation={-2} className="mb-6" />
           </div>
 
           <h2

@@ -116,7 +116,7 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-[#E0F4F8] pt-10 md:pt-12">
+    <section ref={sectionRef} className="bg-white pt-10 md:pt-12">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* A) Photo strip */}
@@ -137,7 +137,7 @@ export function AboutSection() {
 
           {/* Left column -- journal page */}
           <div className="lg:col-span-7 mb-14 lg:mb-0">
-            <div ref={journalRef} className="paper-lines bg-[#D4EDE6] rounded-xl p-6 md:p-10 relative will-change-[clip-path] border-l-4 border-red-300">
+            <div ref={journalRef} className="paper-lines bg-[#39A2B8]/20 rounded-xl p-6 md:p-10 relative will-change-[clip-path] border-l-4 border-red-300">
               {/* Washi tape decoration */}
               <div ref={washiRef} className="absolute top-3 left-8">
                 <WashiTape color="yellow" rotation={-2} width="w-28" />
@@ -234,7 +234,7 @@ export function AboutSection() {
       </div>
 
       {/* C) Quote strip -- full width */}
-      <div ref={quoteRef} className="bg-dark py-8 mt-10">
+      <div ref={quoteRef} className="bg-[#0D78A8] py-8 mt-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="font-display text-white text-2xl md:text-3xl italic leading-relaxed">{'\u201C'}We believe the best stories aren{'\u2019'}t found in guidebooks.{'\u201D'}</p>
           <p className="font-handwriting text-white/50 text-lg mt-3">{'\u2014'} the OffMap team</p>

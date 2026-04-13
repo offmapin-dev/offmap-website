@@ -237,14 +237,14 @@ export default function DestinationsPage() {
           >
             <path
               d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1350,20 1440,40 L1440,80 L0,80 Z"
-              fill="#F0F8FB"
+              fill="#FFFFFF"
             />
           </svg>
         </div>
       </section>
 
       {/* ═══ SECTION 2: REGION FILTER TABS ════════════════════════════════════ */}
-      <section className="bg-[#F0F8FB] py-4 md:py-8">
+      <section className="bg-white py-4 md:py-8">
         <div ref={filterBarRef} className="max-w-7xl mx-auto px-4">
           <div className="flex gap-3 overflow-x-auto md:flex-wrap md:justify-center md:overflow-visible" style={{ scrollbarWidth: 'none' }}>
             <button
@@ -288,7 +288,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* ═══ SECTION 3: MAP + INTRO ════════════════════════════════════════════ */}
-      <section ref={mapSectionRef} className="bg-[#F0F8FB] py-10 md:py-16">
+      <section ref={mapSectionRef} className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -354,8 +354,8 @@ export default function DestinationsPage() {
       </section>
 
       {/* ═══ SECTION 4: EXPERIENCE CATEGORIES ═════════════════════════════════ */}
-      <section ref={catSectionRef} className="bg-[#E0F4F8]">
-        <WavyDivider fill="#F0F8FB" position="top" />
+      <section ref={catSectionRef} className="bg-white">
+        <WavyDivider fill="#FFFFFF" position="top" />
 
         <div className="max-w-7xl mx-auto px-4 py-10 md:py-12">
           <div className="text-center mb-10">
@@ -396,13 +396,13 @@ export default function DestinationsPage() {
           </div>
         </div>
 
-        <WavyDivider fill="#F0F8FB" position="bottom" />
+        <WavyDivider fill="#FFFFFF" position="bottom" />
       </section>
 
       {/* ═══ SECTION 5: REGION SECTIONS ═══════════════════════════════════════ */}
       <section
         ref={cardsSectionRef}
-        className="bg-[#F0F8FB] py-10 md:py-16 scroll-mt-16"
+        className="bg-white py-10 md:py-16 scroll-mt-16"
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">

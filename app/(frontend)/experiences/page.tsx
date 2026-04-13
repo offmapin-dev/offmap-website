@@ -547,14 +547,14 @@ export default function ExperiencesPage() {
         </div>
 
         <div className="absolute bottom-[-1px] left-0 right-0 z-10">
-          <WavyDivider fill="#F0F8FB" />
+          <WavyDivider fill="#FFFFFF" />
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════
           SECTION 2 — FILTER BAR (sticky)
       ════════════════════════════════════════════════════════ */}
-      <div className="md:sticky md:top-16 z-40 bg-[#F0F8FB] md:bg-[#F0F8FB]/95 md:backdrop-blur-sm border-b border-[#E2E8F0]/50">
+      <div className="md:sticky md:top-16 z-40 bg-white md:bg-white/95 md:backdrop-blur-sm border-b border-[#E2E8F0]/50">
         <div ref={filterBarRef} className="max-w-7xl mx-auto px-4 py-3">
 
           {/* Row 1 — Region */}
@@ -607,7 +607,7 @@ export default function ExperiencesPage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 3 — FEATURED EXPERIENCE
       ════════════════════════════════════════════════════════ */}
-      <section ref={featuredRef} className="bg-[#F0F8FB] py-10 md:py-14">
+      <section ref={featuredRef} className="bg-white py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
@@ -680,13 +680,13 @@ export default function ExperiencesPage() {
           </div>
         </div>
 
-        <WavyDivider fill="#E0F4F8" />
+        <WavyDivider fill="#FFFFFF" />
       </section>
 
       {/* ════════════════════════════════════════════════════════
           SECTION 4 — ALL EXPERIENCES GRID
       ════════════════════════════════════════════════════════ */}
-      <section ref={gridRef} className="bg-[#E0F4F8] py-10 md:py-14 scroll-mt-32">
+      <section ref={gridRef} className="bg-white py-10 md:py-14 scroll-mt-32">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Header */}
@@ -700,7 +700,7 @@ export default function ExperiencesPage() {
             <div className="sm:ml-auto">
               <StampBadge
                 text={`${filteredExperiences.length} experience${filteredExperiences.length !== 1 ? 's' : ''}`}
-                color="#0F172A"
+                color="#0D78A8"
                 rotation={-2}
               />
             </div>
@@ -730,13 +730,13 @@ export default function ExperiencesPage() {
           )}
         </div>
 
-        <WavyDivider fill="#F0F8FB" />
+        <WavyDivider fill="#FFFFFF" />
       </section>
 
       {/* ════════════════════════════════════════════════════════
           SECTION 5 — ACTIVITY TYPES CAROUSEL
       ════════════════════════════════════════════════════════ */}
-      <section ref={carouselSectionRef} className="bg-[#F0F8FB] py-10 md:py-14">
+      <section ref={carouselSectionRef} className="bg-white py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           <div className="act-heading mb-10">
@@ -828,13 +828,13 @@ export default function ExperiencesPage() {
           </div>
         </div>
 
-        <WavyDivider fill="#F59E0B" />
+        <WavyDivider fill="#FFE927" />
       </section>
 
       {/* ════════════════════════════════════════════════════════
           SECTION 6 — STUDENT PROGRAM CALLOUT
       ════════════════════════════════════════════════════════ */}
-      <section ref={studentRef} className="bg-[#F59E0B] py-10 md:py-14">
+      <section ref={studentRef} className="bg-[#FFE927] py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 

@@ -175,7 +175,7 @@ function DestinationReviewsSection({
   const review = reviews[active]
 
   return (
-    <section ref={sectionRef} className="bg-[#E0F4F8] py-10 md:py-14">
+    <section ref={sectionRef} className="bg-white py-10 md:py-14">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
         <h2 className="font-display font-bold text-dark text-3xl mb-6">What people say about {regionName}</h2>

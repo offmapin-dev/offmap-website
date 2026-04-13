@@ -117,25 +117,25 @@ const REGION_CARD_ACCENT: Record<
 > = {
   'himachal-pradesh': {
     border: 'border-l-[#2D6A4F]',
-    tag: 'bg-[#F0F7F4] text-[#2D6A4F]',
+    tag: 'bg-white text-[#2D6A4F]',
     price: 'text-[#2D6A4F]',
     btn: 'border-[#2D6A4F] text-[#2D6A4F] hover:bg-[#2D6A4F]/10',
   },
   rajasthan: {
     border: 'border-l-[#C1440E]',
-    tag: 'bg-[#FDF6F0] text-[#C1440E]',
+    tag: 'bg-white text-[#C1440E]',
     price: 'text-[#C1440E]',
     btn: 'border-[#C1440E] text-[#C1440E] hover:bg-[#C1440E]/10',
   },
   kashmir: {
     border: 'border-l-[#C1121F]',
-    tag: 'bg-[#FFF5F5] text-[#C1121F]',
+    tag: 'bg-white text-[#C1121F]',
     price: 'text-[#C1121F]',
     btn: 'border-[#C1121F] text-[#C1121F] hover:bg-[#C1121F]/10',
   },
   uttarakhand: {
     border: 'border-l-[#6B4226]',
-    tag: 'bg-[#F5F0EB] text-[#6B4226]',
+    tag: 'bg-white text-[#6B4226]',
     price: 'text-[#6B4226]',
     btn: 'border-[#6B4226] text-[#6B4226] hover:bg-[#6B4226]/10',
   },
@@ -306,10 +306,10 @@ export default function StaysPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#F0F8FB" />
+      <WavyDivider fill="#FFFFFF" />
 
       {/* —— Philosophy —— */}
-      <section ref={philosophyRef} className="bg-[#F0F8FB] py-10 md:py-16">
+      <section ref={philosophyRef} className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
           <div className="stays-fade-child relative paper-lines rounded-2xl p-8 max-w-sm mx-auto lg:mx-0">
             <WashiTape
@@ -357,10 +357,10 @@ export default function StaysPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#E0F4F8" />
+      <WavyDivider fill="#FFFFFF" />
 
       {/* —— Stays grid —— */}
-      <section ref={gridRef} className="bg-[#E0F4F8] py-10 md:py-16">
+      <section ref={gridRef} className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="stays-fade-child text-center mb-10 md:mb-14">
             <SectionLabel text="Our Stays" style="handwritten" className="justify-center" />
@@ -451,8 +451,8 @@ export default function StaysPage() {
       </section>
 
       {/* —— How it works —— */}
-      <section className="relative bg-[#F0F8FB] py-10 md:py-16">
-        <TornEdge position="top" color="#F0F8FB" />
+      <section className="relative bg-white py-10 md:py-16">
+        <TornEdge position="top" color="#FFFFFF" />
         <div ref={howRef} className="max-w-7xl mx-auto px-4">
           <div className="stays-fade-child text-center mb-12 md:mb-16">
             <SectionLabel text="How It Works" style="stamp" className="justify-center" />

@@ -7,9 +7,9 @@ export default function Footer() {
   return (
     <footer className="relative">
       {/* Torn paper transition into kraft bg */}
-      <TornEdge position="top" color="#5C3D11" />
+      <TornEdge position="top" color="#0D78A8" />
 
-      <div className="kraft-bg text-white">
+      <div className="bg-[#0D78A8] text-white">
         {/* Brand header */}
         <div className="max-w-7xl mx-auto px-4 pt-10 pb-6 text-center">
           <h2 className="font-display italic font-bold text-4xl md:text-5xl text-white mb-2">

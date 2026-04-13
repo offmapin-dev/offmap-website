@@ -47,17 +47,17 @@ export default function FaqPage() {
 
   return (
     <main>
-      <section className="relative h-[40vh] min-h-[260px] flex items-center justify-center bg-[#6B4226]">
+      <section className="relative h-[40vh] min-h-[260px] flex items-center justify-center bg-[#0D78A8]">
         <div ref={heroRef} className="text-center px-4">
           <h1 className="font-display font-black text-white text-4xl md:text-5xl">Questions? Good.</h1>
           <p className="font-handwriting text-white/70 text-xl mt-4">we like curious travelers</p>
         </div>
       </section>
 
-      <TornEdge position="bottom" color="#F0F8FB" />
+      <TornEdge position="bottom" color="#FFFFFF" />
 
-      <section ref={faqRef} className="bg-[#F0F8FB] py-10 md:py-14">
-        <div className="max-w-3xl mx-auto px-4 paper-lines rounded-2xl py-10 md:py-14 bg-[#F0F8FB]/95 border-l-4 border-red-300">
+      <section ref={faqRef} className="bg-white py-10 md:py-14">
+        <div className="max-w-3xl mx-auto px-4 paper-lines rounded-2xl py-10 md:py-14 bg-white/95 border-l-4 border-red-300">
           <SectionLabel text="Frequently Asked" style="stamp" className="block mb-2" />
           <p className="font-handwriting text-dark/50 text-lg mb-10">the things people always ask us</p>
 

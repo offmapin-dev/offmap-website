@@ -279,7 +279,7 @@ export function HeroSection() {
 
       {/* Torn paper edge at bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <TornEdge position="bottom" color="#E0F4F8" />
+        <TornEdge position="bottom" color="#FFFFFF" />
       </div>
     </section>
   )
