@@ -11,6 +11,8 @@ export interface TripCardData {
   region: string
   regionSlug: string
   image: string
+  month: number
+  year: number
   date: string
   duration: string
   originalPrice: string
