@@ -1,10 +1,11 @@
 'use client'
 
-import { use } from 'react'
+import { use, useRef, useState, useCallback, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
+import { gsap } from 'gsap'
 import { REGION_THEMES, LOCATIONS, type RegionThemeKey } from '@/lib/constants'
 import {
   PostageStamp,
@@ -19,7 +20,7 @@ import type { Experience } from '@/components/sections/RegionSection'
 import { cn } from '@/lib/utils'
 import { HERO_IMAGES, POLAROID_IMAGES, EXPERIENCE_IMAGES, FALLBACK_IMAGE } from '@/lib/images'
 import { getExperienceIcon } from '@/lib/icons'
-import { useRef, useState, useCallback } from 'react'
+import { registerGSAP } from '@/lib/animations'
 
 // ─── Per-region intro subtitles ───────────────────────────────────────────────
 const INTRO_SUBTITLES: Record<string, string> = {
@@ -83,6 +84,171 @@ const REGION_REVIEWS: Record<string, { name: string; trip: string; rating: numbe
     { name: 'Sneha Reddy', trip: 'Binsar Wildlife', rating: 5, text: 'Uttarakhand with OffMap felt like a secret only a few people know about. I hope it stays that way.' },
     { name: 'Vikram Rao', trip: 'Kasar Devi\u2013Khaliya Top', rating: 5, text: 'The trek was exactly the right level of challenge. And the views from Khaliya Top — absolutely worth every step.' },
   ],
+}
+
+// ─── Review helpers ───────────────────────────────────────────────────────────
+function getInitials(name: string): string {
+  const parts = name.trim().split(/\s+/)
+  const first = parts[0]?.[0] ?? ''
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : ''
+  return (first + last).toUpperCase()
+}
+
+function DestinationReviewsSection({
+  reviews,
+  regionName,
+  bgColor,
+  ctaColor,
+}: {
+  reviews: { name: string; trip: string; rating: number; text: string }[]
+  regionName: string
+  bgColor: string
+  ctaColor: string
+}) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const reviewContentRef = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(0)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const isAnimatingRef = useRef(false)
+
+  const resetAutoAdvance = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current)
+    if (reviews.length <= 1) return
+    timerRef.current = setInterval(() => {
+      setActive((prev) => (prev + 1) % reviews.length)
+    }, 5000)
+  }, [reviews.length])
+
+  const goTo = useCallback((index: number) => {
+    if (isAnimatingRef.current) return
+    setActive(index)
+    resetAutoAdvance()
+  }, [resetAutoAdvance])
+
+  useEffect(() => {
+    resetAutoAdvance()
+    return () => { if (timerRef.current) clearInterval(timerRef.current) }
+  }, [resetAutoAdvance])
+
+  useEffect(() => {
+    if (!reviewContentRef.current) return
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
+    isAnimatingRef.current = true
+    gsap.fromTo(
+      reviewContentRef.current,
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', onComplete: () => { isAnimatingRef.current = false } },
+    )
+  }, [active])
+
+  useEffect(() => {
+    registerGSAP()
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
+    const ctx = gsap.context(() => {
+      if (sectionRef.current) {
+        gsap.from(sectionRef.current.querySelector('.review-card-wrapper'), {
+          y: 40, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.15, immediateRender: false,
+          scrollTrigger: { trigger: sectionRef.current, start: 'top bottom', once: true },
+        })
+      }
+    })
+    return () => ctx.revert()
+  }, [])
+
+  if (!reviews.length) {
+    return (
+      <section style={{ backgroundColor: bgColor }} className="py-10 md:py-14">
+        <div className="max-w-5xl mx-auto px-4 md:px-8">
+          <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
+          <h2 className="font-display font-bold text-dark text-3xl mb-6">What people say about {regionName}</h2>
+          <div className="text-center py-8">
+            <JournalNote text="Reviews coming soon" type="sticky" className="inline-block" />
+          </div>
+        </div>
+        <WavyDivider fill={ctaColor} position="bottom" />
+      </section>
+    )
+  }
+
+  const review = reviews[active]
+
+  return (
+    <section ref={sectionRef} className="bg-bg-mint py-10 md:py-14">
+      <div className="max-w-3xl mx-auto px-4 md:px-8">
+        <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
+        <h2 className="font-display font-bold text-dark text-3xl mb-6">What people say about {regionName}</h2>
+
+        <div className="review-card-wrapper bg-white rounded-3xl p-4 md:p-5 shadow-[var(--shadow-card)]">
+          <div className="bg-vivid-azure rounded-2xl p-5 md:p-6 relative overflow-hidden">
+            <span className="absolute top-1 left-3 font-display font-black text-6xl text-white/30 leading-none select-none pointer-events-none">
+              &ldquo;
+            </span>
+
+            <div ref={reviewContentRef} key={active}>
+              <div className="flex items-center gap-0.5 mb-3">
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <span key={i} className="text-yellow text-xl leading-none">&#9733;</span>
+                ))}
+              </div>
+
+              <p className="font-body text-white text-base text-center leading-relaxed italic px-6 md:px-10 mb-5">
+                {review.text}
+              </p>
+
+              <div className="flex items-center justify-between px-2">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <span className="font-display font-bold text-white text-base">{getInitials(review.name)}</span>
+                </div>
+                <div className="flex-1 text-center mx-3">
+                  <p className="font-display italic font-bold text-white text-base">{review.name}</p>
+                  <p className="font-body text-white/60 text-sm">{review.trip}</p>
+                </div>
+                <span className="font-display font-black text-4xl text-white/30 leading-none select-none pointer-events-none flex-shrink-0">&rdquo;</span>
+              </div>
+            </div>
+
+            {reviews.length > 1 && (
+              <>
+                <button
+                  onClick={() => goTo((active - 1 + reviews.length) % reviews.length)}
+                  className="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200"
+                  aria-label="Previous review"
+                >
+                  <ChevronLeft size={16} className="text-white" />
+                </button>
+                <button
+                  onClick={() => goTo((active + 1) % reviews.length)}
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200"
+                  aria-label="Next review"
+                >
+                  <ChevronRight size={16} className="text-white" />
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+
+        {reviews.length > 1 && (
+          <div className="flex items-center justify-center gap-2.5 mt-5">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to review ${i + 1}`}
+                className={cn(
+                  'rounded-full transition-all duration-300',
+                  i === active ? 'w-3 h-3 bg-vivid-azure' : 'w-2 h-2 bg-vivid-azure/30 hover:bg-vivid-azure/50',
+                )}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+      <WavyDivider fill={ctaColor} position="bottom" />
+    </section>
+  )
 }
 
 // ─── WavyDivider (local) ──────────────────────────────────────────────────────
@@ -464,44 +630,12 @@ export default function DestinationDetailPage({
       </section>
 
       {/* ═══ SECTION 4.5: REVIEWS ════════════════════════════════════════ */}
-      <section style={{ backgroundColor: theme.bg }} className="py-10 md:py-14">
-        <div className="max-w-5xl mx-auto px-4 md:px-8">
-          <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
-          <h2 className="font-display font-bold text-dark text-3xl mb-6">
-            What people say about {theme.name}
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {REGION_REVIEWS[slug]?.length ? (
-              REGION_REVIEWS[slug].map((review) => (
-                <div
-                  key={review.name}
-                  className="bg-[#FFFDE8] p-6 border-l-4 border-l-yellow shadow-[2px_2px_12px_rgba(0,0,0,0.08)]"
-                >
-                  <div className="flex items-center gap-0.5 mb-3">
-                    {Array.from({ length: review.rating }).map((_, i) => (
-                      <span key={i} className="text-yellow text-base">&#9733;</span>
-                    ))}
-                  </div>
-                  <p className="font-body italic text-gray-700 text-base leading-relaxed mb-4">
-                    &ldquo;{review.text}&rdquo;
-                  </p>
-                  <p className="font-handwriting text-dark/60 text-base">
-                    &mdash; {review.name}, {review.trip}
-                  </p>
-                </div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-8">
-                <JournalNote text="Reviews coming soon" type="sticky" className="inline-block" />
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Wavy into CTA primary */}
-        <WavyDivider fill={theme.primary} position="bottom" />
-      </section>
+      <DestinationReviewsSection
+        reviews={REGION_REVIEWS[slug] ?? []}
+        regionName={theme.name}
+        bgColor={theme.bg}
+        ctaColor={theme.primary}
+      />
 
       {/* ═══ SECTION 5: CTA ════════════════════════════════════════════════════ */}
       <section style={{ backgroundColor: theme.primary }} className="py-12 md:py-16">

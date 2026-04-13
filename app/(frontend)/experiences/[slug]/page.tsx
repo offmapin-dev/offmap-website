@@ -1,13 +1,15 @@
 'use client'
 
-import { use } from 'react'
+import { use, useRef, useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Calendar, Users, Mountain, CheckCircle } from 'lucide-react'
+import { Calendar, Users, Mountain, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react'
+import { gsap } from 'gsap'
 import { REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
 import { ROUTE_IMAGES, FALLBACK_IMAGE } from '@/lib/images'
 import { PostageStamp, SectionLabel, JournalNote } from '@/components/ui/scrapbook'
+import { registerGSAP } from '@/lib/animations'
 import { cn } from '@/lib/utils'
 
 // ── Trip Detail Interface ────────────────────────────────────────
@@ -342,6 +344,141 @@ const TRIP_DATA: Record<string, TripDetail> = {
   },
 }
 
+// ── Shared review helpers ─────────────────────────────────────────
+function getInitials(name: string): string {
+  const parts = name.trim().split(/\s+/)
+  const first = parts[0]?.[0] ?? ''
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : ''
+  return (first + last).toUpperCase()
+}
+
+function TripReviewsSection({ reviews }: { reviews: { name: string; rating: number; text: string }[] }) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const reviewContentRef = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(0)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const isAnimatingRef = useRef(false)
+
+  const resetAutoAdvance = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => {
+      setActive((prev) => (prev + 1) % reviews.length)
+    }, 5000)
+  }, [reviews.length])
+
+  const goTo = useCallback((index: number) => {
+    if (isAnimatingRef.current) return
+    setActive(index)
+    resetAutoAdvance()
+  }, [resetAutoAdvance])
+
+  useEffect(() => {
+    resetAutoAdvance()
+    return () => { if (timerRef.current) clearInterval(timerRef.current) }
+  }, [resetAutoAdvance])
+
+  useEffect(() => {
+    if (!reviewContentRef.current) return
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
+    isAnimatingRef.current = true
+    gsap.fromTo(
+      reviewContentRef.current,
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', onComplete: () => { isAnimatingRef.current = false } },
+    )
+  }, [active])
+
+  useEffect(() => {
+    registerGSAP()
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
+    const ctx = gsap.context(() => {
+      if (sectionRef.current) {
+        gsap.from(sectionRef.current.querySelector('.review-card-wrapper'), {
+          y: 40, opacity: 0, duration: 0.7, ease: 'power2.out', delay: 0.15, immediateRender: false,
+          scrollTrigger: { trigger: sectionRef.current, start: 'top bottom', once: true },
+        })
+      }
+    })
+    return () => ctx.revert()
+  }, [])
+
+  const review = reviews[active]
+
+  return (
+    <section ref={sectionRef} className="bg-bg-mint py-10 md:py-14">
+      <div className="max-w-3xl mx-auto px-4">
+        <SectionLabel text="What Travelers Say" style="handwritten" className="block mb-3" />
+        <h2 className="font-display font-bold text-dark text-3xl mb-6">Reviews</h2>
+
+        <div className="review-card-wrapper bg-white rounded-3xl p-4 md:p-5 shadow-[var(--shadow-card)]">
+          <div className="bg-vivid-azure rounded-2xl p-5 md:p-6 relative overflow-hidden">
+            <span className="absolute top-1 left-3 font-display font-black text-6xl text-white/30 leading-none select-none pointer-events-none">
+              &ldquo;
+            </span>
+
+            <div ref={reviewContentRef} key={active}>
+              <div className="flex items-center gap-0.5 mb-3">
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <span key={i} className="text-yellow text-xl leading-none">&#9733;</span>
+                ))}
+              </div>
+
+              <p className="font-body text-white text-base text-center leading-relaxed italic px-6 md:px-10 mb-5">
+                {review.text}
+              </p>
+
+              <div className="flex items-center justify-between px-2">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <span className="font-display font-bold text-white text-base">{getInitials(review.name)}</span>
+                </div>
+                <p className="font-display italic font-bold text-white text-base flex-1 text-center mx-3">{review.name}</p>
+                <span className="font-display font-black text-4xl text-white/30 leading-none select-none pointer-events-none flex-shrink-0">&rdquo;</span>
+              </div>
+            </div>
+
+            {reviews.length > 1 && (
+              <>
+                <button
+                  onClick={() => goTo((active - 1 + reviews.length) % reviews.length)}
+                  className="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200"
+                  aria-label="Previous review"
+                >
+                  <ChevronLeft size={16} className="text-white" />
+                </button>
+                <button
+                  onClick={() => goTo((active + 1) % reviews.length)}
+                  className="absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-200"
+                  aria-label="Next review"
+                >
+                  <ChevronRight size={16} className="text-white" />
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+
+        {reviews.length > 1 && (
+          <div className="flex items-center justify-center gap-2.5 mt-5">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to review ${i + 1}`}
+                className={cn(
+                  'rounded-full transition-all duration-300',
+                  i === active ? 'w-3 h-3 bg-vivid-azure' : 'w-2 h-2 bg-vivid-azure/30 hover:bg-vivid-azure/50',
+                )}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
+
 // ── Page Component ───────────────────────────────────────────────
 export default function TripDetailPage({
   params,
@@ -492,41 +629,7 @@ export default function TripDetailPage({
       </section>
 
       {/* ═══ REVIEWS ═══════════════════════════════════════════════════ */}
-      <section className="bg-white py-10 md:py-14">
-        <div className="max-w-5xl mx-auto px-4">
-          <SectionLabel
-            text="What Travelers Say"
-            style="handwritten"
-            className="block mb-3"
-          />
-          <h2 className="font-display font-bold text-dark text-3xl mb-6">
-            Reviews
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {trip.reviews.map((review) => (
-              <div
-                key={review.name}
-                className="bg-[#FFFDE8] p-6 border-l-4 border-l-yellow shadow-[2px_2px_12px_rgba(0,0,0,0.08)]"
-              >
-                <div className="flex items-center gap-0.5 mb-3">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <span key={i} className="text-yellow text-base">
-                      &#9733;
-                    </span>
-                  ))}
-                </div>
-                <p className="font-body italic text-gray-700 text-base leading-relaxed mb-4">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <p className="font-handwriting text-dark/60 text-base">
-                  &mdash; {review.name}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TripReviewsSection reviews={trip.reviews} />
 
       {/* ═══ CTA ═══════════════════════════════════════════════════════ */}
       <section
