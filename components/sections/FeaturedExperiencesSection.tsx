@@ -56,7 +56,7 @@ const FEATURED_TRIPS: TripCardData[] = [
     subtitle: 'Fly High This Weekend',
     region: 'Himachal Pradesh',
     regionSlug: 'himachal-pradesh',
-    image: 'https://images.unsplash.com/photo-1601024445168-8de05a04a38e?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
     month: m0.month,
     year: m0.year,
     date: `22 ${m0.name}`,
@@ -72,7 +72,7 @@ const FEATURED_TRIPS: TripCardData[] = [
     subtitle: 'Land of Leopards',
     region: 'Rajasthan',
     regionSlug: 'rajasthan',
-    image: 'https://images.unsplash.com/photo-1477587458883-47145ed31459?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1549366021-9f761d450615?w=600&q=80',
     month: m1.month,
     year: m1.year,
     date: `1 ${m1.name}`,
@@ -88,7 +88,7 @@ const FEATURED_TRIPS: TripCardData[] = [
     subtitle: 'Lakes & Desert Trails',
     region: 'Rajasthan',
     regionSlug: 'rajasthan',
-    image: 'https://images.unsplash.com/photo-1524492412937-b28074a47d70?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=600&q=80',
     month: m1.month,
     year: m1.year,
     date: `8 ${m1.name}`,
@@ -103,7 +103,7 @@ const FEATURED_TRIPS: TripCardData[] = [
     subtitle: 'The Quiet Hills',
     region: 'Uttarakhand',
     regionSlug: 'uttarakhand',
-    image: 'https://images.unsplash.com/photo-1600097454296-12f6d5c3b4d9?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80',
     month: m2.month,
     year: m2.year,
     date: `15 ${m2.name}`,
@@ -347,7 +347,7 @@ export function FeaturedExperiencesSection() {
           ) : (
             <div className="text-center py-12">
               <JournalNote
-                text="no trips this month \u2014 check back soon \uD83D\uDDFA\uFE0F"
+                text="no trips this month — check back soon 🗺️"
                 type="sticky"
                 className="inline-block"
               />
