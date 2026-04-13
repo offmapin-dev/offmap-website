@@ -1,202 +1,277 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { MapPin } from 'lucide-react'
+import { useEffect, useRef, useState, useCallback } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FEATURED_ROUTES, REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
-import { PostageStamp, SectionLabel } from '@/components/ui/scrapbook'
-import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
 import { registerGSAP } from '@/lib/animations'
-import { ROUTE_IMAGES } from '@/lib/images'
+import { StackedTripCard, type TripCardData } from '@/components/ui/StackedTripCard'
+import { cn } from '@/lib/utils'
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-}
+const FEATURED_TRIPS: TripCardData[] = [
+  {
+    name: 'SHANGARH',
+    subtitle: 'Hidden Himalayan Meadow',
+    region: 'Himachal Pradesh',
+    regionSlug: 'himachal-pradesh',
+    image: 'https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?w=600&q=80',
+    date: '15 May',
+    duration: '3N/4D',
+    originalPrice: '\u20B99,999',
+    price: '\u20B98,999',
+    badge: 'Popular',
+    departure: 'Delhi to Delhi',
+    slug: 'shangarh-raghupur-fort',
+  },
+  {
+    name: 'BIR',
+    subtitle: 'Fly High This Weekend',
+    region: 'Himachal Pradesh',
+    regionSlug: 'himachal-pradesh',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+    date: '22 May',
+    duration: '2N/3D',
+    originalPrice: '\u20B97,499',
+    price: '\u20B96,999',
+    badge: 'Just Added',
+    departure: 'Delhi to Delhi',
+    slug: 'bir-barot',
+  },
+  {
+    name: 'JAWAI',
+    subtitle: 'Land of Leopards',
+    region: 'Rajasthan',
+    regionSlug: 'rajasthan',
+    image: 'https://images.unsplash.com/photo-1549366021-9f761d450615?w=600&q=80',
+    date: '1 June',
+    duration: '3N/4D',
+    originalPrice: '\u20B912,999',
+    price: '\u20B911,999',
+    badge: 'Limited Seats',
+    departure: 'Delhi to Delhi',
+    slug: 'jawai',
+  },
+  {
+    name: 'UDAIPUR',
+    subtitle: 'Lakes & Desert Trails',
+    region: 'Rajasthan',
+    regionSlug: 'rajasthan',
+    image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=600&q=80',
+    date: '8 June',
+    duration: '4N/5D',
+    originalPrice: '\u20B913,999',
+    price: '\u20B911,999',
+    departure: 'Delhi to Delhi',
+    slug: 'jawai',
+  },
+  {
+    name: 'KASAR DEVI',
+    subtitle: 'The Quiet Hills',
+    region: 'Uttarakhand',
+    regionSlug: 'uttarakhand',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80',
+    date: '15 June',
+    duration: '4N/5D',
+    originalPrice: '\u20B913,999',
+    price: '\u20B912,999',
+    departure: 'Delhi to Delhi',
+    slug: 'kasar-devi-khaliya-top',
+  },
+  {
+    name: 'RAJGUNDHA',
+    subtitle: 'Valley Above the World',
+    region: 'Himachal Pradesh',
+    regionSlug: 'himachal-pradesh',
+    image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80',
+    date: '20 June',
+    duration: '3N/4D',
+    originalPrice: '\u20B98,999',
+    price: '\u20B97,999',
+    badge: 'New',
+    departure: 'Delhi to Delhi',
+    slug: 'rajgundha-valley',
+  },
+]
 
-const ROUTE_DETAILS: Record<string, {
-  days: string
-  nights: string
-  type: string
-  price: string
-  highlights: [string, string, string]
-}> = {
-  'bir-barot': {
-    days: '4 Days', nights: '3 Nights', type: 'Trek',
-    price: '₹8,999',
-    highlights: ['Group', 'Moderate', 'All inclusive'],
-  },
-  'rajgundha-valley': {
-    days: '3 Days', nights: '2 Nights', type: 'Valley Trek',
-    price: '₹7,499',
-    highlights: ['Group', 'Easy', 'All inclusive'],
-  },
-  'shangarh-raghupur-fort': {
-    days: '2 Days', nights: '1 Night', type: 'Heritage Walk',
-    price: '₹4,999',
-    highlights: ['Group', 'Easy', 'Guided'],
-  },
-  jawai: {
-    days: '3 Days', nights: '2 Nights', type: 'Wildlife',
-    price: '₹12,999',
-    highlights: ['Group', 'Easy', 'Safari included'],
-  },
-  'kasar-devi-khaliya-top': {
-    days: '4 Days', nights: '3 Nights', type: 'Himalayan Trek',
-    price: '₹9,499',
-    highlights: ['Group', 'Moderate', 'All inclusive'],
-  },
-}
+const PAIRS: [TripCardData, TripCardData][] = [
+  [FEATURED_TRIPS[0], FEATURED_TRIPS[1]],
+  [FEATURED_TRIPS[2], FEATURED_TRIPS[3]],
+  [FEATURED_TRIPS[4], FEATURED_TRIPS[5]],
+]
 
 export function FeaturedExperiencesSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const headingRef = useRef<HTMLDivElement>(null)
-  const trackRef = useRef<HTMLDivElement>(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const isAnimatingRef = useRef(false)
+  const touchStartRef = useRef(0)
 
-  useScrollAnimation(headingRef)
+  const goTo = useCallback((index: number) => {
+    if (isAnimatingRef.current || index === currentIndex) return
+    const clamped = ((index % PAIRS.length) + PAIRS.length) % PAIRS.length
+    setCurrentIndex(clamped)
+  }, [currentIndex])
+
+  const goNext = useCallback(() => {
+    goTo((currentIndex + 1) % PAIRS.length)
+  }, [currentIndex, goTo])
+
+  const goPrev = useCallback(() => {
+    goTo((currentIndex - 1 + PAIRS.length) % PAIRS.length)
+  }, [currentIndex, goTo])
+
+  useEffect(() => {
+    if (!carouselRef.current) return
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
+
+    isAnimatingRef.current = true
+    gsap.fromTo(
+      carouselRef.current,
+      { opacity: 0, x: 30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+        onComplete: () => { isAnimatingRef.current = false },
+      },
+    )
+  }, [currentIndex])
 
   useEffect(() => {
     registerGSAP()
-
-    const section = sectionRef.current
-    const track = trackRef.current
-    if (!section || !track) return
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    // Mobile: fall back to CSS overflow-x scroll
-    if (window.innerWidth < 768) return
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) return
 
     const ctx = gsap.context(() => {
-      gsap.to(track, {
-        x: () => -(track.scrollWidth - window.innerWidth + 64),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: () => `+=${track.scrollWidth - window.innerWidth + 64}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      })
-    }, section)
+      if (sectionRef.current) {
+        gsap.from(sectionRef.current, {
+          y: 40,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top bottom',
+            once: true,
+          },
+        })
+      }
+    })
 
     return () => ctx.revert()
   }, [])
 
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartRef.current = e.touches[0].clientX
+  }, [])
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    const diff = touchStartRef.current - e.changedTouches[0].clientX
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goNext()
+      else goPrev()
+    }
+  }, [goNext, goPrev])
+
+  const pair = PAIRS[currentIndex]
+  const frontRegion = REGION_THEMES[pair[0].regionSlug as RegionThemeKey]
+
   return (
-    <section ref={sectionRef} className="bg-[#FDF0E8]">
-      {/* Heading — always in normal flow */}
-      <div className="max-w-7xl mx-auto px-4 pt-10 md:pt-14 pb-6">
-        <div ref={headingRef}>
-          <SectionLabel text="Featured Routes" style="handwritten" className="mb-3 block" />
-          <p className="font-handwriting text-dark/50 text-xl mt-2">
-            grab a postcard &amp; go
+    <section ref={sectionRef} className="bg-white py-16">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Section heading */}
+        <div className="mb-10 md:mb-12">
+          <h2 className="font-display font-black text-3xl md:text-4xl text-[#0D78A8]">
+            Stories For Weekends
+          </h2>
+          <p className="font-handwriting text-gray-400 text-xl mt-2">
+            routes we&apos;ve fallen in love with &rarr;
           </p>
         </div>
-      </div>
 
-      {/* Mobile: CSS overflow scroll. Desktop: GSAP animates this track */}
-      <div className="overflow-x-auto md:overflow-visible pb-0">
-        <div
-          ref={trackRef}
-          className="flex gap-10 px-4 md:px-16 pb-10 pt-4 w-max items-start"
-        >
-          {FEATURED_ROUTES.map((route) => {
-            const theme = REGION_THEMES[route.location as RegionThemeKey]
-            const details = ROUTE_DETAILS[route.slug]
-            return (
-              <Link
-                key={route.slug}
-                href={`/experiences/${route.slug}`}
-                className="flex-none w-72 block group"
-              >
-                <div className="rounded-2xl overflow-hidden bg-white shadow-[var(--shadow-card)] hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300">
-                  {/* Image area */}
-                  <div className="relative h-52 overflow-hidden">
-                    <Image
-                      src={ROUTE_IMAGES[route.slug] ?? ''}
-                      alt={route.name}
-                      fill
-                      sizes="288px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {/* Dark gradient at bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    {/* PostageStamp top-left */}
-                    <div className="absolute top-3 left-3">
-                      <PostageStamp region={route.location as RegionThemeKey} />
-                    </div>
-                    {/* Duration badge top-right */}
-                    {details && (
-                      <div className="absolute top-3 right-3 bg-dark/70 backdrop-blur-sm text-white font-handwriting text-xs px-2.5 py-1 rounded-full">
-                        {details.days} · {details.nights}
-                      </div>
-                    )}
-                  </div>
+        {/* Carousel area */}
+        <div className="relative">
+          {/* Desktop arrows */}
+          <button
+            onClick={goPrev}
+            className={cn(
+              'hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-30',
+              'w-12 h-12 rounded-full bg-white shadow-[var(--shadow-card)]',
+              'items-center justify-center',
+              'hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-200',
+            )}
+            aria-label="Previous trips"
+          >
+            <ChevronLeft size={22} className="text-[#0D78A8]" />
+          </button>
+          <button
+            onClick={goNext}
+            className={cn(
+              'hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-30',
+              'w-12 h-12 rounded-full bg-white shadow-[var(--shadow-card)]',
+              'items-center justify-center',
+              'hover:shadow-[var(--shadow-card-hover)] transition-shadow duration-200',
+            )}
+            aria-label="Next trips"
+          >
+            <ChevronRight size={22} className="text-[#0D78A8]" />
+          </button>
 
-                  {/* Content area */}
-                  <div className="p-4">
-                    {/* Route name */}
-                    <h3 className="font-display font-bold text-lg text-dark leading-snug">
-                      {route.name}
-                    </h3>
+          {/* Cards container */}
+          <div
+            ref={carouselRef}
+            key={currentIndex}
+            className="flex justify-center gap-8 md:gap-16 py-6"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Mobile: show only first card of pair */}
+            <div className="block md:hidden">
+              <StackedTripCard
+                frontCard={pair[0]}
+                backCard={pair[1]}
+                regionColor={frontRegion?.primary ?? '#0D78A8'}
+              />
+            </div>
 
-                    {/* Region + type row */}
-                    <div className="flex items-center gap-2 mt-1.5">
-                      <span className="flex items-center gap-1 font-handwriting text-gray-400 text-sm">
-                        <MapPin size={12} className="flex-none" />
-                        {theme?.name}
-                      </span>
-                      <span className="text-gray-300">&middot;</span>
-                      <span className="font-body text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
-                        {details?.type}
-                      </span>
-                    </div>
+            {/* Desktop: show both card stacks side by side */}
+            <div className="hidden md:flex gap-16">
+              <StackedTripCard
+                frontCard={pair[0]}
+                backCard={pair[1]}
+                regionColor={
+                  REGION_THEMES[pair[0].regionSlug as RegionThemeKey]?.primary ?? '#0D78A8'
+                }
+              />
+              <StackedTripCard
+                frontCard={pair[1]}
+                backCard={pair[0]}
+                regionColor={
+                  REGION_THEMES[pair[1].regionSlug as RegionThemeKey]?.primary ?? '#0D78A8'
+                }
+              />
+            </div>
+          </div>
+        </div>
 
-                    {/* Highlights row */}
-                    {details && (
-                      <div className="flex items-center gap-3 mt-3 text-xs font-body text-gray-500">
-                        <span className="flex items-center gap-1">
-                          <span aria-hidden="true">👥</span> {details.highlights[0]}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <span aria-hidden="true">🥾</span> {details.highlights[1]}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <span aria-hidden="true">✓</span> {details.highlights[2]}
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Price row */}
-                    {details && theme && (
-                      <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
-                        <div>
-                          <span className="font-handwriting text-gray-400 text-xs">From</span>
-                          <span
-                            className="font-display font-bold text-base ml-1"
-                            style={{ color: theme.primary }}
-                          >
-                            {details.price}
-                          </span>
-                        </div>
-                        <span
-                          className="font-handwriting text-base"
-                          style={{ color: theme.primary }}
-                        >
-                          View Trip &rarr;
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </Link>
-            )
-          })}
+        {/* Navigation dots */}
+        <div className="flex items-center justify-center gap-3 mt-8">
+          {PAIRS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Go to trip pair ${i + 1}`}
+              className={cn(
+                'rounded-full transition-all duration-300',
+                i === currentIndex
+                  ? 'w-6 h-2 bg-[#0D78A8]'
+                  : 'w-2 h-2 bg-gray-300 hover:bg-gray-400',
+              )}
+            />
+          ))}
         </div>
       </div>
     </section>
