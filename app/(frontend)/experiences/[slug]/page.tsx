@@ -407,10 +407,14 @@ function TripReviewsSection({ reviews }: { reviews: { name: string; rating: numb
   const review = reviews[active]
 
   return (
-    <section ref={sectionRef} className="bg-white py-10 md:py-14">
+    <section ref={sectionRef} className="bg-[#0D78A8] py-10 md:py-14">
       <div className="max-w-3xl mx-auto px-4">
-        <SectionLabel text="What Travelers Say" style="handwritten" className="block mb-3" />
-        <h2 className="font-display font-bold text-dark text-3xl mb-6">Reviews</h2>
+        <SectionLabel
+          text="What Travelers Say"
+          style="handwritten"
+          className="block mb-3 !text-white/70 [&>span:last-child]:!text-white/50"
+        />
+        <h2 className="font-display font-bold text-white text-3xl mb-6">Reviews</h2>
 
         <div className="review-card-wrapper bg-white rounded-3xl p-4 md:p-5 shadow-[var(--shadow-card)]">
           <div className="bg-[#0D78A8] rounded-2xl p-5 md:p-6 relative overflow-hidden">
@@ -468,7 +472,7 @@ function TripReviewsSection({ reviews }: { reviews: { name: string; rating: numb
                 aria-label={`Go to review ${i + 1}`}
                 className={cn(
                   'rounded-full transition-all duration-300',
-                  i === active ? 'w-3 h-3 bg-[#0D78A8]' : 'w-2 h-2 bg-[#0D78A8]/30 hover:bg-[#0D78A8]/50',
+                  i === active ? 'w-3 h-3 bg-white' : 'w-2 h-2 bg-white/30 hover:bg-white/50',
                 )}
               />
             ))}
@@ -571,20 +575,17 @@ export default function TripDetailPage({
       </section>
 
       {/* ═══ DAY-WISE ITINERARY ════════════════════════════════════════ */}
-      <section
-        className="py-10 md:py-14"
-        style={{ backgroundColor: theme.bg }}
-      >
+      <section className="bg-[#39A2B8] py-10 md:py-14">
         <div className="max-w-4xl mx-auto px-4">
           <SectionLabel
             text="How It Unfolds"
             style="handwritten"
-            className="block mb-3"
+            className="block mb-3 !text-white/70 [&>span:last-child]:!text-white/50"
           />
-          <h2 className="font-display font-bold text-dark text-3xl mb-2">
+          <h2 className="font-display font-bold text-white text-3xl mb-2">
             The Flow, Not a Checklist
           </h2>
-          <p className="font-body text-gray-500 text-sm mb-6">
+          <p className="font-body text-white/70 text-sm mb-6">
             This is a rough flow of how your days might look — not a fixed schedule. We leave room to explore, slow down, or change plans based on the weather, the group, and the moment.
           </p>
 
@@ -601,16 +602,15 @@ export default function TripDetailPage({
 
                 {/* Content */}
                 <div
-                  className="flex-1 pb-8 border-l-2 border-dashed pl-6 -ml-[21px] mt-5"
-                  style={{ borderColor: `${theme.primary}33` }}
+                  className="flex-1 pb-8 border-l-2 border-dashed border-white/30 pl-6 -ml-[21px] mt-5"
                 >
-                  <h3 className="font-heading font-semibold text-dark text-lg">
+                  <h3 className="font-heading font-semibold text-white text-lg">
                     {day.title}
                   </h3>
-                  <p className="font-handwriting text-gray-400 text-sm mt-0.5">
+                  <p className="font-handwriting text-white/70 text-sm mt-0.5">
                     {day.location}
                   </p>
-                  <p className="font-body text-gray-600 text-sm mt-2 leading-relaxed">
+                  <p className="font-body text-white/70 text-sm mt-2 leading-relaxed">
                     {day.description}
                   </p>
 

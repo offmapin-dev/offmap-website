@@ -64,7 +64,7 @@ export function QuickNavSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-[#0D78A8] py-8 md:py-10">
+    <section ref={sectionRef} className="bg-[#39A2B8] py-8 md:py-10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-center md:gap-10 mb-6">
           <span ref={labelRef} className="block mb-2 md:mb-0">

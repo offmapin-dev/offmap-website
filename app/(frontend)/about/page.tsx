@@ -109,9 +109,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <TornEdge position="bottom" color="#FFFFFF" />
+      <TornEdge position="bottom" color="#39A2B8" />
 
-      <section ref={s2Ref} className="bg-white py-10 md:py-16">
+      <section ref={s2Ref} className="bg-[#39A2B8] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="paper-lines rounded-2xl p-6 md:p-10 bg-white/60 border-l-4 border-red-300">
             <div className="relative inline-block mb-6">
@@ -151,9 +151,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <TornEdge position="bottom" color="#FFFFFF" />
+      <TornEdge position="bottom" color="#0D78A8" />
 
-      <section ref={s3Ref} className="bg-white py-10 md:py-16">
+      <section ref={s3Ref} className="bg-[#0D78A8] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
           {HOW_TILES.map((t) => (
             <div

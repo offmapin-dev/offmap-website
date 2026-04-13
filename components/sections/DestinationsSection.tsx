@@ -63,37 +63,41 @@ export function DestinationsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-white diagonal-stripes">
-      <TornEdge position="top" color="#FFFFFF" />
+    <section ref={sectionRef} className="bg-[#0D78A8]">
+      <TornEdge position="top" color="#0D78A8" />
 
       <div className="max-w-7xl mx-auto px-4 pt-4 pb-8 md:pb-12">
         {/* Header */}
         <div ref={headerRef} className="mb-8">
           <div ref={washiRef} className="relative inline-block mb-6">
             <WashiTape color="yellow" rotation={-2} width="w-44" />
-            <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
+            <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white/80 text-sm pointer-events-none">
               Unmapped awaits
             </span>
           </div>
 
           <span ref={stampRef} className="inline-block mb-4">
-            <SectionLabel text="WANDERLUST" style="stamp" className="block" />
+            <SectionLabel
+              text="WANDERLUST"
+              style="stamp"
+              className="block [--stamp-color:#ffffff]"
+            />
           </span>
 
-          <svg className="hidden md:inline-block w-6 h-6 mb-2 opacity-30" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <svg className="hidden md:inline-block w-6 h-6 mb-2 text-white/30" viewBox="0 0 24 24" fill="none" aria-hidden>
             <circle cx="12" cy="4" r="1.5" fill="currentColor" />
             <circle cx="20" cy="12" r="1" fill="currentColor" />
             <circle cx="4" cy="10" r="1.2" fill="currentColor" />
             <circle cx="16" cy="20" r="0.8" fill="currentColor" />
           </svg>
-          <h2 ref={headlineRef} className="font-display font-black text-dark text-4xl md:text-5xl mt-5">
+          <h2 ref={headlineRef} className="font-display font-black text-white text-4xl md:text-5xl mt-5">
             {['Pick', 'your', 'direction'].map((w) => (
               <span key={w} className="inline-block overflow-hidden align-bottom mr-[0.22em] last:mr-0">
                 <span className="dest-word inline-block">{w}</span>
               </span>
             ))}
           </h2>
-          <span className="hidden md:block font-handwriting text-gray-400 text-lg rotate-[2deg] mt-3 select-none pointer-events-none">
+          <span className="hidden md:block font-handwriting text-white/70 text-lg rotate-[2deg] mt-3 select-none pointer-events-none">
             our favourites →
           </span>
         </div>

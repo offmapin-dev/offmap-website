@@ -195,25 +195,25 @@ export default function StudentProgramPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFFFFF" />
+      <WavyDivider fill="#39A2B8" />
 
-      <section ref={s2Ref} className="bg-white py-10 md:py-16">
+      <section ref={s2Ref} className="bg-[#39A2B8] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="relative inline-block mb-6">
               <WashiTape color="yellow" rotation={-2} width="w-48" />
-              <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
+              <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white/70 text-sm pointer-events-none">
                 for schools &amp; colleges
               </span>
             </div>
-            <h2 className="font-display font-black text-dark text-3xl md:text-4xl leading-tight">
+            <h2 className="font-display font-black text-white text-3xl md:text-4xl leading-tight">
               Real terrain. Real communities. Real learning.
             </h2>
-            <p className="font-body text-dark/70 text-base leading-relaxed mt-5">
+            <p className="font-body text-white/70 text-base leading-relaxed mt-5">
               We design school and college programs that go beyond textbooks. Students trek, interact
               with local communities, understand ecosystems, and come back changed.
             </p>
-            <h3 className="font-heading font-semibold text-dark mt-8 mb-4">Why It Matters</h3>
+            <h3 className="font-heading font-semibold text-white mt-8 mb-4">Why It Matters</h3>
             <ul className="space-y-4">
               {WHY_POINTS.map((text) => (
                 <li key={text} className="flex gap-3 items-start">
@@ -222,9 +222,9 @@ export default function StudentProgramPage() {
                     alt=""
                     width={40}
                     height={40}
-                    className="shrink-0 object-contain mix-blend-multiply"
+                    className="shrink-0 object-contain"
                   />
-                  <span className="font-body text-dark/80 text-base pt-1">{text}</span>
+                  <span className="font-body text-white/70 text-base pt-1">{text}</span>
                 </li>
               ))}
             </ul>
@@ -274,14 +274,14 @@ export default function StudentProgramPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFE927" />
+      <WavyDivider fill="#0D78A8" />
 
-      <section ref={formRef} id="enquiry" className="bg-[#FFE927] py-10 md:py-16 scroll-mt-20">
+      <section ref={formRef} id="enquiry" className="bg-[#0D78A8] py-10 md:py-16 scroll-mt-20">
         <div className="max-w-2xl mx-auto px-4">
-          <h2 className="font-display font-black text-dark text-3xl md:text-4xl text-center">
+          <h2 className="font-display font-black text-white text-3xl md:text-4xl text-center">
             Plan a School Trip
           </h2>
-          <p className="font-handwriting text-dark/70 text-xl text-center mt-2 mb-10">
+          <p className="font-handwriting text-white/70 text-xl text-center mt-2 mb-10">
             tell us about your school
           </p>
 
@@ -297,7 +297,7 @@ export default function StudentProgramPage() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div>
-              <label htmlFor="school" className="font-heading text-sm font-medium text-dark block mb-1">
+              <label htmlFor="school" className="font-heading text-sm font-medium text-white block mb-1">
                 School / Institution
               </label>
               <input
@@ -311,7 +311,7 @@ export default function StudentProgramPage() {
             </div>
 
             <div>
-              <label htmlFor="contactName" className="font-heading text-sm font-medium text-dark block mb-1">
+              <label htmlFor="contactName" className="font-heading text-sm font-medium text-white block mb-1">
                 Contact person
               </label>
               <input
@@ -326,7 +326,7 @@ export default function StudentProgramPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="email" className="font-heading text-sm font-medium text-dark block mb-1">
+                <label htmlFor="email" className="font-heading text-sm font-medium text-white block mb-1">
                   Email
                 </label>
                 <input
@@ -338,7 +338,7 @@ export default function StudentProgramPage() {
                 {errors.email ? <p className="text-sm text-red-800 mt-1">{errors.email.message}</p> : null}
               </div>
               <div>
-                <label htmlFor="phone" className="font-heading text-sm font-medium text-dark block mb-1">
+                <label htmlFor="phone" className="font-heading text-sm font-medium text-white block mb-1">
                   Phone
                 </label>
                 <input
@@ -353,7 +353,7 @@ export default function StudentProgramPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="gradeGroup" className="font-heading text-sm font-medium text-dark block mb-1">
+                <label htmlFor="gradeGroup" className="font-heading text-sm font-medium text-white block mb-1">
                   Grade / age group
                 </label>
                 <select
@@ -369,7 +369,7 @@ export default function StudentProgramPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="studentCount" className="font-heading text-sm font-medium text-dark block mb-1">
+                <label htmlFor="studentCount" className="font-heading text-sm font-medium text-white block mb-1">
                   Number of students
                 </label>
                 <input
@@ -386,7 +386,7 @@ export default function StudentProgramPage() {
             </div>
 
             <div>
-              <label htmlFor="destination" className="font-heading text-sm font-medium text-dark block mb-1">
+              <label htmlFor="destination" className="font-heading text-sm font-medium text-white block mb-1">
                 Preferred destination
               </label>
               <select
@@ -403,7 +403,7 @@ export default function StudentProgramPage() {
             </div>
 
             <div>
-              <label htmlFor="preferredDates" className="font-heading text-sm font-medium text-dark block mb-1">
+              <label htmlFor="preferredDates" className="font-heading text-sm font-medium text-white block mb-1">
                 Preferred dates
               </label>
               <input
@@ -418,7 +418,7 @@ export default function StudentProgramPage() {
             </div>
 
             <div>
-              <label htmlFor="message" className="font-heading text-sm font-medium text-dark block mb-1">
+              <label htmlFor="message" className="font-heading text-sm font-medium text-white block mb-1">
                 Message / requirements
               </label>
               <textarea

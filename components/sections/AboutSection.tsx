@@ -116,7 +116,7 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-white pt-10 md:pt-12">
+    <section ref={sectionRef} className="bg-[#39A2B8] pt-10 md:pt-12">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* A) Photo strip */}
@@ -137,23 +137,27 @@ export function AboutSection() {
 
           {/* Left column -- journal page */}
           <div className="lg:col-span-7 mb-14 lg:mb-0">
-            <div ref={journalRef} className="paper-lines bg-[#39A2B8]/20 rounded-xl p-6 md:p-10 relative will-change-[clip-path] border-l-4 border-red-300">
+            <div ref={journalRef} className="paper-lines bg-white/20 rounded-xl p-6 md:p-10 relative will-change-[clip-path] border-l-4 border-red-300">
               {/* Washi tape decoration */}
               <div ref={washiRef} className="absolute top-3 left-8">
                 <WashiTape color="yellow" rotation={-2} width="w-28" />
-                <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
+                <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white/80 text-sm pointer-events-none">
                   our story &rarr;
                 </span>
               </div>
 
               <div className="mt-4">
                 <span ref={labelRef} className="inline-block mb-5">
-                  <SectionLabel text="a note from us" style="handwritten" />
+                  <SectionLabel
+                    text="a note from us"
+                    style="handwritten"
+                    className="text-white [&>span:last-child]:text-white/60"
+                  />
                 </span>
 
                 <h2
                   ref={headlineRef}
-                  className="font-display font-bold text-dark text-4xl md:text-5xl leading-tight mb-6"
+                  className="font-display font-bold text-white text-4xl md:text-5xl leading-tight mb-6"
                 >
                   {/* Line 1 */}
                   <span className="block">
@@ -173,13 +177,13 @@ export function AboutSection() {
                   </span>
                 </h2>
 
-                <p ref={para1Ref} className="font-body text-dark/70 text-base leading-relaxed mb-4">
+                <p ref={para1Ref} className="font-body text-white/70 text-base leading-relaxed mb-4">
                   We believe the best stories aren&apos;t found in guidebooks. They&apos;re
                   written in the margins of worn notebooks, shared over roadside chai, and
                   discovered when you stop rushing.
                 </p>
 
-                <p ref={para2Ref} className="font-body text-dark/70 text-base leading-relaxed mb-8">
+                <p ref={para2Ref} className="font-body text-white/70 text-base leading-relaxed mb-8">
                   We spend more time in fewer places, connect with locals, and discover
                   experiences before creating trips.
                 </p>
@@ -191,7 +195,7 @@ export function AboutSection() {
                 <Link
                   ref={ctaRef}
                   href="/contact"
-                  className="font-handwriting text-blue text-lg font-semibold hover:text-blue/70 transition-colors duration-200 inline-block mt-4"
+                  className="font-handwriting text-white text-lg font-semibold hover:text-white/80 transition-colors duration-200 inline-block mt-4"
                 >
                   Plan Your Journey &rarr;
                 </Link>

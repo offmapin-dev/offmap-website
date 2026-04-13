@@ -103,14 +103,14 @@ export default function WorkWithUsPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFFFFF" />
+      <WavyDivider fill="#39A2B8" />
 
-      <section ref={s2Ref} className="bg-white py-10 md:py-16">
+      <section ref={s2Ref} className="bg-[#39A2B8] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="font-display font-bold text-dark text-2xl md:text-4xl text-center max-w-2xl mx-auto leading-tight">
+          <h2 className="font-display font-bold text-white text-2xl md:text-4xl text-center max-w-2xl mx-auto leading-tight">
             If you care about honest travel...
           </h2>
-          <p className="font-body text-dark/70 text-center max-w-2xl mx-auto mt-6 leading-relaxed">
+          <p className="font-body text-white/70 text-center max-w-2xl mx-auto mt-6 leading-relaxed">
             If you run a homestay, host experiences, guide trails, create content, or simply know a
             place deeply, we&apos;d love to hear from you.
           </p>
@@ -138,11 +138,11 @@ export default function WorkWithUsPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFFFFF" />
+      <WavyDivider fill="#0D78A8" />
 
-      <section ref={s3Ref} className="bg-white py-10 md:py-16 text-center px-4">
-        <h2 className="font-display font-bold text-dark text-3xl md:text-4xl">Let&apos;s work together</h2>
-        <p className="font-handwriting text-dark/50 text-xl mt-2 mb-10">tell us about yourself →</p>
+      <section ref={s3Ref} className="bg-[#0D78A8] py-10 md:py-16 text-center px-4">
+        <h2 className="font-display font-bold text-white text-3xl md:text-4xl">Let&apos;s work together</h2>
+        <p className="font-handwriting text-white/70 text-xl mt-2 mb-10">tell us about yourself →</p>
 
         {/* TODO: Replace href with actual Google Form URL from client */}
         <Link
@@ -152,7 +152,7 @@ export default function WorkWithUsPage() {
           Apply to Work With Us →
         </Link>
 
-        <p className="font-handwriting text-gray-400 text-sm mt-8 max-w-md mx-auto">
+        <p className="font-handwriting text-white/70 text-sm mt-8 max-w-md mx-auto">
           we review applications personally. no ghosting, we promise.
         </p>
       </section>

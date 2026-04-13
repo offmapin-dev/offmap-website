@@ -11,7 +11,6 @@ import {
   PolaroidCard,
   TornEdge,
   WashiTape,
-  SectionLabel,
   StampBadge,
   JournalNote,
   PostageStamp,
@@ -213,7 +212,7 @@ export default function BlogsPage() {
   return (
     <main>
       {/* SECTION 1 — Corkboard hero */}
-      <section className="bg-white overflow-x-hidden overflow-y-visible">
+      <section className="bg-[#0D78A8] text-white overflow-x-hidden overflow-y-visible">
         <div className="max-w-7xl mx-auto px-4 py-10 md:py-16">
           <div
             ref={heroCollageRef}
@@ -241,23 +240,23 @@ export default function BlogsPage() {
           <div ref={heroTextRef} className="text-center max-w-3xl mx-auto">
             <div className="relative inline-block mb-6">
               <WashiTape color="yellow" rotation={-2} width="w-36" />
-              <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
+              <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white/70 text-sm pointer-events-none">
                 field notes →
               </span>
             </div>
-            <h1 className="font-display font-black text-dark text-6xl md:text-8xl leading-none">
+            <h1 className="font-display font-black text-white text-6xl md:text-8xl leading-none">
               The Chronicle
             </h1>
-            <p className="font-handwriting text-gray-500 text-xl mt-4">
+            <p className="font-handwriting text-white/70 text-xl mt-4">
               stories from the road, the trail and the table
             </p>
           </div>
         </div>
-        <TornEdge position="bottom" color="#FFFFFF" />
+        <TornEdge position="bottom" color="#39A2B8" />
       </section>
 
       {/* SECTION 2 — Featured */}
-      <section ref={featuredRef} className="bg-white py-10 md:py-14 relative">
+      <section ref={featuredRef} className="bg-[#39A2B8] text-white py-10 md:py-14 relative">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 lg:items-start">
             <div className="featured-animate lg:col-span-3 relative h-80 rounded-2xl overflow-hidden shadow-[var(--shadow-card)]">
@@ -289,21 +288,21 @@ export default function BlogsPage() {
 
             <div className="lg:col-span-2 flex flex-col gap-3 lg:pt-1">
               <div className="featured-animate">
-                <SectionLabel text="Editor's Pick" style="stamp" />
+                <StampBadge text="Editor's Pick" color="#FFFFFF" rotation={-2} />
               </div>
               <div className="featured-animate relative inline-block w-fit">
                 <WashiTape color={categoryWashi(featured.category)} rotation={-2} width="w-40" />
-                <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/85 text-sm pointer-events-none px-2 text-center leading-tight">
+                <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white/90 text-sm pointer-events-none px-2 text-center leading-tight">
                   {featured.category}
                 </span>
               </div>
-              <h2 className="featured-animate font-display font-black text-dark text-3xl leading-tight">
+              <h2 className="featured-animate font-display font-black text-white text-3xl leading-tight">
                 {featured.title}
               </h2>
-              <p className="featured-animate font-body text-gray-600 text-base mt-1 line-clamp-3">
+              <p className="featured-animate font-body text-white/70 text-base mt-1 line-clamp-3">
                 {featured.excerpt}
               </p>
-              <div className="featured-animate flex flex-wrap items-center gap-3 font-handwriting text-gray-400 text-sm mt-2">
+              <div className="featured-animate flex flex-wrap items-center gap-3 font-handwriting text-white/70 text-sm mt-2">
                 {featured.region != null ? (
                   <span>{featured.region}</span>
                 ) : null}

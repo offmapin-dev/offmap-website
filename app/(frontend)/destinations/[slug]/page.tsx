@@ -97,12 +97,10 @@ function getInitials(name: string): string {
 function DestinationReviewsSection({
   reviews,
   regionName,
-  bgColor,
   ctaColor,
 }: {
   reviews: { name: string; trip: string; rating: number; text: string }[]
   regionName: string
-  bgColor: string
   ctaColor: string
 }) {
   const sectionRef = useRef<HTMLElement>(null)
@@ -159,9 +157,13 @@ function DestinationReviewsSection({
 
   if (!reviews.length) {
     return (
-      <section style={{ backgroundColor: bgColor }} className="py-10 md:py-14">
+      <section className="bg-[#FFE927] py-10 md:py-14">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
-          <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
+          <SectionLabel
+            text="Traveler Stories"
+            style="handwritten"
+            className="block mb-3 !text-dark/70 [&>span:last-child]:!text-dark/50"
+          />
           <h2 className="font-display font-bold text-dark text-3xl mb-6">What people say about {regionName}</h2>
           <div className="text-center py-8">
             <JournalNote text="Reviews coming soon" type="sticky" className="inline-block" />
@@ -175,9 +177,13 @@ function DestinationReviewsSection({
   const review = reviews[active]
 
   return (
-    <section ref={sectionRef} className="bg-white py-10 md:py-14">
+    <section ref={sectionRef} className="bg-[#FFE927] py-10 md:py-14">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
-        <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
+        <SectionLabel
+          text="Traveler Stories"
+          style="handwritten"
+          className="block mb-3 !text-dark/70 [&>span:last-child]:!text-dark/50"
+        />
         <h2 className="font-display font-bold text-dark text-3xl mb-6">What people say about {regionName}</h2>
 
         <div className="review-card-wrapper bg-white rounded-3xl p-4 md:p-5 shadow-[var(--shadow-card)]">
@@ -442,32 +448,33 @@ export default function DestinationDetailPage({
           </div>
         </div>
 
-        {/* Wavy divider into region.bg */}
+        {/* Wavy divider into region intro */}
         <div className="absolute bottom-[-1px] left-0 right-0 z-10">
-          <WavyDivider fill={theme.bg} position="bottom" />
+          <WavyDivider fill="#39A2B8" position="bottom" />
         </div>
       </section>
 
       {/* ═══ SECTION 2: REGION INTRO ═══════════════════════════════════════════ */}
-      <section style={{ backgroundColor: theme.bg }} className="py-10 md:py-14">
+      <section className="bg-[#39A2B8] py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             {/* LEFT — text */}
             <div>
-              <SectionLabel text="about this region" style="handwritten" className="block mb-5" />
-              <h2
-                className="font-display font-bold text-3xl md:text-4xl leading-tight mb-5"
-                style={{ color: theme.primary }}
-              >
+              <SectionLabel
+                text="about this region"
+                style="handwritten"
+                className="block mb-5 !text-white/70 [&>span:last-child]:!text-white/50"
+              />
+              <h2 className="font-display font-bold text-3xl md:text-4xl leading-tight mb-5 text-white">
                 {introSubtitle}
               </h2>
-              <p className="font-body text-dark/60 text-base leading-relaxed mb-8">
+              <p className="font-body text-white/70 text-base leading-relaxed mb-8">
                 {introBody}
               </p>
 
               {/* Region map placeholder */}
-              <div className="bg-white/60 rounded-xl p-6 mb-6 border border-dashed border-gray-300">
+              <div className="bg-white rounded-xl p-6 mb-6 border border-dashed border-gray-200">
                 <div className="flex items-center justify-center h-40">
                   <svg width="120" height="120" viewBox="0 0 120 120" fill="none" className="opacity-30" aria-hidden>
                     <circle cx="60" cy="60" r="50" stroke={theme.primary} strokeWidth="2" strokeDasharray="6 4" />
@@ -514,7 +521,7 @@ export default function DestinationDetailPage({
           </div>
         </div>
 
-        {/* Wavy into white */}
+        {/* Wavy into experiences (white) */}
         <WavyDivider fill="#FFFFFF" position="bottom" />
       </section>
 
@@ -567,16 +574,20 @@ export default function DestinationDetailPage({
           </div>
         </div>
 
-        {/* Wavy into region.bg */}
-        <WavyDivider fill={theme.bg} position="bottom" />
+        {/* Wavy into activities */}
+        <WavyDivider fill="#0D78A8" position="bottom" />
       </section>
 
       {/* ═══ SECTION 4: ACTIVITIES GRID ════════════════════════════════════════ */}
-      <section style={{ backgroundColor: theme.bg }} className="py-10 md:py-14">
+      <section className="bg-[#0D78A8] py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-6">
-            <SectionLabel text="Things To Do" style="handwritten" className="block mb-3" />
-            <h2 className="font-display font-bold text-dark text-3xl">
+            <SectionLabel
+              text="Things To Do"
+              style="handwritten"
+              className="block mb-3 !text-white/70 [&>span:last-child]:!text-white/50"
+            />
+            <h2 className="font-display font-bold text-white text-3xl">
               Activities in {theme.name}
             </h2>
           </div>
@@ -625,15 +636,14 @@ export default function DestinationDetailPage({
           )}
         </div>
 
-        {/* Wavy into reviews bg */}
-        <WavyDivider fill={theme.bg} position="bottom" />
+        {/* Wavy into reviews */}
+        <WavyDivider fill="#FFE927" position="bottom" />
       </section>
 
       {/* ═══ SECTION 4.5: REVIEWS ════════════════════════════════════════ */}
       <DestinationReviewsSection
         reviews={REGION_REVIEWS[slug] ?? []}
         regionName={theme.name}
-        bgColor={theme.bg}
         ctaColor={theme.primary}
       />
 

@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ChevronDown } from 'lucide-react'
-import { SectionLabel, TornEdge } from '@/components/ui/scrapbook'
+import { StampBadge, TornEdge } from '@/components/ui/scrapbook'
 import { FAQ_DATA } from '@/lib/constants'
 import { registerGSAP } from '@/lib/animations'
 import { cn } from '@/lib/utils'
@@ -54,61 +54,63 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <TornEdge position="bottom" color="#FFFFFF" />
+      <TornEdge position="bottom" color="#39A2B8" />
 
-      <section ref={faqRef} className="bg-white py-10 md:py-14">
-        <div className="max-w-3xl mx-auto px-4 paper-lines rounded-2xl py-10 md:py-14 bg-white/95 border-l-4 border-red-300">
-          <SectionLabel text="Frequently Asked" style="stamp" className="block mb-2" />
-          <p className="font-handwriting text-dark/50 text-lg mb-10">the things people always ask us</p>
+      <section ref={faqRef} className="bg-[#39A2B8] py-10 md:py-14">
+        <div className="max-w-3xl mx-auto px-4">
+          <StampBadge text="Frequently Asked" color="#FFFFFF" className="mb-2" />
+          <p className="font-handwriting text-white/70 text-lg mb-8">the things people always ask us</p>
 
-          {GROUPS.map((group) => {
-            const items = FAQ_DATA.slice(group.slice[0], group.slice[1])
-            return (
-              <div key={group.title} className="mb-12 last:mb-0">
-                <h2 className="font-heading font-semibold text-dark text-sm uppercase tracking-widest mb-4">
-                  {group.title}
-                </h2>
-                <ul className="border-t border-gray-200">
-                  {items.map((item, i) => {
-                    const idx = group.slice[0] + i
-                    const isOpen = openIndex === idx
-                    return (
-                      <li key={item.question} className="border-b border-gray-200">
-                        <button
-                          type="button"
-                          onClick={() => setOpenIndex(isOpen ? null : idx)}
-                          className={cn(
-                            'w-full flex justify-between items-center gap-4 text-left py-4 pl-0 pr-2 transition-colors',
-                            'font-heading font-semibold text-dark hover:text-blue',
-                            isOpen && 'border-l-4 border-yellow pl-4'
-                          )}
-                        >
-                          <span>{item.question}</span>
-                          <ChevronDown
+          <div className="paper-lines rounded-2xl py-10 md:py-14 px-4 md:px-6 bg-white border-l-4 border-red-300 shadow-[var(--shadow-card)]">
+            {GROUPS.map((group) => {
+              const items = FAQ_DATA.slice(group.slice[0], group.slice[1])
+              return (
+                <div key={group.title} className="mb-12 last:mb-0">
+                  <h2 className="font-heading font-semibold text-dark text-sm uppercase tracking-widest mb-4">
+                    {group.title}
+                  </h2>
+                  <ul className="border-t border-gray-200">
+                    {items.map((item, i) => {
+                      const idx = group.slice[0] + i
+                      const isOpen = openIndex === idx
+                      return (
+                        <li key={item.question} className="border-b border-gray-200">
+                          <button
+                            type="button"
+                            onClick={() => setOpenIndex(isOpen ? null : idx)}
                             className={cn(
-                              'w-5 h-5 shrink-0 transition-transform duration-200',
-                              isOpen && 'rotate-180'
+                              'w-full flex justify-between items-center gap-4 text-left py-4 pl-0 pr-2 transition-colors',
+                              'font-heading font-semibold text-dark hover:text-blue',
+                              isOpen && 'border-l-4 border-yellow pl-4'
                             )}
-                            aria-hidden
-                          />
-                        </button>
-                        <div
-                          className={cn(
-                            'overflow-hidden transition-[max-height] duration-300 ease-out',
-                            isOpen ? 'max-h-[480px]' : 'max-h-0'
-                          )}
-                        >
-                          <p className="font-body text-gray-600 text-sm leading-relaxed pb-4 pr-2">
-                            {item.answer}
-                          </p>
-                        </div>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </div>
-            )
-          })}
+                          >
+                            <span>{item.question}</span>
+                            <ChevronDown
+                              className={cn(
+                                'w-5 h-5 shrink-0 transition-transform duration-200',
+                                isOpen && 'rotate-180'
+                              )}
+                              aria-hidden
+                            />
+                          </button>
+                          <div
+                            className={cn(
+                              'overflow-hidden transition-[max-height] duration-300 ease-out',
+                              isOpen ? 'max-h-[480px]' : 'max-h-0'
+                            )}
+                          >
+                            <p className="font-body text-gray-600 text-sm leading-relaxed pb-4 pr-2">
+                              {item.answer}
+                            </p>
+                          </div>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </section>
 

@@ -112,14 +112,14 @@ export function BlogsTeaserSection() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <section ref={sectionRef} className="bg-white py-10 md:py-12">
+    <section ref={sectionRef} className="bg-[#39A2B8] py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div ref={headerRef} className="mb-8">
           <span ref={stampRef} className="inline-block mb-3">
-            <SectionLabel text="The Chronicle" style="stamp" />
+            <SectionLabel text="The Chronicle" style="stamp" className="[--stamp-color:#ffffff]" />
           </span>
-          <p ref={captionRef} className="font-handwriting text-blue text-xl mt-4">
+          <p ref={captionRef} className="font-handwriting text-white/70 text-xl mt-4">
             stories from the road →
           </p>
           <div className="hidden md:block mt-3">

@@ -136,12 +136,16 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFFFFF" />
+      <WavyDivider fill="#39A2B8" />
 
-      <section ref={mainRef} className="bg-white py-10 md:py-14">
+      <section ref={mainRef} className="bg-[#39A2B8] py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 relative">
           <div>
-            <SectionLabel text="Send us a message" style="handwritten" className="block mb-6" />
+            <SectionLabel
+              text="Send us a message"
+              style="handwritten"
+              className="block mb-6 text-white [&>span]:text-white/70"
+            />
 
             {success ? (
               <div className="mb-8">
@@ -154,25 +158,25 @@ export default function ContactPage() {
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div>
-                <label htmlFor="name" className="font-heading text-sm font-medium text-dark block mb-1">
+                <label htmlFor="name" className="font-heading text-sm font-medium text-white block mb-1">
                   Name
                 </label>
                 <input
                   id="name"
-                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body"
+                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body text-dark"
                   {...register('name')}
                 />
                 {errors.name ? <p className="text-sm text-red-700 mt-1">{errors.name.message}</p> : null}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="email" className="font-heading text-sm font-medium text-dark block mb-1">
+                  <label htmlFor="email" className="font-heading text-sm font-medium text-white block mb-1">
                     Email
                   </label>
                   <input
                     id="email"
                     type="email"
-                    className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body"
+                    className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body text-dark"
                     {...register('email')}
                   />
                   {errors.email ? (
@@ -180,13 +184,13 @@ export default function ContactPage() {
                   ) : null}
                 </div>
                 <div>
-                  <label htmlFor="phone" className="font-heading text-sm font-medium text-dark block mb-1">
+                  <label htmlFor="phone" className="font-heading text-sm font-medium text-white block mb-1">
                     Phone
                   </label>
                   <input
                     id="phone"
                     type="tel"
-                    className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body"
+                    className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body text-dark"
                     {...register('phone')}
                   />
                   {errors.phone ? (
@@ -195,12 +199,12 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <label htmlFor="destination" className="font-heading text-sm font-medium text-dark block mb-1">
+                <label htmlFor="destination" className="font-heading text-sm font-medium text-white block mb-1">
                   Destination interest
                 </label>
                 <select
                   id="destination"
-                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body"
+                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body text-dark"
                   {...register('destination')}
                 >
                   {CONTACT_DESTINATIONS.map((d) => (
@@ -211,12 +215,12 @@ export default function ContactPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="experienceType" className="font-heading text-sm font-medium text-dark block mb-1">
+                <label htmlFor="experienceType" className="font-heading text-sm font-medium text-white block mb-1">
                   Experience type
                 </label>
                 <select
                   id="experienceType"
-                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body"
+                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body text-dark"
                   {...register('experienceType')}
                 >
                   {CONTACT_EXPERIENCE_TYPES.map((e) => (
@@ -227,13 +231,13 @@ export default function ContactPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="message" className="font-heading text-sm font-medium text-dark block mb-1">
+                <label htmlFor="message" className="font-heading text-sm font-medium text-white block mb-1">
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={5}
-                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body resize-y"
+                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3 font-body text-dark resize-y"
                   {...register('message')}
                 />
                 {errors.message ? (
@@ -260,11 +264,11 @@ export default function ContactPage() {
           <div className="relative">
             <div className="relative inline-block mb-6">
               <WashiTape color="blue" rotation={-2} width="w-40" />
-              <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
+              <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white/70 text-sm pointer-events-none">
                 find us here →
               </span>
             </div>
-            <h2 className="font-display font-bold text-dark text-2xl mb-8">Or reach out directly</h2>
+            <h2 className="font-display font-bold text-white text-2xl mb-8">Or reach out directly</h2>
 
             <div className="space-y-4">
               <div className="bg-white rounded-xl p-4 shadow-[var(--shadow-card)] flex items-center gap-3">

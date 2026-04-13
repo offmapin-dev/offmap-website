@@ -306,12 +306,12 @@ export default function StaysPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFFFFF" />
+      <WavyDivider fill="#39A2B8" />
 
       {/* —— Philosophy —— */}
-      <section ref={philosophyRef} className="bg-white py-10 md:py-16">
+      <section ref={philosophyRef} className="bg-[#39A2B8] text-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
-          <div className="stays-fade-child relative paper-lines rounded-2xl p-8 max-w-sm mx-auto lg:mx-0">
+          <div className="stays-fade-child relative paper-lines rounded-2xl bg-white p-8 max-w-sm mx-auto lg:mx-0 text-dark">
             <WashiTape
               color="yellow"
               rotation={-2}
@@ -451,11 +451,11 @@ export default function StaysPage() {
       </section>
 
       {/* —— How it works —— */}
-      <section className="relative bg-white py-10 md:py-16">
+      <section className="relative bg-[#0D78A8] text-white py-10 md:py-16">
         <TornEdge position="top" color="#FFFFFF" />
         <div ref={howRef} className="max-w-7xl mx-auto px-4">
           <div className="stays-fade-child text-center mb-12 md:mb-16">
-            <SectionLabel text="How It Works" style="stamp" className="justify-center" />
+            <StampBadge text="How It Works" color="#FFFFFF" rotation={-2} className="justify-center" />
           </div>
           <div className="grid gap-12 md:grid-cols-3 md:gap-8">
             {HOW_STEPS.map((step, index) => (
@@ -472,8 +472,8 @@ export default function StaysPage() {
                     className="object-contain mx-auto"
                   />
                 </div>
-                <h3 className="font-heading font-semibold text-base text-dark">{step.title}</h3>
-                <p className="font-body text-sm text-gray-500 mt-2 max-w-xs mx-auto">
+                <h3 className="font-heading font-semibold text-base text-white">{step.title}</h3>
+                <p className="font-body text-sm text-white/70 mt-2 max-w-xs mx-auto">
                   {step.description}
                 </p>
               </div>

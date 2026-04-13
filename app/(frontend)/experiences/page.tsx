@@ -607,7 +607,7 @@ export default function ExperiencesPage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 3 — FEATURED EXPERIENCE
       ════════════════════════════════════════════════════════ */}
-      <section ref={featuredRef} className="bg-white py-10 md:py-14">
+      <section ref={featuredRef} className="bg-[#39A2B8] text-white py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
@@ -632,12 +632,12 @@ export default function ExperiencesPage() {
               </div>
               <div className="featured-item">
                 <WashiTape color="yellow" rotation={-2} width="w-28" className="mb-4" />
-                <p className="font-handwriting text-dark/50 text-lg mb-2">our favourite →</p>
+                <p className="font-handwriting text-white/70 text-lg mb-2">our favourite →</p>
               </div>
               <div className="featured-item mb-3">
                 <StampBadge text="Featured" color={featuredTheme.primary} rotation={-3} />
               </div>
-              <h2 className="featured-item font-display font-black text-dark text-3xl md:text-4xl leading-tight mb-1">
+              <h2 className="featured-item font-display font-black text-white text-3xl md:text-4xl leading-tight mb-1">
                 {featured.name}
               </h2>
               <p
@@ -646,7 +646,7 @@ export default function ExperiencesPage() {
               >
                 {featured.region}
               </p>
-              <p className="featured-item font-body text-gray-600 text-base leading-relaxed mb-6">
+              <p className="featured-item font-body text-white/70 text-base leading-relaxed mb-6">
                 A 4-day journey through apple orchards, pine forests and shepherd villages
                 that most maps don&apos;t show.
               </p>
@@ -730,20 +730,20 @@ export default function ExperiencesPage() {
           )}
         </div>
 
-        <WavyDivider fill="#FFFFFF" />
+        <WavyDivider fill="#0D78A8" />
       </section>
 
       {/* ════════════════════════════════════════════════════════
           SECTION 5 — ACTIVITY TYPES CAROUSEL
       ════════════════════════════════════════════════════════ */}
-      <section ref={carouselSectionRef} className="bg-white py-10 md:py-14">
+      <section ref={carouselSectionRef} className="bg-[#0D78A8] text-white py-10 md:py-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           <div className="act-heading mb-10">
-            <h2 className="font-display font-bold text-dark text-3xl mb-1">
+            <h2 className="font-display font-bold text-white text-3xl mb-1">
               Browse by Activity
             </h2>
-            <p className="font-handwriting text-dark/50 text-xl">
+            <p className="font-handwriting text-white/70 text-xl">
               what kind of traveler are you?
             </p>
           </div>

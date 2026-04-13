@@ -227,7 +227,7 @@ export default function DestinationsPage() {
           </p>
         </div>
 
-        {/* Wavy SVG divider into Section 2 (#F0F8FB) */}
+        {/* Wavy SVG divider into Section 2 (#0D78A8) */}
         <div className="absolute bottom-[-1px] left-0 right-0 z-10">
           <svg
             viewBox="0 0 1440 80"
@@ -237,14 +237,14 @@ export default function DestinationsPage() {
           >
             <path
               d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1350,20 1440,40 L1440,80 L0,80 Z"
-              fill="#FFFFFF"
+              fill="#0D78A8"
             />
           </svg>
         </div>
       </section>
 
       {/* ═══ SECTION 2: REGION FILTER TABS ════════════════════════════════════ */}
-      <section className="bg-white py-4 md:py-8">
+      <section className="bg-[#0D78A8] text-white py-4 md:py-8">
         <div ref={filterBarRef} className="max-w-7xl mx-auto px-4">
           <div className="flex gap-3 overflow-x-auto md:flex-wrap md:justify-center md:overflow-visible" style={{ scrollbarWidth: 'none' }}>
             <button
@@ -252,8 +252,8 @@ export default function DestinationsPage() {
               className={cn(
                 'flex-none font-body text-sm px-5 py-2 rounded-full border-2 transition-all duration-200 hover:scale-105',
                 activeRegion === 'all'
-                  ? 'bg-[#0D78A8] text-white border-[#0D78A8] scale-105'
-                  : 'bg-white text-dark border-gray-200 hover:bg-gray-50'
+                  ? 'bg-white text-[#0D78A8] border-white scale-105'
+                  : 'bg-white/10 text-white border-white/40 hover:bg-white/20'
               )}
             >
               All Regions
@@ -276,7 +276,7 @@ export default function DestinationsPage() {
                     'flex-none font-body text-sm px-5 py-2 rounded-full border-2 transition-all duration-200 hover:scale-105',
                     isActive
                       ? 'bg-[var(--rb)] text-white border-[var(--rb)] scale-105'
-                      : 'bg-white text-dark border-gray-200 hover:bg-gray-50'
+                      : 'bg-white/10 text-white border-white/40 hover:bg-white/20'
                   )}
                 >
                   {theme.emoji} {location.name}
@@ -288,7 +288,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* ═══ SECTION 3: MAP + INTRO ════════════════════════════════════════════ */}
-      <section ref={mapSectionRef} className="bg-white py-10 md:py-16">
+      <section ref={mapSectionRef} className="bg-[#39A2B8] text-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -300,7 +300,7 @@ export default function DestinationsPage() {
 
               <div className="relative inline-block mb-6">
                 <WashiTape color="yellow" rotation={-2} width="w-40" />
-                <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
+                <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white/70 text-sm pointer-events-none">
                   your next chapter →
                 </span>
               </div>
@@ -308,13 +308,13 @@ export default function DestinationsPage() {
               <SectionLabel
                 text="Regions We've Explored"
                 style="handwritten"
-                className="block mb-5"
+                className="block mb-5 !text-white [&>span:last-child]:!text-white/70"
               />
 
-              <h2 className="font-display font-bold text-dark text-3xl leading-tight mb-4">
+              <h2 className="font-display font-bold text-white text-3xl leading-tight mb-4">
                 Every journey starts with a place.
               </h2>
-              <p className="font-body text-dark/60 text-base leading-relaxed mb-8">
+              <p className="font-body text-white/70 text-base leading-relaxed mb-8">
                 These are destinations we&apos;ve lived and explored on foot, by road,
                 and with local guides — before we ever took a group there.
               </p>
@@ -331,7 +331,7 @@ export default function DestinationsPage() {
                       className="flex items-center gap-3 group w-fit"
                     >
                       <span className="w-3 h-3 rounded-full flex-none bg-[var(--rp)]" />
-                      <span className="font-body text-sm text-dark group-hover:text-[var(--rp)] transition-colors duration-200">
+                      <span className="font-body text-sm text-white group-hover:text-[var(--rp)] transition-colors duration-200">
                         {location.name}
                       </span>
                       <span className="text-base">{theme.emoji}</span>
@@ -355,7 +355,7 @@ export default function DestinationsPage() {
 
       {/* ═══ SECTION 4: EXPERIENCE CATEGORIES ═════════════════════════════════ */}
       <section ref={catSectionRef} className="bg-white">
-        <WavyDivider fill="#FFFFFF" position="top" />
+        <WavyDivider fill="#39A2B8" position="top" />
 
         <div className="max-w-7xl mx-auto px-4 py-10 md:py-12">
           <div className="text-center mb-10">
@@ -396,18 +396,22 @@ export default function DestinationsPage() {
           </div>
         </div>
 
-        <WavyDivider fill="#FFFFFF" position="bottom" />
+        <WavyDivider fill="#0D78A8" position="bottom" />
       </section>
 
       {/* ═══ SECTION 5: REGION SECTIONS ═══════════════════════════════════════ */}
       <section
         ref={cardsSectionRef}
-        className="bg-white py-10 md:py-16 scroll-mt-16"
+        className="bg-[#0D78A8] text-white py-10 md:py-16 scroll-mt-16"
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">
-            <SectionLabel text="Where We Go" style="handwritten" className="block mb-3" />
-            <h2 className="font-display font-bold text-dark text-3xl">
+            <SectionLabel
+              text="Where We Go"
+              style="handwritten"
+              className="block mb-3 !text-white [&>span:last-child]:!text-white/70"
+            />
+            <h2 className="font-display font-bold text-white text-3xl">
               {activeRegion === 'all'
                 ? 'All Destinations'
                 : REGION_THEMES[activeRegion as RegionThemeKey]?.name ?? 'Destinations'}
