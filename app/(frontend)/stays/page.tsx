@@ -281,7 +281,7 @@ export default function StaysPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
         <div
           ref={heroRef}
-          className="relative z-10 max-w-7xl mx-auto px-4 pb-12 md:pb-16 w-full text-center"
+          className="relative z-10 max-w-7xl mx-auto px-4 pb-10 md:pb-12 w-full text-center"
         >
           <p className="stays-hero-animate font-handwriting text-yellow-400 text-xl mb-2">
             not just a bed for the night
@@ -309,7 +309,7 @@ export default function StaysPage() {
       <WavyDivider fill="#F0F8FB" />
 
       {/* —— Philosophy —— */}
-      <section ref={philosophyRef} className="bg-[#F0F8FB] py-14 md:py-24">
+      <section ref={philosophyRef} className="bg-[#F0F8FB] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
           <div className="stays-fade-child relative paper-lines rounded-2xl p-8 max-w-sm mx-auto lg:mx-0">
             <WashiTape
@@ -360,7 +360,7 @@ export default function StaysPage() {
       <WavyDivider fill="#E0F4F8" />
 
       {/* —— Stays grid —— */}
-      <section ref={gridRef} className="bg-[#E0F4F8] py-14 md:py-24">
+      <section ref={gridRef} className="bg-[#E0F4F8] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="stays-fade-child text-center mb-10 md:mb-14">
             <SectionLabel text="Our Stays" style="handwritten" className="justify-center" />
@@ -451,7 +451,7 @@ export default function StaysPage() {
       </section>
 
       {/* —— How it works —— */}
-      <section className="relative bg-[#F0F8FB] py-14 md:py-24">
+      <section className="relative bg-[#F0F8FB] py-10 md:py-16">
         <TornEdge position="top" color="#F0F8FB" />
         <div ref={howRef} className="max-w-7xl mx-auto px-4">
           <div className="stays-fade-child text-center mb-12 md:mb-16">
@@ -483,7 +483,7 @@ export default function StaysPage() {
       </section>
 
       {/* —— CTA —— */}
-      <section ref={ctaRef} className="bg-yellow py-14 md:py-20">
+      <section ref={ctaRef} className="bg-yellow py-10 md:py-14">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="stays-fade-child font-display font-black text-dark text-4xl">
             Come Stay With Us

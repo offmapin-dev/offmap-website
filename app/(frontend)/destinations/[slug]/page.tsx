@@ -615,7 +615,7 @@ export default function DestinationDetailPage({
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-8">
               <JournalNote
                 text="Activities coming soon — we're still exploring! 🗺️"
                 type="sticky"
@@ -638,7 +638,7 @@ export default function DestinationDetailPage({
       />
 
       {/* ═══ SECTION 5: CTA ════════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: theme.primary }} className="py-12 md:py-16">
+      <section style={{ backgroundColor: theme.primary }} className="py-10 md:py-12">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div className="mb-4">
             <WashiTape color="yellow" rotation={-1} width="w-32" className="mx-auto mb-6" />

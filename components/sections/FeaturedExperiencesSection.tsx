@@ -291,7 +291,7 @@ export function FeaturedExperiencesSection() {
     REGION_THEMES[mobilePair[0].regionSlug as RegionThemeKey]?.primary ?? '#0D78A8'
 
   return (
-    <section ref={sectionRef} className="bg-white py-16">
+    <section ref={sectionRef} className="bg-white py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* ── Section heading (both layouts) ───────────────────────── */}
         <div className="flex items-start justify-between mb-8 md:mb-10">
@@ -345,7 +345,7 @@ export function FeaturedExperiencesSection() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-8">
               <JournalNote
                 text="no trips this month — check back soon 🗺️"
                 type="sticky"

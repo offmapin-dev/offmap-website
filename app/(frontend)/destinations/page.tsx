@@ -288,7 +288,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* ═══ SECTION 3: MAP + INTRO ════════════════════════════════════════════ */}
-      <section ref={mapSectionRef} className="bg-[#F0F8FB] py-10 md:py-24">
+      <section ref={mapSectionRef} className="bg-[#F0F8FB] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -357,7 +357,7 @@ export default function DestinationsPage() {
       <section ref={catSectionRef} className="bg-[#E0F4F8]">
         <WavyDivider fill="#F0F8FB" position="top" />
 
-        <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 py-10 md:py-12">
           <div className="text-center mb-10">
             <h2 className="font-display font-bold text-dark text-3xl">
               What Would You Like To Do?
@@ -402,7 +402,7 @@ export default function DestinationsPage() {
       {/* ═══ SECTION 5: REGION SECTIONS ═══════════════════════════════════════ */}
       <section
         ref={cardsSectionRef}
-        className="bg-[#F0F8FB] py-10 md:py-24 scroll-mt-16"
+        className="bg-[#F0F8FB] py-10 md:py-16 scroll-mt-16"
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">

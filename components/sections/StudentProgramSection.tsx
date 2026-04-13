@@ -67,7 +67,7 @@ export function StudentProgramSection() {
         🎒
       </span>
 
-      <div className="max-w-7xl mx-auto px-4 pt-10 pb-12 md:pb-16">
+      <div className="max-w-7xl mx-auto px-4 pt-8 pb-10 md:pb-12">
         <div className="text-center max-w-2xl mx-auto">
           <div className="hidden md:flex justify-center mb-4">
             <WashiTape color="green" rotation={-3} width="w-24" />

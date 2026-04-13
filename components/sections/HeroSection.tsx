@@ -255,7 +255,7 @@ export function HeroSection() {
 
       {/* g) Stats bar */}
       <div className="relative z-10 w-full">
-        <div ref={statsRef} className="max-w-7xl mx-auto px-4 md:px-8 pb-16 md:pb-20">
+        <div ref={statsRef} className="max-w-7xl mx-auto px-4 md:px-8 pb-12 md:pb-16">
           <div className="inline-flex items-center gap-0 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 overflow-hidden">
             {STATS.map((stat, i) => (
               <div key={stat.label} className="flex items-center">

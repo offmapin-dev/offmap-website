@@ -177,7 +177,7 @@ export default function StudentProgramPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-black/30" />
         <div
           ref={heroContentRef}
-          className="relative z-10 max-w-7xl mx-auto px-4 pb-12 md:pb-16 w-full"
+          className="relative z-10 max-w-7xl mx-auto px-4 pb-10 md:pb-12 w-full"
         >
           <p className="font-handwriting text-yellow-300 text-xl mb-2">beyond the classroom</p>
           <h1 className="font-display font-black text-white text-4xl md:text-6xl max-w-3xl leading-tight">
@@ -197,7 +197,7 @@ export default function StudentProgramPage() {
 
       <WavyDivider fill="#F0F8FB" />
 
-      <section ref={s2Ref} className="bg-[#F0F8FB] py-14 md:py-24">
+      <section ref={s2Ref} className="bg-[#F0F8FB] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="relative inline-block mb-6">
@@ -252,7 +252,7 @@ export default function StudentProgramPage() {
 
       <WavyDivider fill="#FEF3C7" />
 
-      <section ref={s3Ref} className="bg-[#FEF3C7] py-14 md:py-24">
+      <section ref={s3Ref} className="bg-[#FEF3C7] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="font-display font-bold text-dark text-2xl md:text-3xl text-center mb-12">
             How it works
@@ -276,7 +276,7 @@ export default function StudentProgramPage() {
 
       <WavyDivider fill="#F59E0B" />
 
-      <section ref={formRef} id="enquiry" className="bg-[#F59E0B] py-14 md:py-24 scroll-mt-20">
+      <section ref={formRef} id="enquiry" className="bg-[#F59E0B] py-10 md:py-16 scroll-mt-20">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="font-display font-black text-dark text-3xl md:text-4xl text-center">
             Plan a School Trip

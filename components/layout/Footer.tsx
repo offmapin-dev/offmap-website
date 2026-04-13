@@ -11,7 +11,7 @@ export default function Footer() {
 
       <div className="kraft-bg text-white">
         {/* Brand header */}
-        <div className="max-w-7xl mx-auto px-4 pt-12 pb-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 pt-10 pb-6 text-center">
           <h2 className="font-display italic font-bold text-4xl md:text-5xl text-white mb-2">
             OffMap India
           </h2>
@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
 
         {/* Main grid */}
-        <div className="max-w-7xl mx-auto px-4 pb-10">
+        <div className="max-w-7xl mx-auto px-4 pb-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
             {FOOTER_LINKS.map((column) => (
               <div key={column.heading}>

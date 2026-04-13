@@ -90,7 +90,7 @@ export default function WorkWithUsPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/25" />
         <div
           ref={heroRef}
-          className="relative z-10 max-w-7xl mx-auto px-4 pb-12 md:pb-16 w-full"
+          className="relative z-10 max-w-7xl mx-auto px-4 pb-10 md:pb-12 w-full"
         >
           <p className="font-handwriting text-yellow-300 text-xl mb-2">join the team</p>
           <h1 className="font-display font-black text-white text-4xl md:text-6xl max-w-3xl leading-tight">
@@ -105,7 +105,7 @@ export default function WorkWithUsPage() {
 
       <WavyDivider fill="#F0F8FB" />
 
-      <section ref={s2Ref} className="bg-[#F0F8FB] py-14 md:py-24">
+      <section ref={s2Ref} className="bg-[#F0F8FB] py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="font-display font-bold text-dark text-2xl md:text-4xl text-center max-w-2xl mx-auto leading-tight">
             If you care about honest travel...
@@ -140,7 +140,7 @@ export default function WorkWithUsPage() {
 
       <WavyDivider fill="#E0F4F8" />
 
-      <section ref={s3Ref} className="bg-[#E0F4F8] py-16 md:py-24 text-center px-4">
+      <section ref={s3Ref} className="bg-[#E0F4F8] py-10 md:py-16 text-center px-4">
         <h2 className="font-display font-bold text-dark text-3xl md:text-4xl">Let&apos;s work together</h2>
         <p className="font-handwriting text-dark/50 text-xl mt-2 mb-10">tell us about yourself →</p>
 

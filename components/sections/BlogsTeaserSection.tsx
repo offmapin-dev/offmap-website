@@ -112,7 +112,7 @@ export function BlogsTeaserSection() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <section ref={sectionRef} className="bg-[#E0F4F8] py-12 md:py-16">
+    <section ref={sectionRef} className="bg-[#E0F4F8] py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div ref={headerRef} className="mb-8">

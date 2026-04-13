@@ -214,7 +214,7 @@ export default function BlogsPage() {
     <main>
       {/* SECTION 1 — Corkboard hero */}
       <section className="bg-white overflow-x-hidden overflow-y-visible">
-        <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 py-10 md:py-16">
           <div
             ref={heroCollageRef}
             className="relative min-h-[17rem] h-[17rem] md:min-h-[22rem] md:h-[22rem] mb-12 md:mb-16 mx-auto max-w-5xl"
@@ -257,7 +257,7 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 2 — Featured */}
-      <section ref={featuredRef} className="bg-[#F0F8FB] py-12 md:py-20 relative">
+      <section ref={featuredRef} className="bg-[#F0F8FB] py-10 md:py-14 relative">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 lg:items-start">
             <div className="featured-animate lg:col-span-3 relative h-80 rounded-2xl overflow-hidden shadow-[var(--shadow-card)]">
@@ -373,10 +373,10 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 4 — Grid */}
-      <section ref={gridRef} className="bg-[#F0F8FB] pb-16 md:pb-20">
+      <section ref={gridRef} className="bg-[#F0F8FB] pb-10 md:pb-14">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           {filteredPosts.length === 0 ? (
-            <div className="py-16 flex justify-center">
+            <div className="py-10 flex justify-center">
               <JournalNote
                 text="nothing here yet — more stories coming soon 🗺️"
                 type="sticky"
@@ -404,7 +404,7 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 5 — Newsletter */}
-      <section ref={newsletterRef} className="bg-dark py-16 md:py-24">
+      <section ref={newsletterRef} className="bg-dark py-10 md:py-16">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <span className="news-animate text-6xl block mb-4" role="img" aria-label="">
             📬
@@ -454,7 +454,7 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 6 — Final CTA */}
-      <section ref={ctaRef} className="bg-yellow py-20 md:py-28">
+      <section ref={ctaRef} className="bg-yellow py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="cta-animate font-display font-black text-dark text-4xl">
             Ready to write your own story?

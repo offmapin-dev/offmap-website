@@ -56,7 +56,7 @@ export default function FaqPage() {
 
       <TornEdge position="bottom" color="#F0F8FB" />
 
-      <section ref={faqRef} className="bg-[#F0F8FB] py-14 md:py-20">
+      <section ref={faqRef} className="bg-[#F0F8FB] py-10 md:py-14">
         <div className="max-w-3xl mx-auto px-4 paper-lines rounded-2xl py-10 md:py-14 bg-[#F0F8FB]/95 border-l-4 border-red-300">
           <SectionLabel text="Frequently Asked" style="stamp" className="block mb-2" />
           <p className="font-handwriting text-dark/50 text-lg mb-10">the things people always ask us</p>
@@ -114,7 +114,7 @@ export default function FaqPage() {
 
       <TornEdge position="bottom" color="#FFE927" />
 
-      <section ref={ctaRef} className="bg-yellow py-16 md:py-24 text-center px-4">
+      <section ref={ctaRef} className="bg-yellow py-10 md:py-16 text-center px-4">
         <h2 className="font-display font-black text-dark text-3xl md:text-4xl mb-8">Still have questions?</h2>
         <Link
           href="/contact"

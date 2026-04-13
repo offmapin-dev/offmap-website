@@ -83,7 +83,7 @@ export function WhyUsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-dark py-12 md:py-16">
+    <section ref={sectionRef} className="bg-dark py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4">
         <span ref={labelRef} className="block mb-4">
           <SectionLabel text="Why OffMap?" style="handwritten" className="!text-yellow" />

@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/30" />
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pb-14 md:pb-20">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pb-10 md:pb-14">
           <div className="relative inline-block mb-4">
             <WashiTape color="yellow" rotation={-2} width="w-32" />
             <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white text-sm pointer-events-none">
@@ -58,7 +58,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </section>
 
       <section className="bg-white">
-        <div className="max-w-2xl mx-auto px-4 py-16">
+        <div className="max-w-2xl mx-auto px-4 py-10">
           <div className="paper-lines bg-white/80 rounded-2xl p-8 shadow-[var(--shadow-card)]">
             <JournalNote text="Full story coming soon 📝" type="sticky" className="mb-6" />
             <p className="font-body italic text-gray-600 text-base leading-relaxed">{post.excerpt}</p>
@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </section>
 
       {related.length > 0 ? (
-        <section className="bg-[#F0F8FB] py-16 md:py-20 border-t border-dashed border-gray-200">
+        <section className="bg-[#F0F8FB] py-10 md:py-14 border-t border-dashed border-gray-200">
           <div className="max-w-7xl mx-auto px-4 md:px-8">
             <h2 className="font-display font-bold text-dark text-2xl mb-8">More from The Chronicle</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

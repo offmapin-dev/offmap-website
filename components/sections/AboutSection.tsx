@@ -116,7 +116,7 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-[#E0F4F8] pt-12 md:pt-16">
+    <section ref={sectionRef} className="bg-[#E0F4F8] pt-10 md:pt-12">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* A) Photo strip */}

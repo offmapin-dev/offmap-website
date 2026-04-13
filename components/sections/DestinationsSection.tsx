@@ -66,7 +66,7 @@ export function DestinationsSection() {
     <section ref={sectionRef} className="bg-[#F0F8FB] diagonal-stripes">
       <TornEdge position="top" color="#F0F8FB" />
 
-      <div className="max-w-7xl mx-auto px-4 pt-4 pb-12 md:pb-16">
+      <div className="max-w-7xl mx-auto px-4 pt-4 pb-8 md:pb-12">
         {/* Header */}
         <div ref={headerRef} className="mb-8">
           <div ref={washiRef} className="relative inline-block mb-6">
