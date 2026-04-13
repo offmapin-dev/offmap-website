@@ -288,7 +288,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* ═══ SECTION 3: MAP + INTRO ════════════════════════════════════════════ */}
-      <section ref={mapSectionRef} className="bg-[#39A2B8] text-white py-10 md:py-16">
+      <section ref={mapSectionRef} className="bg-white py-10 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -300,7 +300,7 @@ export default function DestinationsPage() {
 
               <div className="relative inline-block mb-6">
                 <WashiTape color="yellow" rotation={-2} width="w-40" />
-                <span className="absolute inset-0 flex items-center justify-center font-handwriting text-white/70 text-sm pointer-events-none">
+                <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/70 text-sm pointer-events-none">
                   your next chapter →
                 </span>
               </div>
@@ -308,13 +308,13 @@ export default function DestinationsPage() {
               <SectionLabel
                 text="Regions We've Explored"
                 style="handwritten"
-                className="block mb-5 !text-white [&>span:last-child]:!text-white/70"
+                className="block mb-5"
               />
 
-              <h2 className="font-display font-bold text-white text-3xl leading-tight mb-4">
+              <h2 className="font-display font-bold text-dark text-3xl leading-tight mb-4">
                 Every journey starts with a place.
               </h2>
-              <p className="font-body text-white/70 text-base leading-relaxed mb-8">
+              <p className="font-body text-dark/70 text-base leading-relaxed mb-8">
                 These are destinations we&apos;ve lived and explored on foot, by road,
                 and with local guides — before we ever took a group there.
               </p>
@@ -331,7 +331,7 @@ export default function DestinationsPage() {
                       className="flex items-center gap-3 group w-fit"
                     >
                       <span className="w-3 h-3 rounded-full flex-none bg-[var(--rp)]" />
-                      <span className="font-body text-sm text-white group-hover:text-[var(--rp)] transition-colors duration-200">
+                      <span className="font-body text-sm text-dark group-hover:text-[var(--rp)] transition-colors duration-200">
                         {location.name}
                       </span>
                       <span className="text-base">{theme.emoji}</span>
@@ -355,7 +355,7 @@ export default function DestinationsPage() {
 
       {/* ═══ SECTION 4: EXPERIENCE CATEGORIES ═════════════════════════════════ */}
       <section ref={catSectionRef} className="bg-white">
-        <WavyDivider fill="#39A2B8" position="top" />
+        <WavyDivider fill="#FFFFFF" position="top" />
 
         <div className="max-w-7xl mx-auto px-4 py-10 md:py-12">
           <div className="text-center mb-10">
