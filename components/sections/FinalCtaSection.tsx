@@ -63,7 +63,7 @@ export function FinalCtaSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-yellow py-20 md:py-28 overflow-hidden perspective-[800px]">
+    <section ref={sectionRef} className="bg-yellow py-12 md:py-16 overflow-hidden perspective-[800px]">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2
           ref={line1Ref}

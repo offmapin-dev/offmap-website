@@ -57,7 +57,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="bg-[#F5F0E8]">
+      <section className="bg-white">
         <div className="max-w-2xl mx-auto px-4 py-16">
           <div className="paper-lines bg-white/80 rounded-2xl p-8 shadow-[var(--shadow-card)]">
             <JournalNote text="Full story coming soon 📝" type="sticky" className="mb-6" />
@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       </section>
 
       {related.length > 0 ? (
-        <section className="bg-[#FFF8E7] py-16 md:py-20 border-t border-dashed border-gray-200">
+        <section className="bg-[#F0F8FB] py-16 md:py-20 border-t border-dashed border-gray-200">
           <div className="max-w-7xl mx-auto px-4 md:px-8">
             <h2 className="font-display font-bold text-dark text-2xl mb-8">More from The Chronicle</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

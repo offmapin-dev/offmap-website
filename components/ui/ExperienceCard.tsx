@@ -36,7 +36,7 @@ export function ExperienceCard({
   className,
 }: ExperienceCardProps) {
   const theme = REGION_THEMES[regionSlug as RegionThemeKey]
-  const primary = theme?.primary ?? '#1B4FD8'
+  const primary = theme?.primary ?? '#0D78A8'
   const bg = theme?.bg ?? '#F8F9FA'
   const emoji = theme?.emoji ?? '📍'
 

@@ -195,9 +195,9 @@ export default function StudentProgramPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#FFF8E7" />
+      <WavyDivider fill="#F0F8FB" />
 
-      <section ref={s2Ref} className="bg-[#FFF8E7] py-14 md:py-24">
+      <section ref={s2Ref} className="bg-[#F0F8FB] py-14 md:py-24">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="relative inline-block mb-6">

@@ -21,6 +21,8 @@ const UNSPLASH = {
   mountainStay: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2',
   indiaLandmark: 'https://images.unsplash.com/photo-1548013146-72479768bada',
   valleyLandscape: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470',
+  groupCampfire: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f',
+  desertSunset: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35',
 } as const
 
 const MYNTRA = {
@@ -133,6 +135,21 @@ export const ABOUT_IMAGES = {
   medium: sized(UNSPLASH.villageScene, 600),
   small: `${UNSPLASH.uttarakhandForest}?auto=format&fit=crop&w=800&q=80`,
 } as const
+
+// ── About section photo strip ───────────────────────────────────
+export const ABOUT_STRIP_IMAGES = {
+  landscape: sized(UNSPLASH.groupCampfire, 800),
+  portrait: sized(UNSPLASH.desertSunset, 600),
+  square: sized(UNSPLASH.localHomestay, 600),
+}
+
+// ── About section asymmetric grid ───────────────────────────────
+export const ABOUT_GRID_IMAGES = {
+  large: sized(UNSPLASH.himachalValley, 800),
+  mediumTop: sized(UNSPLASH.villageScene, 600),
+  smallBottom: sized(UNSPLASH.indiaLandmark, 600),
+  mediumBottom: sized(UNSPLASH.uttarakhandForest, 600),
+}
 
 // ── Homepage hero image ──────────────────────────────────────────
 export const HOMEPAGE_HERO = sized(UNSPLASH.villageScene, 1920)

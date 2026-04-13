@@ -9,7 +9,7 @@ interface WashiTapeProps {
 
 const COLOR_CLASSES: Record<NonNullable<WashiTapeProps['color']>, string> = {
   yellow: 'bg-yellow/85',
-  blue: 'bg-blue-300/75',
+  blue: 'bg-[#39A2B8]/75',
   pink: 'bg-pink-300/75',
   green: 'bg-green-300/75',
 }

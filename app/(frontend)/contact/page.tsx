@@ -126,7 +126,7 @@ export default function ContactPage() {
 
   return (
     <main>
-      <section className="relative h-[40vh] min-h-[280px] flex items-center justify-center bg-[#1B4FD8]">
+      <section className="relative h-[40vh] min-h-[280px] flex items-center justify-center bg-[#0D78A8]">
         <div ref={heroRef} className="text-center px-4 max-w-2xl">
           <p className="font-handwriting text-white/60 text-xl mb-2">get in touch</p>
           <h1 className="font-display font-black text-white text-4xl md:text-5xl leading-tight">
@@ -136,9 +136,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <WavyDivider fill="#F5F0E8" />
+      <WavyDivider fill="#FFFFFF" />
 
-      <section ref={mainRef} className="bg-[#F5F0E8] py-14 md:py-20">
+      <section ref={mainRef} className="bg-white py-14 md:py-20">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 relative">
           <div>
             <SectionLabel text="Send us a message" style="handwritten" className="block mb-6" />

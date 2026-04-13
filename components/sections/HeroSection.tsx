@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SearchBar } from '@/components/ui/SearchBar'
 import { TornEdge } from '@/components/ui/scrapbook'
 import { cn } from '@/lib/utils'
 import { registerGSAP, EASE_OUT } from '@/lib/animations'
@@ -38,8 +37,6 @@ export function HeroSection() {
   const imgWrapperRef = useRef<HTMLDivElement>(null)
   const labelRef = useRef<HTMLSpanElement>(null)
   const subtextRef = useRef<HTMLParagraphElement>(null)
-  const searchRef = useRef<HTMLDivElement>(null)
-  const separatorRef = useRef<HTMLParagraphElement>(null)
   const buttonsRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
 
@@ -90,31 +87,13 @@ export function HeroSection() {
         )
       }
 
-      // 4. SearchBar fade up
-      if (searchRef.current) {
-        tl.fromTo(
-          searchRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.6, ease: EASE_OUT },
-          1.0
-        )
-      }
-
-      // 5. Separator + buttons
-      if (separatorRef.current) {
-        tl.fromTo(
-          separatorRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.4, ease: EASE_OUT },
-          1.2
-        )
-      }
+      // 4. Buttons fade up
       if (buttonsRef.current) {
         tl.fromTo(
           buttonsRef.current,
           { opacity: 0, y: 10 },
           { opacity: 1, y: 0, duration: 0.5, ease: EASE_OUT },
-          1.25
+          1.0
         )
       }
     }
@@ -232,7 +211,7 @@ export function HeroSection() {
                   ))}
                 </span>
                 <svg className="hidden md:block absolute -inset-3 w-[calc(100%+24px)] h-[calc(100%+24px)] pointer-events-none" viewBox="0 0 200 80" fill="none" aria-hidden>
-                  <path d="M30,40 C30,15 170,10 175,40 C180,70 25,75 30,40" stroke="#FFD60A" strokeWidth="2.5" opacity="0.7" strokeLinecap="round" />
+                  <path d="M30,40 C30,15 170,10 175,40 C180,70 25,75 30,40" stroke="#FFE927" strokeWidth="2.5" opacity="0.7" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
@@ -246,29 +225,8 @@ export function HeroSection() {
               rushing, sit with a view longer, and experience places deeply.
             </p>
 
-            {/* d) SearchBar */}
-            <div ref={searchRef} className="mt-8">
-              <SearchBar />
-            </div>
-
-            {/* e) Separator */}
-            <p
-              ref={separatorRef}
-              className="font-handwriting text-white/50 text-sm mt-4 mb-3"
-            >
-              — or —
-            </p>
-
-            {/* Curved arrow doodle */}
-            <div className="hidden md:block relative -mb-1">
-              <svg width="40" height="30" viewBox="0 0 40 30" fill="none" className="rotate-[8deg]" aria-hidden>
-                <path d="M5,25 C10,5 25,5 35,12" stroke="#FFD60A" strokeWidth="2" strokeLinecap="round" fill="none" />
-                <path d="M30,6 L35,12 L28,14" stroke="#FFD60A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
-            </div>
-
-            {/* f) Outline CTAs */}
-            <div ref={buttonsRef} className="flex flex-wrap gap-3">
+            {/* d) Outline CTAs */}
+            <div ref={buttonsRef} className="flex flex-wrap gap-3 mt-8">
               <Link
                 href="/destinations"
                 className={cn(
@@ -321,7 +279,7 @@ export function HeroSection() {
 
       {/* Torn paper edge at bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <TornEdge position="bottom" color="#E8F4F0" />
+        <TornEdge position="bottom" color="#E0F4F8" />
       </div>
     </section>
   )

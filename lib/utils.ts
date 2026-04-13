@@ -35,9 +35,9 @@ interface LocationAccent {
 
 const LOCATION_ACCENTS: Record<string, LocationAccent> = {
   'himachal-pradesh': {
-    primary: '#1B4FD8',
-    light: '#93C5FD',
-    bg: '#EFF6FF',
+    primary: '#0D78A8',
+    light: '#39A2B8',
+    bg: '#E0F4F8',
     tailwind: {
       primary: 'himachal-primary',
       light: 'himachal-light',

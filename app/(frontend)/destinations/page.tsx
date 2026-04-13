@@ -58,7 +58,7 @@ const CATEGORIES: Category[] = [
   { label: 'Trekking',   iconKey: 'trekking',   color: '#2D6A4F', href: '/experiences?type=trekking' },
   { label: 'Camping',    iconKey: 'camping',     color: '#6B4226', href: '/experiences?type=camping' },
   { label: 'Culture',    iconKey: 'culture',     color: '#C1440E', href: '/experiences?type=culture' },
-  { label: 'Stays',      iconKey: 'stays',       color: '#1B4FD8', href: '/stays' },
+  { label: 'Stays',      iconKey: 'stays',       color: '#0D78A8', href: '/stays' },
   { label: 'Activities', iconKey: 'activities',  color: '#F59E0B', href: '/experiences?type=activities' },
   { label: 'Learning',   iconKey: 'learning',    color: '#7C3AED', href: '/student-program' },
 ]
@@ -227,7 +227,7 @@ export default function DestinationsPage() {
           </p>
         </div>
 
-        {/* Wavy SVG divider into Section 2 (#FFF8E7) */}
+        {/* Wavy SVG divider into Section 2 (#F0F8FB) */}
         <div className="absolute bottom-[-1px] left-0 right-0 z-10">
           <svg
             viewBox="0 0 1440 80"
@@ -237,14 +237,14 @@ export default function DestinationsPage() {
           >
             <path
               d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1350,20 1440,40 L1440,80 L0,80 Z"
-              fill="#FFF8E7"
+              fill="#F0F8FB"
             />
           </svg>
         </div>
       </section>
 
       {/* ═══ SECTION 2: REGION FILTER TABS ════════════════════════════════════ */}
-      <section className="bg-[#FFF8E7] py-4 md:py-8">
+      <section className="bg-[#F0F8FB] py-4 md:py-8">
         <div ref={filterBarRef} className="max-w-7xl mx-auto px-4">
           <div className="flex gap-3 overflow-x-auto md:flex-wrap md:justify-center md:overflow-visible" style={{ scrollbarWidth: 'none' }}>
             <button
@@ -252,7 +252,7 @@ export default function DestinationsPage() {
               className={cn(
                 'flex-none font-body text-sm px-5 py-2 rounded-full border-2 transition-all duration-200 hover:scale-105',
                 activeRegion === 'all'
-                  ? 'bg-dark text-white border-dark scale-105'
+                  ? 'bg-[#0D78A8] text-white border-[#0D78A8] scale-105'
                   : 'bg-white text-dark border-gray-200 hover:bg-gray-50'
               )}
             >
@@ -288,7 +288,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* ═══ SECTION 3: MAP + INTRO ════════════════════════════════════════════ */}
-      <section ref={mapSectionRef} className="bg-[#FFF8E7] py-10 md:py-24">
+      <section ref={mapSectionRef} className="bg-[#F0F8FB] py-10 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
@@ -354,8 +354,8 @@ export default function DestinationsPage() {
       </section>
 
       {/* ═══ SECTION 4: EXPERIENCE CATEGORIES ═════════════════════════════════ */}
-      <section ref={catSectionRef} className="bg-[#E8F4F0]">
-        <WavyDivider fill="#FFF8E7" position="top" />
+      <section ref={catSectionRef} className="bg-[#E0F4F8]">
+        <WavyDivider fill="#F0F8FB" position="top" />
 
         <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
           <div className="text-center mb-10">
@@ -396,13 +396,13 @@ export default function DestinationsPage() {
           </div>
         </div>
 
-        <WavyDivider fill="#FFF8E7" position="bottom" />
+        <WavyDivider fill="#F0F8FB" position="bottom" />
       </section>
 
       {/* ═══ SECTION 5: REGION SECTIONS ═══════════════════════════════════════ */}
       <section
         ref={cardsSectionRef}
-        className="bg-[#FFF8E7] py-10 md:py-24 scroll-mt-16"
+        className="bg-[#F0F8FB] py-10 md:py-24 scroll-mt-16"
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">

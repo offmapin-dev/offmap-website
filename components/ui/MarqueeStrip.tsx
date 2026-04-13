@@ -19,11 +19,11 @@ function MarqueeContent() {
     <>
       {ITEMS.map((item) => (
         <span key={item.text} className="inline-flex items-center gap-3 flex-none">
-          <span className="font-display font-bold text-dark text-lg uppercase tracking-wide">
+          <span className="font-display font-bold text-[#0D78A8] text-lg uppercase tracking-wide">
             {item.text}
           </span>
           <span className="text-2xl">{item.emoji}</span>
-          <span className="font-display font-bold text-dark/40 text-lg mx-1">·</span>
+          <span className="font-display font-bold text-[#0D78A8]/40 text-lg mx-1">·</span>
         </span>
       ))}
     </>

@@ -63,12 +63,12 @@ export function DestinationsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-[#FFF8E7] diagonal-stripes">
-      <TornEdge position="top" color="#FFF8E7" />
+    <section ref={sectionRef} className="bg-[#F0F8FB] diagonal-stripes">
+      <TornEdge position="top" color="#F0F8FB" />
 
-      <div className="max-w-7xl mx-auto px-4 pt-4 pb-20 md:pb-28">
+      <div className="max-w-7xl mx-auto px-4 pt-4 pb-12 md:pb-16">
         {/* Header */}
-        <div ref={headerRef} className="mb-12">
+        <div ref={headerRef} className="mb-8">
           <div ref={washiRef} className="relative inline-block mb-6">
             <WashiTape color="yellow" rotation={-2} width="w-44" />
             <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
