@@ -7,7 +7,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { LOCATIONS, REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
 import { getExperienceIcon } from '@/lib/icons'
-import { WashiTape, SectionLabel, PostageStamp } from '@/components/ui/scrapbook'
+import { WashiTape, SectionLabel } from '@/components/ui/scrapbook'
 import { IndiaMap } from '@/components/ui/IndiaMap'
 import { registerGSAP } from '@/lib/animations'
 import { cn } from '@/lib/utils'
@@ -288,16 +288,12 @@ export default function DestinationsPage() {
       </section>
 
       {/* ═══ SECTION 3: MAP + INTRO ════════════════════════════════════════════ */}
-      <section ref={mapSectionRef} className="bg-[#F0F8FB] py-10 md:py-24">
+      <section ref={mapSectionRef} className="bg-[#F0F8FB] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             {/* LEFT — Text + Region pills */}
             <div ref={mapTextRef} className="relative">
-              <div className="absolute -top-2 right-4 z-10 hidden lg:block">
-                <PostageStamp region="himachal-pradesh" />
-              </div>
-
               <div className="relative inline-block mb-6">
                 <WashiTape color="yellow" rotation={-2} width="w-40" />
                 <span className="absolute inset-0 flex items-center justify-center font-handwriting text-dark/80 text-sm pointer-events-none">
@@ -311,7 +307,7 @@ export default function DestinationsPage() {
                 className="block mb-5"
               />
 
-              <h2 className="font-display font-bold text-dark text-3xl leading-tight mb-4">
+              <h2 className="font-display font-bold text-[#0D78A8] text-3xl leading-tight mb-4">
                 Every journey starts with a place.
               </h2>
               <p className="font-body text-dark/60 text-base leading-relaxed mb-8">
@@ -359,7 +355,7 @@ export default function DestinationsPage() {
 
         <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
           <div className="text-center mb-10">
-            <h2 className="font-display font-bold text-dark text-3xl">
+            <h2 className="font-display font-bold text-[#0D78A8] text-3xl">
               What Would You Like To Do?
             </h2>
             <p className="font-handwriting text-blue text-xl mt-2">
@@ -385,7 +381,7 @@ export default function DestinationsPage() {
                     alt={cat.label}
                     width={48}
                     height={48}
-                    className="object-contain mix-blend-multiply"
+                    className="w-12 h-12 object-contain"
                   />
                 </div>
                 <p className="font-heading font-semibold text-dark text-sm">
@@ -402,12 +398,12 @@ export default function DestinationsPage() {
       {/* ═══ SECTION 5: REGION SECTIONS ═══════════════════════════════════════ */}
       <section
         ref={cardsSectionRef}
-        className="bg-[#F0F8FB] py-10 md:py-24 scroll-mt-16"
+        className="bg-[#F0F8FB] py-12 md:py-16 scroll-mt-16"
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-12">
             <SectionLabel text="Where We Go" style="handwritten" className="block mb-3" />
-            <h2 className="font-display font-bold text-dark text-3xl">
+            <h2 className="font-display font-bold text-[#0D78A8] text-3xl">
               {activeRegion === 'all'
                 ? 'All Destinations'
                 : REGION_THEMES[activeRegion as RegionThemeKey]?.name ?? 'Destinations'}

@@ -10,7 +10,7 @@ const UNSPLASH = {
   mountainGreenValley: 'https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b',
   tajMahal: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da',
   rajasthanPalace: 'https://images.unsplash.com/photo-1599661046289-e31897846e41',
-  desertDunes: 'https://images.unsplash.com/photo-1581833971358-2c8b550f87b3',
+  desertDunes: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35',
   leopardSafari: 'https://images.unsplash.com/photo-1549366021-9f761d450615',
   kashmirLandscape: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470',
   kashmirLake: 'https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b',
@@ -101,19 +101,19 @@ export const ROUTE_IMAGES: Record<string, string> = {
 // ── Stays teaser section ────────────────────────────────────────
 export const STAY_PHOTOS = [
   {
-    src: sized(UNSPLASH.mountainStay, 400),
+    src: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=400&q=80',
     alt: 'Cozy mountain stay',
     caption: 'waking up to this',
     rotation: -3,
   },
   {
-    src: `${UNSPLASH.uttarakhandForest}?auto=format&fit=crop&w=800&q=80`,
+    src: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=400&q=80',
     alt: 'Forest homestay view',
     caption: 'the view from bed',
     rotation: 2,
   },
   {
-    src: sized(UNSPLASH.localHomestay, 400),
+    src: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=80',
     alt: 'Local homestay',
     caption: 'locally rooted',
     rotation: -1,
@@ -138,7 +138,7 @@ export const ABOUT_IMAGES = {
 
 // ── About section photo strip ───────────────────────────────────
 export const ABOUT_STRIP_IMAGES = {
-  landscape: sized(UNSPLASH.groupCampfire, 800),
+  landscape: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
   portrait: sized(UNSPLASH.desertSunset, 600),
   square: sized(UNSPLASH.localHomestay, 600),
 }

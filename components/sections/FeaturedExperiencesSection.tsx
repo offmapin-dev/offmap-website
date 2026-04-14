@@ -343,9 +343,20 @@ export function FeaturedExperiencesSection() {
               {filteredTrips.map((trip) => (
                 <TripScrollCard key={trip.slug + trip.date} trip={trip} />
               ))}
+              {filteredTrips.length < 3 &&
+                Array.from({ length: 3 - filteredTrips.length }).map((_, i) => (
+                  <div
+                    key={`placeholder-${i}`}
+                    className="flex-shrink-0 w-[280px] md:w-[320px] rounded-2xl bg-gray-50 border-2 border-dashed border-gray-200 flex flex-col items-center justify-center"
+                    style={{ scrollSnapAlign: 'start', minHeight: '320px' } as React.CSSProperties}
+                  >
+                    <Calendar size={32} className="text-gray-300 mb-3" />
+                    <p className="font-handwriting text-gray-400 text-sm">More trips being added</p>
+                  </div>
+                ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="text-center py-16">
               <JournalNote
                 text="no trips this month — check back soon 🗺️"
                 type="sticky"

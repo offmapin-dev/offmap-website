@@ -180,7 +180,7 @@ const ACTIVITY_TYPES = [
 
 // ─── Region filter list ───────────────────────────────────────────────────────
 const REGIONS = [
-  { label: 'All', value: 'all', primary: '#0F172A' },
+  { label: 'All', value: 'all', primary: '#0D78A8' },
   ...LOCATIONS.map((l) => ({
     label: REGION_THEMES[l.slug as RegionThemeKey]?.name.split(' ')[0] ?? l.name,
     value: l.slug,
@@ -558,7 +558,7 @@ export default function ExperiencesPage() {
         <div ref={filterBarRef} className="max-w-7xl mx-auto px-4 py-3">
 
           {/* Row 1 — Region */}
-          <div className="flex gap-2 mb-2 overflow-x-auto md:flex-wrap md:overflow-visible" style={{ scrollbarWidth: 'none' }}>
+          <div className="flex gap-2 mb-3 overflow-x-auto md:flex-wrap md:overflow-visible" style={{ scrollbarWidth: 'none' }}>
             {REGIONS.map((r) => {
               const isActive = activeRegion === r.value
               return (
@@ -607,7 +607,7 @@ export default function ExperiencesPage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 3 — FEATURED EXPERIENCE
       ════════════════════════════════════════════════════════ */}
-      <section ref={featuredRef} className="bg-[#F0F8FB] py-10 md:py-20">
+      <section ref={featuredRef} className="bg-[#F0F8FB] pt-12 md:pt-16 pb-4 md:pb-8">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
@@ -637,7 +637,7 @@ export default function ExperiencesPage() {
               <div className="featured-item mb-3">
                 <StampBadge text="Featured" color={featuredTheme.primary} rotation={-3} />
               </div>
-              <h2 className="featured-item font-display font-black text-dark text-3xl md:text-4xl leading-tight mb-1">
+              <h2 className="featured-item font-display font-black text-[#0D78A8] text-3xl md:text-4xl leading-tight mb-1">
                 {featured.name}
               </h2>
               <p
@@ -686,7 +686,7 @@ export default function ExperiencesPage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 4 — ALL EXPERIENCES GRID
       ════════════════════════════════════════════════════════ */}
-      <section ref={gridRef} className="bg-[#E0F4F8] py-10 md:py-20 scroll-mt-32">
+      <section ref={gridRef} className="bg-[#E0F4F8] py-12 md:py-16 scroll-mt-32">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           {/* Header */}
@@ -714,7 +714,7 @@ export default function ExperiencesPage() {
               ))}
             </div>
           ) : (
-            <div className="py-20 flex flex-col items-center gap-6">
+            <div className="py-12 flex flex-col items-center gap-6">
               <JournalNote
                 text="nothing here yet — check back soon 🗺️"
                 type="sticky"
@@ -736,11 +736,11 @@ export default function ExperiencesPage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 5 — ACTIVITY TYPES CAROUSEL
       ════════════════════════════════════════════════════════ */}
-      <section ref={carouselSectionRef} className="bg-[#F0F8FB] py-10 md:py-20">
+      <section ref={carouselSectionRef} className="bg-[#F0F8FB] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
 
           <div className="act-heading mb-10">
-            <h2 className="font-display font-bold text-dark text-3xl mb-1">
+            <h2 className="font-display font-bold text-[#0D78A8] text-3xl mb-1">
               Browse by Activity
             </h2>
             <p className="font-handwriting text-dark/50 text-xl">
@@ -834,7 +834,7 @@ export default function ExperiencesPage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 6 — STUDENT PROGRAM CALLOUT
       ════════════════════════════════════════════════════════ */}
-      <section ref={studentRef} className="bg-[#F59E0B] py-16 md:py-20">
+      <section ref={studentRef} className="bg-[#F59E0B] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
@@ -881,7 +881,7 @@ export default function ExperiencesPage() {
       {/* ════════════════════════════════════════════════════════
           SECTION 7 — FINAL CTA
       ════════════════════════════════════════════════════════ */}
-      <section ref={ctaRef} className="bg-yellow py-20 md:py-28 overflow-hidden">
+      <section ref={ctaRef} className="bg-yellow py-12 md:py-16 overflow-hidden">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <WashiTape color="blue" rotation={-1} width="w-24" className="mx-auto mb-6" />
 

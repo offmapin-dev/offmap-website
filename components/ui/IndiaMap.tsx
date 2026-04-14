@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { MousePointer } from 'lucide-react'
 import { REGION_THEMES, type RegionThemeKey } from '@/lib/constants'
 import { INDIA_STATES } from './india-map-paths'
 
@@ -29,7 +30,8 @@ export function IndiaMap({ activeRegion, onRegionClick }: IndiaMapProps) {
             {hoveredTheme.emoji} {hoveredTheme.name}
           </span>
         ) : (
-          <span className="font-handwriting text-dark/30 text-sm">
+          <span className="flex items-center gap-1.5 text-gray-500 text-sm">
+            <MousePointer size={14} className="flex-none" />
             hover a colored region
           </span>
         )}
@@ -91,7 +93,7 @@ export function IndiaMap({ activeRegion, onRegionClick }: IndiaMapProps) {
         })}
       </svg>
 
-      <p className="text-center font-handwriting text-dark/40 text-sm mt-2">
+      <p className="text-center font-medium text-[#0D78A8] text-sm mt-2">
         click a region to filter ↑
       </p>
     </div>

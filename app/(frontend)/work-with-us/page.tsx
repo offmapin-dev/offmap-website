@@ -105,7 +105,7 @@ export default function WorkWithUsPage() {
 
       <WavyDivider fill="#F0F8FB" />
 
-      <section ref={s2Ref} className="bg-[#F0F8FB] py-14 md:py-24">
+      <section ref={s2Ref} className="bg-[#F0F8FB] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="font-display font-bold text-dark text-2xl md:text-4xl text-center max-w-2xl mx-auto leading-tight">
             If you care about honest travel...
@@ -140,8 +140,8 @@ export default function WorkWithUsPage() {
 
       <WavyDivider fill="#E0F4F8" />
 
-      <section ref={s3Ref} className="bg-[#E0F4F8] py-16 md:py-24 text-center px-4">
-        <h2 className="font-display font-bold text-dark text-3xl md:text-4xl">Let&apos;s work together</h2>
+      <section ref={s3Ref} className="bg-[#E0F4F8] py-12 md:py-16 text-center px-4">
+        <h2 className="font-display font-bold text-[#0D78A8] text-3xl md:text-4xl">Let&apos;s work together</h2>
         <p className="font-handwriting text-dark/50 text-xl mt-2 mb-10">tell us about yourself →</p>
 
         {/* TODO: Replace href with actual Google Form URL from client */}

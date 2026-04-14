@@ -62,11 +62,6 @@ export function StudentProgramSection() {
     <section ref={sectionRef} className="relative bg-[#F59E0B] overflow-hidden">
       <TornEdge position="top" color="#F59E0B" />
 
-      {/* Decorative background emoji */}
-      <span className="absolute top-8 right-4 md:right-8 text-9xl opacity-10 select-none pointer-events-none">
-        🎒
-      </span>
-
       <div className="max-w-7xl mx-auto px-4 pt-10 pb-12 md:pb-16">
         <div className="text-center max-w-2xl mx-auto">
           <div className="hidden md:flex justify-center mb-4">
