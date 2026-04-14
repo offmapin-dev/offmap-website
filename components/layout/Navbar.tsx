@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Search } from 'lucide-react'
+import { Menu, X, Search, Phone } from 'lucide-react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { NAV_LINKS } from '@/lib/constants'
@@ -113,8 +113,15 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop: Search icon + CTA */}
+          {/* Desktop: Phone + Search icon + CTA */}
           <div className="hidden md:flex items-center gap-4">
+            <a
+              href="tel:+919211471385"
+              className="flex items-center gap-2 text-sm transition-colors duration-200 hover:opacity-80"
+            >
+              <Phone className="w-4 h-4 text-[#0D78A8]" />
+              <span className="font-medium text-[#0D78A8]">+91 92114 71385</span>
+            </a>
             <button
               onClick={() => setIsSearchOpen(true)}
               className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors duration-200"
@@ -197,8 +204,15 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile CTA + Tagline */}
+        {/* Mobile: Phone + CTA + Tagline */}
         <div className="px-5 py-6 flex flex-col gap-4">
+          <a
+            href="tel:+919211471385"
+            className="flex items-center justify-center gap-2 bg-[#E0F4F8] rounded-xl p-3 transition-colors duration-200"
+          >
+            <Phone className="w-4 h-4 text-[#0D78A8]" />
+            <span className="font-medium text-sm text-[#0D78A8]">+91 92114 71385</span>
+          </a>
           <Link
             href="/contact"
             onClick={closeMobileMenu}

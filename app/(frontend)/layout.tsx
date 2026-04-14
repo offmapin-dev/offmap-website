@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, DM_Sans, Fraunces, Caveat } from "next/font/google";
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import Navbar from "@/components/layout/Navbar";
+import { DestinationTabBar } from "@/components/layout/DestinationTabBar";
 import Footer from "@/components/layout/Footer";
 import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
 import "./globals.css";
@@ -49,6 +50,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <ScrollProgressBar />
           <Navbar />
+          <DestinationTabBar />
           {children}
           <Footer />
         </SmoothScrollProvider>
