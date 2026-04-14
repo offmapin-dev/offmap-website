@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useCallback, useEffect } from 'react'
+import { Suspense, useState, useRef, useCallback, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -191,6 +191,14 @@ const REGIONS = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function ExperiencesPage() {
+  return (
+    <Suspense>
+      <ExperiencesPageContent />
+    </Suspense>
+  )
+}
+
+function ExperiencesPageContent() {
   const searchParams = useSearchParams()
   const typeParam = searchParams.get('type')
 
