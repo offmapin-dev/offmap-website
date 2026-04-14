@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useCallback, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { gsap } from 'gsap'
@@ -190,8 +191,17 @@ const REGIONS = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function ExperiencesPage() {
+  const searchParams = useSearchParams()
+  const typeParam = searchParams.get('type')
+
   const [activeRegion, setActiveRegion] = useState('all')
   const [activeType, setActiveType] = useState('all')
+
+  useEffect(() => {
+    if (typeParam) {
+      setActiveType(typeParam)
+    }
+  }, [typeParam])
 
   // Section refs
   const heroRef       = useRef<HTMLElement>(null)

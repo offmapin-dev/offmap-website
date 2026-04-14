@@ -2,7 +2,6 @@
 
 import { useRef, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { gsap } from 'gsap'
 import { WavyDivider } from '@/components/ui/WavyDivider'
 import { registerGSAP } from '@/lib/animations'
@@ -144,13 +143,12 @@ export default function WorkWithUsPage() {
         <h2 className="font-display font-bold text-[#0D78A8] text-3xl md:text-4xl">Let&apos;s work together</h2>
         <p className="font-handwriting text-dark/50 text-xl mt-2 mb-10">tell us about yourself →</p>
 
-        {/* TODO: Replace href with actual Google Form URL from client */}
-        <Link
-          href="#"
+        <a
+          href="mailto:info@offmap.in?subject=Work%20With%20OffMap%20India&body=Hi%20OffMap%20team%2C%20I'd%20like%20to%20work%20with%20you.%20Here's%20a%20bit%20about%20me%3A"
           className="inline-block font-display italic font-bold text-xl text-dark bg-yellow px-10 py-4 rounded-none border-2 border-dark hover:bg-yellow-dark transition-colors"
         >
           Apply to Work With Us →
-        </Link>
+        </a>
 
         <p className="font-handwriting text-gray-400 text-sm mt-8 max-w-md mx-auto">
           we review applications personally. no ghosting, we promise.

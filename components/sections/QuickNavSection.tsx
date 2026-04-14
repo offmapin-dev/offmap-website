@@ -16,10 +16,10 @@ interface NavTile {
 }
 
 const TILES: NavTile[] = [
-  { label: 'Group Trips',     href: '/experiences/group-trips', icon: '/icons/hiking.png',     borderColor: '#39A2B8' },
-  { label: 'Day Trips',       href: '/experiences/day-trips',   icon: '/icons/adventure.png',  borderColor: '#39A2B8' },
-  { label: 'Activities',      href: '/experiences/activities',  icon: '/icons/activities.png', borderColor: '#39A2B8' },
-  { label: 'Student Program', href: '/student-program',         icon: '/icons/learning.png',   borderColor: '#39A2B8' },
+  { label: 'Group Trips',     href: '/experiences?type=group',      icon: '/icons/hiking.png',     borderColor: '#39A2B8' },
+  { label: 'Day Trips',       href: '/experiences?type=day',        icon: '/icons/adventure.png',  borderColor: '#39A2B8' },
+  { label: 'Activities',      href: '/experiences?type=activities', icon: '/icons/activities.png', borderColor: '#39A2B8' },
+  { label: 'Student Program', href: '/student-program',             icon: '/icons/learning.png',   borderColor: '#39A2B8' },
 ]
 
 export function QuickNavSection() {
