@@ -20,7 +20,7 @@ import { EXPERIENCE_ICONS } from '@/lib/icons'
 import { cn } from '@/lib/utils'
 
 const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1920&q=80'
+  'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1920&q=80'
 
 interface Stay {
   slug: string
@@ -70,7 +70,7 @@ const STAYS: Stay[] = [
     ],
     pricePerNight: '₹3,200',
     capacity: '2-6 guests',
-    image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&q=80',
   },
   {
     slug: 'forest-camp-uttarakhand',
@@ -106,7 +106,7 @@ const STAYS: Stay[] = [
     ],
     pricePerNight: '₹2,200',
     capacity: '2-4 guests',
-    image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&q=80',
   },
 ]
 
@@ -460,7 +460,7 @@ export default function StaysPage() {
           <div className="grid gap-12 md:grid-cols-3 md:gap-8">
             {HOW_STEPS.map((step, index) => (
               <div key={step.title} className="stays-fade-child text-center px-2">
-                <p className="font-display font-black text-6xl text-yellow opacity-40 leading-none">
+                <p className="font-display font-black text-5xl text-[#0D78A8] leading-none">
                   {String(index + 1).padStart(2, '0')}
                 </p>
                 <div className="relative mx-auto mt-4 mb-4 size-14">

@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       {related.length > 0 ? (
         <section className="bg-[#F0F8FB] py-12 md:py-16 border-t border-dashed border-gray-200">
           <div className="max-w-7xl mx-auto px-4 md:px-8">
-            <h2 className="font-display font-bold text-dark text-2xl mb-8">More from The Chronicle</h2>
+            <h2 className="font-display font-bold text-[#0D78A8] text-2xl mb-8">More from The Chronicle</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {related.map((p, index) => (
                 <BlogCard

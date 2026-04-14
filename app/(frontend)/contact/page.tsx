@@ -264,7 +264,7 @@ export default function ContactPage() {
                 find us here →
               </span>
             </div>
-            <h2 className="font-display font-bold text-dark text-2xl mb-8">Or reach out directly</h2>
+            <h2 className="font-display font-bold text-[#0D78A8] text-2xl mb-8">Or reach out directly</h2>
 
             <div className="space-y-4">
               <div className="bg-white rounded-xl p-4 shadow-[var(--shadow-card)] flex items-center gap-3">

@@ -17,7 +17,7 @@ const UNSPLASH = {
   uttarakhandForest: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
   denseForestTrail: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',
   villageScene: 'https://images.unsplash.com/photo-1598091383021-15ddea10925d',
-  localHomestay: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220',
+  localHomestay: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c',
   mountainStay: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2',
   indiaLandmark: 'https://images.unsplash.com/photo-1548013146-72479768bada',
   valleyLandscape: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470',

@@ -137,7 +137,7 @@ export function AboutSection() {
 
           {/* Left column -- journal page */}
           <div className="lg:col-span-7 mb-14 lg:mb-0">
-            <div ref={journalRef} className="paper-lines bg-[#D4EDE6] rounded-xl p-6 md:p-10 relative will-change-[clip-path] border-l-4 border-red-300">
+            <div ref={journalRef} className="paper-lines bg-[#D4EDE6] rounded-xl p-6 md:p-10 relative will-change-[clip-path] border-l-4 border-[#FFE927]">
               {/* Washi tape decoration */}
               <div ref={washiRef} className="absolute top-3 left-8">
                 <WashiTape color="yellow" rotation={-2} width="w-28" />
@@ -153,7 +153,7 @@ export function AboutSection() {
 
                 <h2
                   ref={headlineRef}
-                  className="font-display font-bold text-dark text-4xl md:text-5xl leading-tight mb-6"
+                  className="font-display font-bold text-[#0D78A8] text-4xl md:text-5xl leading-tight mb-6"
                 >
                   {/* Line 1 */}
                   <span className="block">

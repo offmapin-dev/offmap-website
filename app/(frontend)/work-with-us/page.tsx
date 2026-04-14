@@ -107,7 +107,7 @@ export default function WorkWithUsPage() {
 
       <section ref={s2Ref} className="bg-[#F0F8FB] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="font-display font-bold text-dark text-2xl md:text-4xl text-center max-w-2xl mx-auto leading-tight">
+          <h2 className="font-display font-bold text-[#0D78A8] text-2xl md:text-4xl text-center max-w-2xl mx-auto leading-tight">
             If you care about honest travel...
           </h2>
           <p className="font-body text-dark/70 text-center max-w-2xl mx-auto mt-6 leading-relaxed">

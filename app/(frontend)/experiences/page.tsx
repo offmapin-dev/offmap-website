@@ -803,16 +803,16 @@ export default function ExperiencesPage() {
                     )}
                   >
                     <div className={cn(
-                      'w-16 h-16 mx-auto rounded-2xl bg-white p-2 shadow-[var(--shadow-card)] mb-2',
+                      'w-16 h-16 mx-auto rounded-2xl bg-white p-2 shadow-[var(--shadow-card)] mb-2 flex items-center justify-center',
                       'transition-transform duration-200',
                       isActive && 'scale-110'
                     )}>
                       <Image
                         src={getExperienceIcon(act.value)}
                         alt={act.label}
-                        width={64}
-                        height={64}
-                        className="w-full h-full object-contain mix-blend-multiply"
+                        width={48}
+                        height={48}
+                        className="w-12 h-12 object-contain"
                       />
                     </div>
                     <p
@@ -863,12 +863,15 @@ export default function ExperiencesPage() {
             {/* RIGHT — benefit tiles */}
             <div className="flex flex-col gap-3">
               {[
-                '✅ Real terrain, real learning',
-                '✅ Confidence + curiosity building',
-                '✅ Designed for Indian schools',
+                'Real terrain, real learning',
+                'Confidence + curiosity building',
+                'Designed for Indian schools',
               ].map((benefit) => (
                 <div key={benefit} className="benefit-tile bg-white/20 rounded-xl p-4">
-                  <p className="font-handwriting text-dark text-lg">{benefit}</p>
+                  <p className="font-handwriting text-dark text-lg">
+                    <span className="text-dark font-bold mr-2">✓</span>
+                    {benefit}
+                  </p>
                 </div>
               ))}
             </div>

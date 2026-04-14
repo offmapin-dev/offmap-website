@@ -317,9 +317,9 @@ export default function BlogsPage() {
                 className={cn(
                   'featured-animate inline-block mt-4 w-fit',
                   'font-display italic font-bold text-base text-white',
-                  'bg-dark border-2 border-dark px-6 py-3 rounded-none',
+                  'bg-[#0D78A8] border-2 border-[#0D78A8] px-6 py-3 rounded-none',
                   'transition-colors duration-200',
-                  'hover:bg-yellow hover:text-dark'
+                  'hover:bg-[#0a6089] hover:border-[#0a6089]'
                 )}
               >
                 Read the Story →
@@ -344,7 +344,7 @@ export default function BlogsPage() {
           className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left gap-6"
         >
           <div className="filter-animate flex flex-wrap items-center justify-center md:justify-start gap-3">
-            <h2 className="font-display font-bold text-dark text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-[#0D78A8] text-xl md:text-2xl">
               From the journal
             </h2>
             <StampBadge text={storyBadgeText} color="#0F172A" rotation={-2} />
@@ -385,18 +385,23 @@ export default function BlogsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-              {filteredPosts.map((post, index) => (
-                <BlogCard
-                  key={post.slug}
-                  post={post}
-                  large={index === 0}
-                  tilt={index === 0 ? undefined : index % 2 === 1 ? 'left' : 'right'}
-                  className={cn(
-                    'blog-grid-card',
-                    index === 0 && 'md:col-span-2 lg:col-span-2'
-                  )}
-                />
-              ))}
+              {filteredPosts.map((post, index) => {
+                const isLastAlone =
+                  index === filteredPosts.length - 1 && filteredPosts.length % 3 !== 0 && filteredPosts.length % 2 !== 0
+                return (
+                  <BlogCard
+                    key={post.slug}
+                    post={post}
+                    large={index === 0}
+                    tilt={index === 0 ? undefined : index % 2 === 1 ? 'left' : 'right'}
+                    className={cn(
+                      'blog-grid-card',
+                      index === 0 && 'md:col-span-2 lg:col-span-2',
+                      isLastAlone && 'md:col-span-2 md:max-w-lg md:mx-auto lg:col-span-1'
+                    )}
+                  />
+                )
+              })}
             </div>
           )}
         </div>
