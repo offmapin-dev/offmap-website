@@ -138,7 +138,7 @@ export default function ContactPage() {
 
       <WavyDivider fill="#FFFFFF" />
 
-      <section ref={mainRef} className="bg-white py-14 md:py-20">
+      <section ref={mainRef} className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 relative">
           <div>
             <SectionLabel text="Send us a message" style="handwritten" className="block mb-6" />
@@ -264,7 +264,7 @@ export default function ContactPage() {
                 find us here →
               </span>
             </div>
-            <h2 className="font-display font-bold text-dark text-2xl mb-8">Or reach out directly</h2>
+            <h2 className="font-display font-bold text-[#0D78A8] text-2xl mb-8">Or reach out directly</h2>
 
             <div className="space-y-4">
               <div className="bg-white rounded-xl p-4 shadow-[var(--shadow-card)] flex items-center gap-3">

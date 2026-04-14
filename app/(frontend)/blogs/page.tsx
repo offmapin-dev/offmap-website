@@ -214,7 +214,7 @@ export default function BlogsPage() {
     <main>
       {/* SECTION 1 — Corkboard hero */}
       <section className="bg-white overflow-x-hidden overflow-y-visible">
-        <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
           <div
             ref={heroCollageRef}
             className="relative min-h-[17rem] h-[17rem] md:min-h-[22rem] md:h-[22rem] mb-12 md:mb-16 mx-auto max-w-5xl"
@@ -257,7 +257,7 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 2 — Featured */}
-      <section ref={featuredRef} className="bg-[#F0F8FB] py-12 md:py-20 relative">
+      <section ref={featuredRef} className="bg-[#F0F8FB] py-12 md:py-16 relative">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 lg:items-start">
             <div className="featured-animate lg:col-span-3 relative h-80 rounded-2xl overflow-hidden shadow-[var(--shadow-card)]">
@@ -297,7 +297,7 @@ export default function BlogsPage() {
                   {featured.category}
                 </span>
               </div>
-              <h2 className="featured-animate font-display font-black text-dark text-3xl leading-tight">
+              <h2 className="featured-animate font-display font-black text-[#0D78A8] text-3xl leading-tight">
                 {featured.title}
               </h2>
               <p className="featured-animate font-body text-gray-600 text-base mt-1 line-clamp-3">
@@ -317,9 +317,9 @@ export default function BlogsPage() {
                 className={cn(
                   'featured-animate inline-block mt-4 w-fit',
                   'font-display italic font-bold text-base text-white',
-                  'bg-dark border-2 border-dark px-6 py-3 rounded-none',
+                  'bg-[#0D78A8] border-2 border-[#0D78A8] px-6 py-3 rounded-none',
                   'transition-colors duration-200',
-                  'hover:bg-yellow hover:text-dark'
+                  'hover:bg-[#0a6089] hover:border-[#0a6089]'
                 )}
               >
                 Read the Story →
@@ -344,7 +344,7 @@ export default function BlogsPage() {
           className="max-w-7xl mx-auto px-4 flex flex-col items-center text-center md:flex-row md:items-center md:justify-between md:text-left gap-6"
         >
           <div className="filter-animate flex flex-wrap items-center justify-center md:justify-start gap-3">
-            <h2 className="font-display font-bold text-dark text-xl md:text-2xl">
+            <h2 className="font-display font-bold text-[#0D78A8] text-xl md:text-2xl">
               From the journal
             </h2>
             <StampBadge text={storyBadgeText} color="#0F172A" rotation={-2} />
@@ -385,18 +385,23 @@ export default function BlogsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-              {filteredPosts.map((post, index) => (
-                <BlogCard
-                  key={post.slug}
-                  post={post}
-                  large={index === 0}
-                  tilt={index === 0 ? undefined : index % 2 === 1 ? 'left' : 'right'}
-                  className={cn(
-                    'blog-grid-card',
-                    index === 0 && 'md:col-span-2 lg:col-span-2'
-                  )}
-                />
-              ))}
+              {filteredPosts.map((post, index) => {
+                const isLastAlone =
+                  index === filteredPosts.length - 1 && filteredPosts.length % 3 !== 0 && filteredPosts.length % 2 !== 0
+                return (
+                  <BlogCard
+                    key={post.slug}
+                    post={post}
+                    large={index === 0}
+                    tilt={index === 0 ? undefined : index % 2 === 1 ? 'left' : 'right'}
+                    className={cn(
+                      'blog-grid-card',
+                      index === 0 && 'md:col-span-2 lg:col-span-2',
+                      isLastAlone && 'md:col-span-2 md:max-w-lg md:mx-auto lg:col-span-1'
+                    )}
+                  />
+                )
+              })}
             </div>
           )}
         </div>
@@ -404,7 +409,7 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 5 — Newsletter */}
-      <section ref={newsletterRef} className="bg-dark py-16 md:py-24">
+      <section ref={newsletterRef} className="bg-dark py-12 md:py-16">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <span className="news-animate text-6xl block mb-4" role="img" aria-label="">
             📬
@@ -454,7 +459,7 @@ export default function BlogsPage() {
       </section>
 
       {/* SECTION 6 — Final CTA */}
-      <section ref={ctaRef} className="bg-yellow py-20 md:py-28">
+      <section ref={ctaRef} className="bg-yellow py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="cta-animate font-display font-black text-dark text-4xl">
             Ready to write your own story?

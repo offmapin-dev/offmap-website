@@ -111,7 +111,7 @@ export function WhyUsSection() {
                   alt=""
                   width={40}
                   height={40}
-                  className="object-contain"
+                  className="w-10 h-10 object-contain"
                 />
               </div>
               <h3 className="font-heading font-semibold text-white text-base">
@@ -126,8 +126,8 @@ export function WhyUsSection() {
 
         {/* Decorative note */}
         <div className="relative mt-10 flex justify-end">
-          <div className="-rotate-2 opacity-40">
-            <JournalNote text="this is the real deal ✓" type="sticky" />
+          <div className="-rotate-2">
+            <JournalNote text="this is the real deal ✓" type="sticky" className="text-dark text-sm" />
           </div>
         </div>
       </div>

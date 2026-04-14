@@ -61,7 +61,7 @@ export const BLOG_POSTS: BlogPost[] = [
     regionSlug: 'himachal-pradesh',
     date: 'December 10, 2024',
     readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&q=80',
     featured: false,
   },
   {
@@ -87,7 +87,7 @@ export const BLOG_POSTS: BlogPost[] = [
     regionSlug: null,
     date: 'October 18, 2024',
     readTime: '4 min read',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=800&q=80',
     featured: false,
   },
 ]

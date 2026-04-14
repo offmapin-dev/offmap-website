@@ -59,21 +59,17 @@ function ExperienceCard({
   if (exp.comingSoon) {
     return (
       <div
-        className="flex-shrink-0 w-64 md:w-72 rounded-2xl overflow-hidden bg-white shadow-[var(--shadow-card)] opacity-60"
-        style={{ scrollSnapAlign: 'start' } as React.CSSProperties}
+        className="flex-shrink-0 w-64 md:w-72 rounded-2xl bg-[#FFF5F5] border-2 border-dashed border-[#C1121F] flex flex-col items-center justify-center p-6"
+        style={{ scrollSnapAlign: 'start', minHeight: '320px' } as React.CSSProperties}
       >
-        <div className="relative h-48 bg-gray-100 flex items-center justify-center">
-          <span className="text-5xl opacity-20">🗺️</span>
-          <div className="absolute top-3 left-3">
-            <StampBadge text="Stay Tuned" color="#94A3B8" rotation={-3} />
-          </div>
-        </div>
-        <div className="bg-white p-4">
-          <p className="font-heading font-semibold text-dark text-base mb-3">
-            {exp.name}
-          </p>
-          <JournalNote text="we're exploring this one 🗺️" type="sticky" />
-        </div>
+        <span className="text-6xl text-gray-300 mb-4">🏔️</span>
+        <p className="font-display font-bold text-[#C1121F] text-lg mb-1">
+          Coming Soon
+        </p>
+        <p className="font-body text-gray-400 text-sm text-center mb-4">
+          We&apos;re exploring Kashmir right now
+        </p>
+        <JournalNote text="worth the wait 🏔️" type="sticky" />
       </div>
     )
   }

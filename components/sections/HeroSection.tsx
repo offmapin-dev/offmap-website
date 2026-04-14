@@ -165,8 +165,6 @@ export function HeroSection() {
       <div className="relative z-10 flex-1 flex items-center">
         <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
           <div className="max-w-3xl relative">
-            <span className="hidden md:block absolute -top-2 -right-8 font-handwriting text-white/50 text-lg rotate-[3deg] select-none pointer-events-none">✈ since 2023</span>
-
             {/* a) Handwriting label */}
             <span
               ref={labelRef}

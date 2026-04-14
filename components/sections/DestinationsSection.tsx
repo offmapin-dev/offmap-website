@@ -86,7 +86,7 @@ export function DestinationsSection() {
             <circle cx="4" cy="10" r="1.2" fill="currentColor" />
             <circle cx="16" cy="20" r="0.8" fill="currentColor" />
           </svg>
-          <h2 ref={headlineRef} className="font-display font-black text-dark text-4xl md:text-5xl mt-5">
+          <h2 ref={headlineRef} className="font-display font-black text-[#0D78A8] text-4xl md:text-5xl mt-5">
             {['Pick', 'your', 'direction'].map((w) => (
               <span key={w} className="inline-block overflow-hidden align-bottom mr-[0.22em] last:mr-0">
                 <span className="dest-word inline-block">{w}</span>

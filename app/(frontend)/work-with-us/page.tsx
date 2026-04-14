@@ -2,7 +2,6 @@
 
 import { useRef, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { gsap } from 'gsap'
 import { WavyDivider } from '@/components/ui/WavyDivider'
 import { registerGSAP } from '@/lib/animations'
@@ -105,9 +104,9 @@ export default function WorkWithUsPage() {
 
       <WavyDivider fill="#F0F8FB" />
 
-      <section ref={s2Ref} className="bg-[#F0F8FB] py-14 md:py-24">
+      <section ref={s2Ref} className="bg-[#F0F8FB] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="font-display font-bold text-dark text-2xl md:text-4xl text-center max-w-2xl mx-auto leading-tight">
+          <h2 className="font-display font-bold text-[#0D78A8] text-2xl md:text-4xl text-center max-w-2xl mx-auto leading-tight">
             If you care about honest travel...
           </h2>
           <p className="font-body text-dark/70 text-center max-w-2xl mx-auto mt-6 leading-relaxed">
@@ -140,17 +139,16 @@ export default function WorkWithUsPage() {
 
       <WavyDivider fill="#E0F4F8" />
 
-      <section ref={s3Ref} className="bg-[#E0F4F8] py-16 md:py-24 text-center px-4">
-        <h2 className="font-display font-bold text-dark text-3xl md:text-4xl">Let&apos;s work together</h2>
+      <section ref={s3Ref} className="bg-[#E0F4F8] py-12 md:py-16 text-center px-4">
+        <h2 className="font-display font-bold text-[#0D78A8] text-3xl md:text-4xl">Let&apos;s work together</h2>
         <p className="font-handwriting text-dark/50 text-xl mt-2 mb-10">tell us about yourself →</p>
 
-        {/* TODO: Replace href with actual Google Form URL from client */}
-        <Link
-          href="#"
+        <a
+          href="mailto:info@offmap.in?subject=Work%20With%20OffMap%20India&body=Hi%20OffMap%20team%2C%20I'd%20like%20to%20work%20with%20you.%20Here's%20a%20bit%20about%20me%3A"
           className="inline-block font-display italic font-bold text-xl text-dark bg-yellow px-10 py-4 rounded-none border-2 border-dark hover:bg-yellow-dark transition-colors"
         >
           Apply to Work With Us →
-        </Link>
+        </a>
 
         <p className="font-handwriting text-gray-400 text-sm mt-8 max-w-md mx-auto">
           we review applications personally. no ghosting, we promise.

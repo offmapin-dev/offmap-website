@@ -410,7 +410,7 @@ function TripReviewsSection({ reviews }: { reviews: { name: string; rating: numb
     <section ref={sectionRef} className="bg-[#E0F4F8] py-10 md:py-14">
       <div className="max-w-3xl mx-auto px-4">
         <SectionLabel text="What Travelers Say" style="handwritten" className="block mb-3" />
-        <h2 className="font-display font-bold text-dark text-3xl mb-6">Reviews</h2>
+        <h2 className="font-display font-bold text-[#0D78A8] text-3xl mb-6">Reviews</h2>
 
         <div className="review-card-wrapper bg-white rounded-3xl p-4 md:p-5 shadow-[var(--shadow-card)]">
           <div className="bg-[#0D78A8] rounded-2xl p-5 md:p-6 relative overflow-hidden">
@@ -581,7 +581,7 @@ export default function TripDetailPage({
             style="handwritten"
             className="block mb-3"
           />
-          <h2 className="font-display font-bold text-dark text-3xl mb-2">
+          <h2 className="font-display font-bold text-[#0D78A8] text-3xl mb-2">
             The Flow, Not a Checklist
           </h2>
           <p className="font-body text-gray-500 text-sm mb-6">

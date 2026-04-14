@@ -162,7 +162,7 @@ function DestinationReviewsSection({
       <section style={{ backgroundColor: bgColor }} className="py-10 md:py-14">
         <div className="max-w-5xl mx-auto px-4 md:px-8">
           <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
-          <h2 className="font-display font-bold text-dark text-3xl mb-6">What people say about {regionName}</h2>
+          <h2 className="font-display font-bold text-[#0D78A8] text-3xl mb-6">What people say about {regionName}</h2>
           <div className="text-center py-8">
             <JournalNote text="Reviews coming soon" type="sticky" className="inline-block" />
           </div>
@@ -178,7 +178,7 @@ function DestinationReviewsSection({
     <section ref={sectionRef} className="bg-[#E0F4F8] py-10 md:py-14">
       <div className="max-w-3xl mx-auto px-4 md:px-8">
         <SectionLabel text="Traveler Stories" style="handwritten" className="block mb-3" />
-        <h2 className="font-display font-bold text-dark text-3xl mb-6">What people say about {regionName}</h2>
+        <h2 className="font-display font-bold text-[#0D78A8] text-3xl mb-6">What people say about {regionName}</h2>
 
         <div className="review-card-wrapper bg-white rounded-3xl p-4 md:p-5 shadow-[var(--shadow-card)]">
           <div className="bg-[#0D78A8] rounded-2xl p-5 md:p-6 relative overflow-hidden">
@@ -523,7 +523,7 @@ export default function DestinationDetailPage({
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="mb-6">
             <SectionLabel text="Experiences" style="handwritten" className="block mb-3" />
-            <h2 className="font-display font-bold text-dark text-3xl">
+            <h2 className="font-display font-bold text-[#0D78A8] text-3xl">
               What to do in {theme.name}
             </h2>
           </div>
@@ -576,7 +576,7 @@ export default function DestinationDetailPage({
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center mb-6">
             <SectionLabel text="Things To Do" style="handwritten" className="block mb-3" />
-            <h2 className="font-display font-bold text-dark text-3xl">
+            <h2 className="font-display font-bold text-[#0D78A8] text-3xl">
               Activities in {theme.name}
             </h2>
           </div>

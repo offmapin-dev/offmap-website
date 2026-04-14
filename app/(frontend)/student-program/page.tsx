@@ -18,7 +18,7 @@ import {
 import { buildWhatsAppUrl } from '@/lib/whatsapp'
 
 const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=80'
+  'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1920&q=80'
 const POLAROID_A =
   'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80'
 const POLAROID_B =
@@ -55,9 +55,9 @@ const STEPS = [
 ]
 
 const WHY_POINTS = [
-  'Builds confidence and curiosity',
-  'Real-world learning outside classrooms',
-  'Cultural sensitivity and empathy',
+  { text: 'Builds confidence and curiosity', icon: '/icons/adventure.png' },
+  { text: 'Real-world learning outside classrooms', icon: '/icons/hiking.png' },
+  { text: 'Cultural sensitivity and empathy', icon: '/icons/cultural.png' },
 ]
 
 function studentWhatsAppBody(data: StudentEnquiryInput): string {
@@ -197,7 +197,7 @@ export default function StudentProgramPage() {
 
       <WavyDivider fill="#F0F8FB" />
 
-      <section ref={s2Ref} className="bg-[#F0F8FB] py-14 md:py-24">
+      <section ref={s2Ref} className="bg-[#F0F8FB] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="relative inline-block mb-6">
@@ -206,7 +206,7 @@ export default function StudentProgramPage() {
                 for schools &amp; colleges
               </span>
             </div>
-            <h2 className="font-display font-black text-dark text-3xl md:text-4xl leading-tight">
+            <h2 className="font-display font-black text-[#0D78A8] text-3xl md:text-4xl leading-tight">
               Real terrain. Real communities. Real learning.
             </h2>
             <p className="font-body text-dark/70 text-base leading-relaxed mt-5">
@@ -215,16 +215,16 @@ export default function StudentProgramPage() {
             </p>
             <h3 className="font-heading font-semibold text-dark mt-8 mb-4">Why It Matters</h3>
             <ul className="space-y-4">
-              {WHY_POINTS.map((text) => (
-                <li key={text} className="flex gap-3 items-start">
+              {WHY_POINTS.map((point) => (
+                <li key={point.text} className="flex gap-3 items-start">
                   <Image
-                    src="/icons/learning.png"
+                    src={point.icon}
                     alt=""
-                    width={40}
-                    height={40}
-                    className="shrink-0 object-contain mix-blend-multiply"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8 shrink-0 object-contain"
                   />
-                  <span className="font-body text-dark/80 text-base pt-1">{text}</span>
+                  <span className="font-body text-dark/80 text-base pt-1">{point.text}</span>
                 </li>
               ))}
             </ul>
@@ -252,7 +252,7 @@ export default function StudentProgramPage() {
 
       <WavyDivider fill="#FEF3C7" />
 
-      <section ref={s3Ref} className="bg-[#FEF3C7] py-14 md:py-24">
+      <section ref={s3Ref} className="bg-[#FEF3C7] py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="font-display font-bold text-dark text-2xl md:text-3xl text-center mb-12">
             How it works
@@ -263,7 +263,7 @@ export default function StudentProgramPage() {
                 key={step.title}
                 className="bg-white/80 rounded-2xl p-6 md:p-8 shadow-[var(--shadow-card)] border border-amber-200/60"
               >
-                <span className="font-display font-black text-amber-600 text-4xl block mb-3">
+                <span className="font-display font-black text-[#0D78A8] text-5xl block mb-3">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h3 className="font-heading font-semibold text-dark text-lg mb-2">{step.title}</h3>
@@ -276,7 +276,7 @@ export default function StudentProgramPage() {
 
       <WavyDivider fill="#F59E0B" />
 
-      <section ref={formRef} id="enquiry" className="bg-[#F59E0B] py-14 md:py-24 scroll-mt-20">
+      <section ref={formRef} id="enquiry" className="bg-[#F59E0B] py-12 md:py-16 scroll-mt-20">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="font-display font-black text-dark text-3xl md:text-4xl text-center">
             Plan a School Trip

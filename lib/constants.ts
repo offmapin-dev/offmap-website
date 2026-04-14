@@ -107,10 +107,10 @@ export const TRIP_TYPES = [
 
 // ── Experiences (homepage quick-nav) ──────────────────────────────
 export const EXPERIENCES = [
-  { label: 'Group Trips', href: '/experiences/group-trips' },
-  { label: 'Day Trips', href: '/experiences/day-trips' },
-  { label: 'Activities & Experiences', href: '/experiences/activities' },
-  { label: 'Tailored Trips', href: '/experiences/tailored' },
+  { label: 'Group Trips', href: '/experiences?type=group' },
+  { label: 'Day Trips', href: '/experiences?type=day' },
+  { label: 'Activities & Experiences', href: '/experiences?type=activities' },
+  { label: 'Tailored Trips', href: '/contact?type=custom' },
 ] as const
 
 // ── Featured Routes (homepage) ────────────────────────────────────
@@ -137,8 +137,8 @@ export const FOOTER_LINKS: FooterColumn[] = [
     heading: 'Plan',
     links: [
       { label: 'Plan Your Trip', href: '/contact' },
-      { label: 'Group Trips', href: '/experiences/group-trips' },
-      { label: 'Custom Trips', href: '/experiences/tailored' },
+      { label: 'Group Trips', href: '/experiences?type=group' },
+      { label: 'Custom Trips', href: '/contact?type=custom' },
     ],
   },
   {
